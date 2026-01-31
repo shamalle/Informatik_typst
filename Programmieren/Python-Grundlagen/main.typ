@@ -1,4 +1,4 @@
-#import "conf.typ": conf
+#import "../../config/conf.typ": conf
 
 #set document(
   title: [

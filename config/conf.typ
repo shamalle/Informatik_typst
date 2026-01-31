@@ -1,12 +1,13 @@
 #let conf(thema: str, doc) = {
   import "@preview/codly:1.3.0": *
   show: codly-init
-  let icon = text(font: "tabler-icons", size: 1em, "\u{ed01}")
+
   codly(
     zebra-fill: none,
     fill: luma(250),
     stroke: 1pt + luma(200),
     header-cell-args: (fill: luma(200)),
+    footer-cell-args: (fill: luma(200)),
     languages: (
       py: (
         name: [ Py],
@@ -51,6 +52,9 @@
   show title: set block(below: 1.2em)
 
   show heading: set block(below: 1em)
+
+  show link: set text(blue)
+  show link: underline
 
   set par(
     justify: true,

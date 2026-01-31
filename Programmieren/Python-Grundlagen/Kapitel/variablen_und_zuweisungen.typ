@@ -1,5 +1,5 @@
 #import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox, stickybox
-#import "@preview/codly:1.3.0": *
+#import "@preview/codly:1.3.0": codly
 
 = Variablen und Zuweisungen
 
