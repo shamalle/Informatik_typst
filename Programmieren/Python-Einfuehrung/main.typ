@@ -1,7 +1,7 @@
 #import "../../config/conf.typ": conf
 
 #import "@preview/codly:1.3.0": codly
-#import "@preview/colorful-boxes:1.4.3": outline-colorbox, stickybox
+#import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox, stickybox
 
 
 #set document(
@@ -154,3 +154,46 @@
     ],
   ],
 )
+
+#colorbox(
+  title: "Aufgaben",
+  radius: 2pt,
+  width: auto,
+)[
+  #grid(
+    columns: (3fr, 1fr),
+    gutter: 3em,
+    [
+      Wir werden uns als Einstieg mit dem Lernprogramm *Turtlegrafik* beschäftigen.
+
+      + Lesen Sie zuerst den Abschnitt zu *WebTigerPython* auf #link("https://www.python-online.ch/index.php?inhalt_links=home/navigation.inc.php&inhalt_mitte=home/webtp.inc.php")[dieser Seite] durch und machen Sie sich mit der Bedienung vertraut.
+
+      + Nun werden wir die ersten Python Programme schreiben. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/bewegen.inc.php")[*Turtle bewegen*] durch. Probieren Sie das *Musterbeispiel* aus und lösen Sie die Aufgaben im Abschnitt *Zum selbst Lösen*.
+
+        #v(2pt)
+
+        #stickybox(rotation: -1deg)[
+          *Tipp*
+
+          Speichern Sie Ihre Lösungen jeweils als Python-Dateien mit sinnvollen Namen auf Ihrem Computer ab, damit Sie sie wieder finden.
+
+          Alternativ können sie den Code von Ihren Lösungen ins OneNote kopieren.
+
+          Beginnen Sie für jede Aufgabe wieder mit einem leeren Editor-Fenster.
+        ]
+
+        #v(5pt)
+
+      + Nachdem wir nun wissen, wie wir den Turtle bewegen um Figuren zu malen, wollen wir uns mit den Farben beschäftigen. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/farben.inc.php")[*Farben verwenden*] inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
+
+      + Nun fehlt uns noch ein hilfreiches Element: die #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/wiederholung.inc.php")[*Wiederholungen*]. Arbeiten Sie auch diese Seite inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
+
+      + Überlegen Sie sich eine *kleine Zeichung*, die Sie mit dem Turtle programmieren möchten. Dies kann ein Buchstabe, ein Symbol oder eine kleine kreative Form sein.
+        - *Implementieren* Sie das Programm in WebTigerPython.
+        - Erstellen Sie einen *Screenshot* von der fertigen Zeichnung und senden diesen zusammen *mit Ihrem Code* via *Teams* an mich.
+    ],
+    [
+      #image("Bilder/turtle_example.png")
+    ],
+  )
+]
