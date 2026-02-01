@@ -202,7 +202,7 @@
   )[
     + Lesen Sie zuerst den Abschnitt zur #link("https://www.python-online.ch/index.php?inhalt_links=home/navigation.inc.php&inhalt_mitte=home/webtp.inc.php")[Bedienung von *WebTigerPython*] durch und machen Sie sich damit vertraut.
 
-    + Nun werden wir die ersten Python Programme mit der Turtlegrafik schreiben. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/bewegen.inc.php")[*Turtle bewegen*] durch. Probieren Sie das *Musterbeispiel* aus und lösen Sie die Aufgaben im Abschnitt *Zum selbst Lösen*.
+    + Nun werden wir die ersten Python Programme mit der Turtlegrafik schreiben. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/bewegen.inc.php")[*Turtle bewegen*] durch. Probieren Sie das *Musterbeispiel* aus und lösen Sie die Aufgaben 1-4 im Abschnitt *Zum selbst Lösen*.
 
       #v(2pt)
 
@@ -219,9 +219,9 @@
 
       #v(5pt)
 
-    + Nachdem wir nun wissen, wie wir den Turtle bewegen um Figuren zu malen, wollen wir uns mit den Farben beschäftigen. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/farben.inc.php")[*Farben verwenden*] inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
+    + Nachdem wir nun wissen, wie wir den Turtle bewegen um Figuren zu malen, wollen wir uns mit den Farben beschäftigen. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/farben.inc.php")[*Farben verwenden*] inklusive *Musterbeispiel* und Aufgaben 1-3 *Zum selbst Lösen* durch.
 
-    + Nun fehlt uns noch ein hilfreiches Element: die #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/wiederholung.inc.php")[*Wiederholungen*]. Arbeiten Sie auch diese Seite inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
+    + Nun fehlt uns noch ein hilfreiches Element: die #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/wiederholung.inc.php")[*Wiederholungen*]. Arbeiten Sie auch diese Seite mit dem *Musterbeispiel* und den Aufgaben 1-4 *Zum selbst Lösen* durch. Im Anschluss lesen Sie den *Zusatzstoff "verschachtelte Schleifen"* und lösen die Aufgabe 6.
 
     + *Überlegen* Sie sich eine *kleine Zeichung*, die Sie mit dem Turtle programmieren möchten. Dies kann ein Buchstabe, ein Symbol oder eine kleine kreative Form sein.
       - *Programmieren* Sie die Zeichnung in WebTigerPython.
