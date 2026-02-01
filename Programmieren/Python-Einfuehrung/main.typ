@@ -17,12 +17,13 @@
 
 #set heading(numbering: none)
 
-= Was ist Python?
 
 #grid(
   columns: (1fr, 1fr),
   gutter: 3em,
   [
+    = Was ist Python?
+
     *Python* ist eine Programmiersprache.
     Mit ihr kann man dem Computer Schritt für Schritt sagen, *was er tun soll*.
 
@@ -41,6 +42,7 @@
     - man schnell erste Resultate sieht.
   ],
   [
+    #v(12pt)
     #align(center)[#image("Bilder/python_logo.png", width: 75%)]
 
     #block([
@@ -66,7 +68,7 @@
           #text(size: 8pt)[
             Wir werden Python Code immer in diesen *Boxen* darstellen. Man erkennt sie am *grünen Label* oben mit dem 🐍 Icon.
 
-            Die Zahlen am linken Rand geben die *Zeilennummern* an und helfen uns, den Überblick zu behalten (diese müssen nicht mit kopiert werden).
+            Die Zahlen am linken Rand geben die *Zeilennummern* an und helfen uns, den Überblick zu behalten (diese müssen nicht mit kopiert oder abgeschrieben werden).
           ]
         ],
       )
@@ -145,7 +147,7 @@
 
     #stickybox(rotation: 1deg)[
       #set text(size: 8pt)
-      Ein *Computer denkt nicht selbst* und versteht keine Bedeutungen. Er führt nur *exakte Anweisungen* aus.
+      🧠 Ein *Computer denkt nicht selbst* und versteht keine Bedeutungen. Er führt nur *exakte Anweisungen* aus.
 
       Schon kleine Änderungen im Code können ein anderes Resultat ergeben.
       Deshalb ist genaues Arbeiten wichtig – Fehler gehören aber ganz normal zum Lernen dazu.
@@ -157,7 +159,7 @@
   columns: (1fr, 1fr),
   gutter: 3em,
   [
-    = Einstieg mit Turtlegrafik
+    = Einstieg mit Turtlegrafik 🐢
 
     Für den Einstieg ins Programmieren verwenden wir *Turtlegrafik*.
 
@@ -181,7 +183,7 @@
       )[
         #set text(size: 8pt)
 
-        Turtlegrafik ist *keine eigener Programmiersprache*, sondern ein sogenanntes *Package für Python*.
+        Turtlegrafik ist *keine eigener Programmiersprache*, sondern ein sogenanntes 📦 *Package für Python*.
 
         Ein Package ist eine für einen bestimmten Zweck gedachte *Erweiterung* für Python, d.h. eine Sammlung von *zusätzlichen Befehlen*.
 
@@ -209,13 +211,13 @@
 
       #stickybox(rotation: -1deg)[
         #set text(size: 8pt)
-        *Tipp für die Aufgaben*
+        💡 *Tipp für die Aufgaben*
 
-        *Speichern* Sie Ihre Lösungen jeweils *als Python-Dateien mit sinnvollen Namen* auf Ihrem Computer ab, damit Sie sie wieder finden.
+        💾 *Speichern* Sie Ihre Lösungen jeweils *als Python-Dateien mit sinnvollen Namen* auf Ihrem Computer ab, damit Sie sie wieder finden.
 
         Alternativ können sie den Code von Ihren Lösungen ins *OneNote kopieren*.
 
-        Beginnen Sie für jede Aufgabe wieder mit einem *leeren Editor-Fenster*.
+        📝 Beginnen Sie jede Aufgabe mit einem *leeren Editorfenster*.
       ]
 
       #v(5pt)
