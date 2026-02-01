@@ -43,40 +43,41 @@
   [
     #image("Bilder/python_logo.png")
 
-    #codly(header: [*Python Code Beispiel*])
-    ```py
-    def fib(n):
-      a, b = 0, 1
-      while a < n:
-        print(a, end=' ')
-        a, b = b, a+b
-      print()
-    fib(1000)
-    ```
+    #block([
+      #codly(header: [*Python Code Beispiel*])
+      ```py
+      def fib(n):
+        a, b = 0, 1
+        while a < n:
+          print(a, end=' ')
+          a, b = b, a+b
+        print()
+      fib(1000)
+      ```
 
-    #place(
-      bottom,
-      dx: 135pt,
-      dy: 20pt,
-      stickybox(
-        rotation: -8deg,
-        width: 4cm,
-      )[
-        #text(size: 7pt)[
-          #set par(justify: true)
-          Wir werden Python Code immer in diesen *Boxen* darstellen. Man erkennt sie am *grünen Label* oben mit dem 🐍 Icon.
+      #place(
+        bottom,
+        dx: 135pt,
+        dy: 20pt,
+        stickybox(
+          rotation: -8deg,
+          width: 4cm,
+        )[
+          #text(size: 7pt)[
+            Wir werden Python Code immer in diesen *Boxen* darstellen. Man erkennt sie am *grünen Label* oben mit dem 🐍 Icon.
 
-          Die Zahlen am linken Rand geben die *Zeilennummern* an und helfen uns, den Überblick zu behalten (diese müssen nicht mit kopiert werden).
-        ]
-      ],
-    )
+            Die Zahlen am linken Rand geben die *Zeilennummern* an und helfen uns, den Überblick zu behalten (diese müssen nicht mit kopiert werden).
+          ]
+        ],
+      )
+    ])
   ],
 )
 
 = Was ist WebTigerPython?
 
 #grid(
-  columns: (2fr, 1fr),
+  columns: (1fr, 1fr),
   gutter: 3em,
   [
     *WebTigerPython* ist eine *webbasierte Umgebung*, mit der Sie Python *direkt im Browser* ausprobieren können.
@@ -91,8 +92,8 @@
   ],
   [
     #align(center)[
-      #image("Bilder/webtigerpython_logo.png", width: 30%)
-      #text(font: "Arial", size: 15pt)[
+      #image("Bilder/webtigerpython_logo.png", width: 25%)
+      #text(font: "Arial", size: 14pt)[
         WebTigerPython
       ]
     ]
@@ -120,18 +121,9 @@
       - Der Computer liest den Code von oben nach unten
       - Jede Zeile wird nacheinander verarbeitet
       - Das Ergebnis erscheint im *Ausgabefenster*
-  ],
-  [
-    #image("Bilder/webtigerpython_gui.png")
-  ],
-)
 
-#v(8pt)
+    #v(10pt)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 3em,
-  [
     #outline-colorbox(
       title: "Wichtig für den Start",
       color: "green",
@@ -146,14 +138,58 @@
     ]
   ],
   [
-    #stickybox(rotation: 5deg)[
+    #image("Bilder/webtigerpython_gui.png")
+
+    #v(10pt)
+
+    #stickybox(rotation: 1deg)[
       Ein *Computer denkt nicht selbst* und versteht keine Bedeutungen. Er führt nur *exakte Anweisungen* aus.
 
       Schon kleine Änderungen im Code können ein anderes Resultat ergeben.
       Deshalb ist genaues Arbeiten wichtig – Fehler gehören aber ganz normal zum Lernen dazu.
-    ],
+    ]
   ],
 )
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 3em,
+  [
+    = Einstieg mit Turtlegrafik
+
+    Für den Einstieg ins Programmieren verwenden wir *Turtlegrafik*.
+
+    Das ist eine einfache Art, mit Python *Zeichnungen zu erstellen*.
+    Dabei steuert man eine kleine Schildkröte (engl. turtle) auf dem Bildschirm.
+
+    Die Schildkröte:
+    - kann sich vorwärts und rückwärts bewegen,
+    - kann sich drehen
+    - und hinterlässt beim Bewegen eine Linie.
+  ],
+  [
+    #image("Bilder/webtigerpython_turtle_gui.png")
+
+    #place(
+      bottom,
+      dx: -35pt,
+      dy: 55pt,
+      stickybox(
+        rotation: 1deg,
+      )[
+        #set text(size: 8pt)
+
+        Turtlegrafik ist *keine eigener Programmiersprache*, sondern ein sogenanntes *Package für Python*.
+
+        Ein Package ist eine für einen bestimmten Zweck gedachte *Erweiterung* für Python, d.h. eine Sammlung von *zusätzlichen Befehlen*.
+
+        Python selbst kann sehr viel und mit Packages kann man Python noch weiter ausbauen.
+      ],
+    )
+  ],
+)
+
+#v(60pt)
 
 #colorbox(
   title: "Aufgaben",
@@ -193,7 +229,9 @@
         - Erstellen Sie einen *Screenshot* von der fertigen Zeichnung und senden diesen zusammen *mit Ihrem Code* via *Teams* an mich.
     ],
     [
-      #image("Bilder/turtle_example.png")
+      #image("Bilder/turtle_example_1.png")
+      #image("Bilder/turtle_example_2.png")
+      #image("Bilder/turtle_example_3.png")
     ],
   )
 ]
