@@ -46,6 +46,7 @@
     font: "Times",
     size: 10pt,
     lang: "de",
+    region: "CH"
   )
 
   show title: set text(size: 20pt)
@@ -55,6 +56,8 @@
 
   show link: set text(blue)
   show link: underline
+
+  set smartquote(quotes: "«»")
 
   set par(
     justify: true,
