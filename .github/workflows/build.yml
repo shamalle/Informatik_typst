@@ -18,12 +18,31 @@ jobs:
       - name: Install Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Compile
-        run: typst compile main.typ docs.pdf
+      - name: Compile all main.typ
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
 
-      - name: Upload PDF file
+          # Alle main.typ finden (ausser evtl. in out/)
+          mapfile -t files < <(find . -type f -name "main.typ" | sort)
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No main.typ files found."
+            exit 1
+          fi
+
+          for f in "${files[@]}"; do
+            dir="$(dirname "$f")"
+            out="${dir#./}.pdf"
+            mkdir -p "$(dirname "$out")"
+            echo "Compiling $f -> $out"
+            typst compile "$f" "$out"
+          done
+
+      - name: Upload PDFs
         uses: actions/upload-artifact@v6
         with:
-          name: PDF
+          name: PDFs
           path: "**/*.pdf"
           if-no-files-found: error
