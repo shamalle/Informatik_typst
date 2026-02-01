@@ -41,7 +41,7 @@
     - man schnell erste Resultate sieht.
   ],
   [
-    #image("Bilder/python_logo.png")
+    #align(center)[#image("Bilder/python_logo.png", width: 75%)]
 
     #block([
       #codly(header: [*Python Code Beispiel*])
@@ -58,12 +58,12 @@
       #place(
         bottom,
         dx: 135pt,
-        dy: 20pt,
+        dy: 35pt,
         stickybox(
           rotation: -8deg,
-          width: 4cm,
+          width: 4.5cm,
         )[
-          #text(size: 7pt)[
+          #text(size: 8pt)[
             Wir werden Python Code immer in diesen *Boxen* darstellen. Man erkennt sie am *grünen Label* oben mit dem 🐍 Icon.
 
             Die Zahlen am linken Rand geben die *Zeilennummern* an und helfen uns, den Überblick zu behalten (diese müssen nicht mit kopiert werden).
@@ -91,9 +91,10 @@
     WebTigerPython wurde speziell für den *Unterricht* entwickelt und eignet sich sehr gut für den Einstieg.
   ],
   [
+    #v(15pt)
     #align(center)[
-      #image("Bilder/webtigerpython_logo.png", width: 25%)
-      #text(font: "Arial", size: 14pt)[
+      #image("Bilder/webtigerpython_logo.png", width: 20%)
+      #text(font: "Arial", size: 13pt)[
         WebTigerPython
       ]
     ]
@@ -140,9 +141,10 @@
   [
     #image("Bilder/webtigerpython_gui.png")
 
-    #v(10pt)
+    #v(20pt)
 
     #stickybox(rotation: 1deg)[
+      #set text(size: 8pt)
       Ein *Computer denkt nicht selbst* und versteht keine Bedeutungen. Er führt nur *exakte Anweisungen* aus.
 
       Schon kleine Änderungen im Code können ein anderes Resultat ergeben.
@@ -160,7 +162,7 @@
     Für den Einstieg ins Programmieren verwenden wir *Turtlegrafik*.
 
     Das ist eine einfache Art, mit Python *Zeichnungen zu erstellen*.
-    Dabei steuert man eine kleine Schildkröte (engl. turtle) auf dem Bildschirm.
+    Dabei steuert man eine kleine Schildkröte (engl. turtle) auf dem Bildschirm mit Befehlen in Python.
 
     Die Schildkröte:
     - kann sich vorwärts und rückwärts bewegen,
@@ -189,49 +191,46 @@
   ],
 )
 
-#v(60pt)
+#v(75pt)
 
-#colorbox(
-  title: "Aufgaben",
-  radius: 2pt,
-  width: auto,
-)[
-  #grid(
-    columns: (3fr, 1fr),
-    gutter: 3em,
-    [
-      Wir werden uns als Einstieg mit dem Lernprogramm *Turtlegrafik* beschäftigen.
+#grid(
+  columns: (3fr, 1fr),
+  gutter: 3em,
+  colorbox(
+    title: "Aufgaben",
+    radius: 2pt,
+    width: auto,
+  )[
+    + Lesen Sie zuerst den Abschnitt zur #link("https://www.python-online.ch/index.php?inhalt_links=home/navigation.inc.php&inhalt_mitte=home/webtp.inc.php")[Bedienung von *WebTigerPython*] durch und machen Sie sich damit vertraut.
 
-      + Lesen Sie zuerst den Abschnitt zu *WebTigerPython* auf #link("https://www.python-online.ch/index.php?inhalt_links=home/navigation.inc.php&inhalt_mitte=home/webtp.inc.php")[dieser Seite] durch und machen Sie sich mit der Bedienung vertraut.
+    + Nun werden wir die ersten Python Programme mit der Turtlegrafik schreiben. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/bewegen.inc.php")[*Turtle bewegen*] durch. Probieren Sie das *Musterbeispiel* aus und lösen Sie die Aufgaben im Abschnitt *Zum selbst Lösen*.
 
-      + Nun werden wir die ersten Python Programme schreiben. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/bewegen.inc.php")[*Turtle bewegen*] durch. Probieren Sie das *Musterbeispiel* aus und lösen Sie die Aufgaben im Abschnitt *Zum selbst Lösen*.
+      #v(2pt)
 
-        #v(2pt)
+      #stickybox(rotation: -1deg)[
+        #set text(size: 8pt)
+        *Tipp für die Aufgaben*
 
-        #stickybox(rotation: -1deg)[
-          *Tipp*
+        *Speichern* Sie Ihre Lösungen jeweils *als Python-Dateien mit sinnvollen Namen* auf Ihrem Computer ab, damit Sie sie wieder finden.
 
-          Speichern Sie Ihre Lösungen jeweils als Python-Dateien mit sinnvollen Namen auf Ihrem Computer ab, damit Sie sie wieder finden.
+        Alternativ können sie den Code von Ihren Lösungen ins *OneNote kopieren*.
 
-          Alternativ können sie den Code von Ihren Lösungen ins OneNote kopieren.
+        Beginnen Sie für jede Aufgabe wieder mit einem *leeren Editor-Fenster*.
+      ]
 
-          Beginnen Sie für jede Aufgabe wieder mit einem leeren Editor-Fenster.
-        ]
+      #v(5pt)
 
-        #v(5pt)
+    + Nachdem wir nun wissen, wie wir den Turtle bewegen um Figuren zu malen, wollen wir uns mit den Farben beschäftigen. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/farben.inc.php")[*Farben verwenden*] inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
 
-      + Nachdem wir nun wissen, wie wir den Turtle bewegen um Figuren zu malen, wollen wir uns mit den Farben beschäftigen. Arbeiten Sie dazu die Seite #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/farben.inc.php")[*Farben verwenden*] inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
+    + Nun fehlt uns noch ein hilfreiches Element: die #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/wiederholung.inc.php")[*Wiederholungen*]. Arbeiten Sie auch diese Seite inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
 
-      + Nun fehlt uns noch ein hilfreiches Element: die #link("https://www.python-online.ch/index.php?inhalt_links=turtle/navigation.inc.php&inhalt_mitte=turtle/wiederholung.inc.php")[*Wiederholungen*]. Arbeiten Sie auch diese Seite inklusive *Musterbeispiel* und Aufgaben *Zum selbst Lösen* durch.
-
-      + Überlegen Sie sich eine *kleine Zeichung*, die Sie mit dem Turtle programmieren möchten. Dies kann ein Buchstabe, ein Symbol oder eine kleine kreative Form sein.
-        - *Implementieren* Sie das Programm in WebTigerPython.
-        - Erstellen Sie einen *Screenshot* von der fertigen Zeichnung und senden diesen zusammen *mit Ihrem Code* via *Teams* an mich.
-    ],
-    [
-      #image("Bilder/turtle_example_1.png")
-      #image("Bilder/turtle_example_2.png")
-      #image("Bilder/turtle_example_3.png")
-    ],
-  )
-]
+    + *Überlegen* Sie sich eine *kleine Zeichung*, die Sie mit dem Turtle programmieren möchten. Dies kann ein Buchstabe, ein Symbol oder eine kleine kreative Form sein.
+      - *Programmieren* Sie die Zeichnung in WebTigerPython.
+      - Erstellen Sie einen *Screenshot* von der fertigen Zeichnung und senden diesen zusammen *mit Ihrem Code* via *Teams* an mich.
+  ],
+  [
+    #image("Bilder/turtle_example_1.png")
+    #image("Bilder/turtle_example_2.png")
+    #image("Bilder/turtle_example_3.png")
+  ],
+)
