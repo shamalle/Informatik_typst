@@ -117,7 +117,7 @@
       ```
 
     + *Programm ausführen*: \
-      Mit einem Klick auf *Ausführen-Knopf* #box(height: 9pt, image("Bilder/webtigerpython_ausfuehren.png")) oben wird das Programm ausgeführt.
+      Mit einem Klick auf den *Ausführen-Knopf* #box(height: 9pt, image("Bilder/webtigerpython_ausfuehren.png")) oben wird das Programm ausgeführt.
       - Der Computer liest den Code von oben nach unten
       - Jede Zeile wird nacheinander verarbeitet
       - Das Ergebnis erscheint im *Ausgabefenster*
@@ -180,11 +180,11 @@
       )[
         #set text(size: 8pt)
 
-        Turtlegrafik ist *keine eigener Programmiersprache*, sondern ein sogenanntes 📦 *Package für Python*.
+        Turtlegrafik ist *keine eigene Programmiersprache*, sondern ein sogenanntes 📦 *Package* für Python.
 
         Ein Package ist eine für einen bestimmten Zweck gedachte *Erweiterung* für Python, d.h. eine Sammlung von *zusätzlichen Befehlen*.
 
-        Python selbst kann sehr viel und mit Packages kann man Python noch weiter ausbauen.
+        Python selbst kann schon sehr viel und mit Packages kann man Python noch weiter ausbauen.
       ],
     )
   ],
