@@ -1,4 +1,4 @@
-#import "../../config/conf.typ": conf
+#import "/config/conf.typ": conf
 
 #import "@preview/codly:1.3.0": codly
 #import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox, stickybox
