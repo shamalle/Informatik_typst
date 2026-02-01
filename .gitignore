@@ -4,6 +4,3 @@
 _things
 desktop.ini
 .DS_Store
-
-# rendered PDFs
-**/main.pdf
