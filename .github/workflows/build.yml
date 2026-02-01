@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   build: 
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,7 +34,7 @@ jobs:
 
           for f in "${files[@]}"; do
             dir="$(dirname "$f")"
-            out="${dir#./}.pdf"
+            out="out/${dir#./}.pdf"
             mkdir -p "$(dirname "$out")"
             echo "Compiling $f -> $out"
             typst compile --root . "$f" "$out"
@@ -45,3 +46,20 @@ jobs:
           name: PDFs
           path: "**/*.pdf"
           if-no-files-found: error
+
+      - name: Commit PDFs to repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add out/**/*.pdf || true
+
+          if git diff --cached --quiet; then
+            echo "No PDF changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update PDFs [skip ci]"
+          git push
