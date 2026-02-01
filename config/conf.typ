@@ -22,7 +22,7 @@
     margin: (x: 2cm, y: 2cm),
     header-ascent: 20pt,
     header: [
-      #set text(size: 8pt, font: "PT Sans")
+      #set text(size: 8pt)
       #thema
       #h(1fr)
       #context document.title
@@ -31,7 +31,7 @@
     ],
     footer-descent: 25pt,
     footer: [
-      #set text(size: 8pt, font: "PT Sans")
+      #set text(size: 8pt)
       #line(length: 100%)
       #v(-5pt)
       GymThun, #context document.author.first()
@@ -43,7 +43,6 @@
   set heading(numbering: "1.")
 
   set text(
-    font: "Times",
     size: 10pt,
     lang: "de",
     region: "CH"

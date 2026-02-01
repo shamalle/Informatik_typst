@@ -95,10 +95,7 @@
   [
     #v(15pt)
     #align(center)[
-      #image("Bilder/webtigerpython_logo.png", width: 20%)
-      #text(font: "Arial", size: 13pt)[
-        WebTigerPython
-      ]
+      #image("Bilder/webtigerpython_logo.png", width: 50%)
     ]
   ],
 )
