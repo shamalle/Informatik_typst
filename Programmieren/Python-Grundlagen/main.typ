@@ -7,6 +7,12 @@
   author: "GSM",
 )
 
+#set page(background:
+  text(30pt, fill: rgb("FFCBC4"))[
+    #v(-797pt) #h(0pt) *ENTWURF*
+  ]
+)
+
 #show: conf.with(
   thema: "Programmieren",
 )
