@@ -24,7 +24,6 @@ jobs:
           set -euo pipefail
           mkdir -p out
 
-          # Alle main.typ finden (ausser evtl. in out/)
           mapfile -t files < <(find . -type f -name "main.typ" | sort)
 
           if [ "${#files[@]}" -eq 0 ]; then
@@ -37,7 +36,7 @@ jobs:
             out="${dir#./}.pdf"
             mkdir -p "$(dirname "$out")"
             echo "Compiling $f -> $out"
-            typst compile "$f" "$out"
+            typst compile --root . "$f" "$out"
           done
 
       - name: Upload PDFs
