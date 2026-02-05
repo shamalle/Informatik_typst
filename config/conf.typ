@@ -46,7 +46,7 @@
     font: "Times New Roman",
     size: 10pt,
     lang: "de",
-    region: "CH"
+    region: "CH",
   )
 
   show title: set text(size: 20pt)
