@@ -34,7 +34,7 @@
       #set text(font: "Open Sans", size: 8pt)
       #line(length: 100%)
       #v(-5pt)
-      GymThun, #context document.author.first()
+      OInf, Gym1, #context document.author.first()
       #h(1fr)
       #context counter(page).display("1/1", both: true)
     ],

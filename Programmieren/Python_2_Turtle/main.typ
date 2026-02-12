@@ -9,10 +9,10 @@
   exercise-label: "Aufgabe",
   solution-label: "Aufgabe",
   badge-style: "border-accent",
-  badge-color: maroon,
-  solution-color: olive,
+  badge-color: rgb(0, 64, 128),
+  solution-color: maroon,
   solution-above: 1em,
-  solution-below: 1em,
+  solution-below: 0.5em,
 )
 
 #set document(
