@@ -28,25 +28,15 @@
 
 #set heading(numbering: none)
 
+ Für uns im Alltag kommen die meisten Zahlen natürlicherweise im 10er-System vor. Das ergibt insofern auch Sinn, da der Mensch 10 Finger hat. Wenn wir also zum Beispiel auf einem Tisch mehrere Äpfel liegen haben, können wir diese mit unseren Fingern zählen.
+
 #grid(
-  columns: (1fr, 1fr),
-  gutter: 3em,
-  [
-    Für uns im Alltag kommen die meisten Zahlen natürlicherweise im 10er-System vor. Das ergibt insofern auch Sinn, da der Mensch 10 Finger hat. Wenn wir also zum Beispiel auf einem Tisch mehrere Äpfel liegen haben, können wir diese mit unseren Fingern zählen.
-
-     *Turtlegrafik*.
-
-    Das ist eine einfache Art, mit Python *Zeichnungen zu erstellen*.
-    Dabei steuert man eine kleine Schildkröte (engl. turtle) auf dem Bildschirm mit Befehlen in Python.
-
-    Die Schildkröte:
-    - kann sich vorwärts und rückwärts bewegen,
-    - kann sich drehen
-    - und hinterlässt beim Bewegen eine Linie.
-
-    #v(2mm)
-  ],
+  columns: (1.75fr, 1fr),
+  gutter: 1.5em,
   [
     #image("Bilder/dezimal_zaehlen.png")
+  ],
+  [
+    Text Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla 
   ],
 )

@@ -12,7 +12,7 @@
   badge-color: rgb(0, 64, 128),
   solution-color: maroon,
   solution-above: 1em,
-  solution-below: 0.5em,
+  solution-below: 1em,
 )
 
 #set document(

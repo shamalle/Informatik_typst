@@ -43,7 +43,7 @@
   set heading(numbering: "1.")
 
   set text(
-    font: "Times New Roman",
+    font: "Calibri Light",
     size: 10pt,
     lang: "de",
     region: "CH",
