@@ -2,7 +2,7 @@
 #import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox, stickybox
 #import "@preview/exercise-bank:0.3.0": exo, exo-print-solutions, exo-setup
 
-= Historische Verschlüsselungen
+== Historische Verschlüsselungen
 
 #grid(
   columns: (1fr, 1fr),
@@ -21,8 +21,9 @@
     #stickybox(
       rotation: -2deg,
     )[
-      Die Briten kannten schon frühere deutsche Codes, weil ein Diplomat sein Codebuch verlor. Dieses Zufallswissen half, das Zimmermann-Telegramm schneller zu entschlüsseln.
+      Die Briten kannten schon frühere deutsche Codes, weil ein Diplomat sein Codebuch verlor. Dieses Zufallswissen half, das Telegramm schneller zu entschlüsseln.
     ]
+    #v(5pt)
 
     #align(center)[
     #figure(
@@ -30,7 +31,6 @@
       caption: [Das Telegram bestand nur aus Zahlenreihen.])
     ]
     
-    #v(10pt)
     Daraufhin empfahlen die Briten der USA ihre Neutralitätspolitik zu überdenken, was entscheidend dazu beitrug, die US-amerikanische Öffentlichkeit für den Kriegseintritt einzustimmen.
 
   ],

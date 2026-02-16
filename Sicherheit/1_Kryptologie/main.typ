@@ -26,6 +26,7 @@
 
 #include "Kapitel/grundlagen.typ"
 #include "Kapitel/historische_verschluesselungen.typ"
+#include "Kapitel/skytale.typ"
 
 //#v(5mm)
 //#line(length: 100%)
