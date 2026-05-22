@@ -61,12 +61,12 @@
 
 // ========================================
 
-// #set heading(numbering: none)
-// #set page(columns: 2)
+#set heading(numbering: none)
+#set page(columns: 2)
 
-//= Lösungen
+= Lösungen
 
-//#codly(zebra-fill: luma(240))
-//#exo-print-solutions(title: none) // Print collected solutions
+#codly(zebra-fill: luma(240))
+#exo-print-solutions(title: none) // Print collected solutions
 
 

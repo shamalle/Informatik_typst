@@ -75,5 +75,6 @@ Daraus ergibt sich 26 Möglichkeiten $dot$ 25 Möglichkeiten $dot$ 24 $dot$ 23 $
   exercise: [
     Das Caesar-Verfahren und die allgemeine monoalphabetische Substitution sind miteinander verwandt. Man sagt, das Eine ist der Spezialfall vom Anderen. Können Sie in Ihren eigenen Worten erklären, was damit gemeint ist?
   ],
-  solution: [Die Caesar Verschlüsselung ist ein Spezialfall der allgemeinen monoalphabetischen Substitution, weil sie auch eine monoalphabetische Substitution ist. Es ist nicht eine ganz zufällige Zuordnung der Buchstaben, sondern genau die Zuordnung die sich durch eine Verschiebung ergibt.],
+  solution: [
+    Die Caesar Verschlüsselung ist ein Spezialfall der allgemeinen monoalphabetischen Substitution, weil sie auch eine monoalphabetische Substitution ist. Es ist nicht eine ganz zufällige Zuordnung der Buchstaben, sondern genau die Zuordnung die sich durch eine Verschiebung ergibt.],
 )

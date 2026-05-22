@@ -13,8 +13,8 @@
   ],
   [
     #image("../Bilder/kryptologie_begriffe.png")
-  ]
- )
+  ],
+)
 
 Gerade in der digitalen Welt spielt dieses Verfahren eine zentrale Rolle: Sensible Daten wie Passwörter müssen geschützt übertragen werden, damit Unbefugte keinen Zugriff darauf erhalten. Dabei beschränkt sich die Verschlüsselung nicht nur auf geschriebene Texte, sondern kann ebenso auf digitale Audiodateien, Videos oder den Programmcode von Software angewendet werden.
 
@@ -22,7 +22,7 @@ Wir fangen mit den wichtigsten Grundbegriffen an, welche wir am Beispiel im unte
 #v(8pt)
 
 #grid(
-  columns: (1fr, 0.95fr), 
+  columns: (1fr, 0.95fr),
   gutter: 1.5em,
   [
     #outline-colorbox(
@@ -30,9 +30,9 @@ Wir fangen mit den wichtigsten Grundbegriffen an, welche wir am Beispiel im unte
       color: "purple",
       radius: 3pt,
       width: auto,
-      )[
-        #set enum(numbering: "a.")
-      
+    )[
+      #set enum(numbering: "a.")
+
       Alice möchte Bob einen Text geheim übermitteln, damit ihn keine Drittperson verstehen kann.
 
       + Die ursprüngliche, verständliche Nachricht wird *Klartext* genannt. Im Beispiel ist das "Hallo Bob".
@@ -42,20 +42,20 @@ Wir fangen mit den wichtigsten Grundbegriffen an, welche wir am Beispiel im unte
       + Die verschlüsselte Form der Nachricht, in diesem Fall "Kdoor Ere" nennt man *Geheimtext*.
 
       + Bei der *Entschlüsselung* wird der Geheimtext mithilfe des passenden Schlüssels wieder in den Klartext zurückverwandelt. So kann Bob die Nachricht verstehen, während eine Drittperson ohne den Schlüssel nur den unverständlichen Geheimtext sieht.
-      ]
+    ]
   ],
   [
     #v(10pt)
     #image("../Bilder/grundbegriffe_alice_bob.png")
     #v(10pt)
-    #stickybox( rotation: 4deg)[
+    #stickybox(rotation: 4deg)[
       #align(center)[
         🚨 *Wichtig* 🚨
         #v(-2pt)
-        Damit eine Kommunikation wie die zwischen Alice und Bob funktionieren kann, müssen beiden denselben Schlüssel (die gleiche Information) haben! 
+        Damit eine Kommunikation wie die zwischen Alice und Bob funktionieren kann, müssen beiden denselben Schlüssel (die gleiche Information) haben!
       ]
     ]
-  ]
+  ],
 )
 #v(5pt)
 
@@ -68,9 +68,9 @@ Wir fangen mit den wichtigsten Grundbegriffen an, welche wir am Beispiel im unte
   [
     #v(4pt)
     In der Kryptologie werden wir mehrmals dem Begriff *Schlüsselraum* begegnen. Der Schlüsselraum bezeichnet die Menge aller möglichen Schlüssel, die bei einem Verschlüsselungsverfahren verwendet werden können.
-  ]
+  ],
 )
-#v(10pt)
+#v(5pt)
 
 #text(size: 1.2em, weight: "bold")[Kleiner Rückblick...]
 
@@ -86,7 +86,7 @@ Im ersten Jahr des Gymnasiums haben Sie den Begriff Codierung kennengelernt. Die
     table.hline(),
     [
       Bei der Codierung werden Daten nach festen, allgemein bekannten Regeln umgewandelt. Das Ziel ist, Daten *einheitlich, platzsparend oder maschinenlesbar* zu machen (z.B. ASCII, UTF-8).
-    ], 
+    ],
     [
       Bei einer Verschlüsselung wird eine Nachricht gezielt unlesbar gemacht, sodass sie nur mit einem geheimen Schlüssel wieder verständlich wird. Das Ziel ist der *Schutz der Information vor Unbefugten*.
     ],
