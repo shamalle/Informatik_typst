@@ -17,7 +17,7 @@
   title: [
     Kryptologie
   ],
-  author: "MeT",
+  author: "TaT",
 )
 
 #show: conf.with(
@@ -25,8 +25,28 @@
 )
 
 #include "Kapitel/grundlagen.typ"
+#pagebreak()
 #include "Kapitel/historische_verschluesselungen.typ"
+#pagebreak()
 #include "Kapitel/skytale.typ"
+#pagebreak()
+#include "Kapitel/caesar.typ"
+#pagebreak()
+#include "Kapitel/amas.typ"
+#pagebreak()
+#include "Kapitel/antike_recap.typ"
+#pagebreak()
+#include "Kapitel/haeufigkeitsanalyse.typ"
+#pagebreak()
+#set heading(numbering: none)
+= Platz für Ihre Notizen
+#pagebreak()
+#set heading(numbering:"1.")
+#include "Kapitel/vigenere.typ"
+#pagebreak()
+#include "Kapitel/sym_verschluesselung.typ"
+
+
 
 //#v(5mm)
 //#line(length: 100%)
@@ -39,16 +59,14 @@
 
 // #include "Kapitel/grundlagen.typ"
 
-#pagebreak()
-
 // ========================================
 
-#pagebreak()
+// #set heading(numbering: none)
+// #set page(columns: 2)
 
-#set heading(numbering: none)
-#set page(columns: 2)
+//= Lösungen
 
-= Lösungen
+//#codly(zebra-fill: luma(240))
+//#exo-print-solutions(title: none) // Print collected solutions
 
-#codly(zebra-fill: luma(240))
-#exo-print-solutions(title: none) // Print collected solutions
+

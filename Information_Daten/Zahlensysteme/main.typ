@@ -15,8 +15,8 @@
 
 #set document(
   title: [
-    Information und Daten
-  ],
+    Zahlensysteme
+    ],
   author: "MeT",
 )
 
@@ -24,13 +24,17 @@
   thema: "Information und Daten",
 )
 
-#include "Kapitel/grundlagen.typ"
+#include "Kapitel/nicht_stellenwertsysteme.typ"
+
+#include "Kapitel/grundlagen_stellenwertsysteme.typ"
+
+#include "Kapitel/unser_zahlensystem.typ"
 
 #include "Kapitel/binaersystem.typ"
 
 #include "Kapitel/hexadezimalsystem.typ"
 
-#include "Kapitel/allgemeine_zahlensysteme.typ"
+
 
 //#v(5mm)
 //#line(length: 100%)

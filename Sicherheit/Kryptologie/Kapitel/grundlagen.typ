@@ -2,7 +2,7 @@
 #import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox, stickybox
 #import "@preview/exercise-bank:0.3.0": exo, exo-print-solutions, exo-setup
 
-= Grundlagen der Kryptologie
+= Grundlagen
 
 #grid(
   columns: (1fr, 1.15fr),
@@ -48,7 +48,7 @@ Wir fangen mit den wichtigsten Grundbegriffen an, welche wir am Beispiel im unte
     #v(10pt)
     #image("../Bilder/grundbegriffe_alice_bob.png")
     #v(10pt)
-    #stickybox(fill: rgb("#ffb6a6"), rotation: 4deg)[
+    #stickybox( rotation: 4deg)[
       #align(center)[
         🚨 *Wichtig* 🚨
         #v(-2pt)
@@ -84,6 +84,11 @@ Im ersten Jahr des Gymnasiums haben Sie den Begriff Codierung kennengelernt. Die
     table.hline(),
     table.header([*Codierung*], [*Verschlüsselung*]),
     table.hline(),
-    [Bei der Codierung werden Daten nach festen, allgemein bekannten Regeln umgewandelt. Das Ziel ist, Daten *einheitlich, platzsparend oder maschinenlesbar* zu machen (z.B. ASCII, UTF-8).], [Bei einer Verschlüsselung wird eine Nachricht gezielt unlesbar gemacht, sodass sie nur mit einem geheimen Schlüssel wieder verständlich wird. Das Ziel ist der *Schutz der Information vor Unbefugten*.],
+    [
+      Bei der Codierung werden Daten nach festen, allgemein bekannten Regeln umgewandelt. Das Ziel ist, Daten *einheitlich, platzsparend oder maschinenlesbar* zu machen (z.B. ASCII, UTF-8).
+    ], 
+    [
+      Bei einer Verschlüsselung wird eine Nachricht gezielt unlesbar gemacht, sodass sie nur mit einem geheimen Schlüssel wieder verständlich wird. Das Ziel ist der *Schutz der Information vor Unbefugten*.
+    ],
     table.hline(),
   )]
