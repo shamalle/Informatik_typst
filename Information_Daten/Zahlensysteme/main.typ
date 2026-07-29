@@ -17,7 +17,7 @@
   title: [
     Zahlensysteme
     ],
-  author: "MeT",
+  author: "TaT",
 )
 
 #show: conf.with(

@@ -39,37 +39,37 @@
 
     - Er meint, dass Sie *zwei* Mates für ihn kaufen sollen.
     - Er möchte Ihnen den Buchstaben *V* zeigen.
-    - Er war gestern am Fechtturnier und möchte Ihnen nun mit dem *Victory*-Symbol nun zeigen, dass er gewonnen hat. 
+    - Er war gestern am Fechtturnier und möchte Ihnen nun mit dem *Victory*-Symbol nun zeigen, dass er gewonnen hat.
     - Er zeigt Ihnen das *Peace*-Zeichen, das in den 60er Jahren bei den Hippies populär war.
-  ]
+  ],
 )
 
-Wir erkennen also, dass das Zeichen selber und die Interpretation davon zwei verschiedene Dinge sein können. Das Zeichen ist ganz klar und kann das Gegenüber selber nachmachen. Die Interpretation davon kann aber von Person zu Person unterschiedlich sein. 
+Wir erkennen also, dass das Zeichen selber und die Interpretation davon zwei verschiedene Dinge sein können. Das Zeichen ist ganz klar und kann das Gegenüber selber nachmachen. Die Interpretation davon kann aber von Person zu Person unterschiedlich sein.
 
 #outline-colorbox(
-      title: "Information, Daten, Code und Informationskanal",
-      color: "blue",
-      radius: 3pt,
-      width: auto,
-      )[
-        #grid(
-          columns: (1fr, 0.79fr),
-          gutter: 1em,
-          [
-            Eine *Information* ist eine für eine Person in einem bestimmten Kontext verständliche Aussage.
+  title: "Information, Daten, Code und Informationskanal",
+  color: "blue",
+  radius: 3pt,
+  width: auto,
+)[
+  #grid(
+    columns: (1fr, 0.79fr),
+    gutter: 1em,
+    [
+      Eine *Information* ist eine für eine Person in einem bestimmten Kontext verständliche Aussage.
 
-            *Daten* sind Darstellungen von Informationen. Also die Zeichen, Symbole, Gesten, usw... Diese können gesendet, empfangen und verarbeitet werden.
+      *Daten* sind Darstellungen von Informationen. Also die Zeichen, Symbole, Gesten, usw... Diese können gesendet, empfangen und verarbeitet werden.
 
-            Ein *Code* ist eine "Sprache", die festlegt, wie die Information vom Sender in Daten übersetzt (*Codierung*) und vom Empfänger wieder zurückübersetzt (*Decodierung*) werden kann.
+      Ein *Code* ist eine "Sprache", die festlegt, wie die Information vom Sender in Daten übersetzt (*Codierung*) und vom Empfänger wieder zurückübersetzt (*Decodierung*) werden kann.
 
-            Der *Informationskanal* ist das Medium, über das die Daten übertragen werden.
-          ],
-          [
-            #align(horizon)[#image("Bilder/daten_information_austausch.svg")]
-            
-          ]
-        )
-      ]
+      Der *Informationskanal* ist das Medium, über das die Daten übertragen werden.
+    ],
+    [
+      #align(horizon)[#image("Bilder/daten_information_austausch.svg")]
+
+    ],
+  )
+]
 
 #v(3mm)
 
@@ -78,44 +78,44 @@ Wir erkennen also, dass das Zeichen selber und die Interpretation davon zwei ver
   gutter: 1.5em,
   [Eine Informationsübertragung kann nur dann funktionieren, wenn Sender und Empfänger denselben Code verwenden. Bei zwischenmenschlicher Kommunikation ist dies in der Regel die gesprochene Sprache, aber manchmal auch Gesten, Mimik, usw. In solchen Fällen kann es sein, dass der Empfänger den Code erraten, was zu Missverständnissen führen kann.],
   [
-  #v(1mm)
-  #stickybox(rotation: 3deg)[
-    #align(center)[
-      🚨 *Wichtig* 🚨
-      #v(-2pt)
-      Bei einem Code darf keine Information verloren gehen und eine Rückumwandlung muss möglich sein.
-    ]]
-  ]
+    #v(1mm)
+    #stickybox(rotation: 3deg)[
+      #align(center)[
+        🚨 *Wichtig* 🚨
+        #v(-2pt)
+        Bei einem Code darf keine Information verloren gehen und eine Rückumwandlung muss möglich sein.
+      ]]
+  ],
 )
 
 #outline-colorbox(
-      title: "Beispiele: Braille und QR",
-      color: "purple",
-      radius: 3pt,
-      width: auto,
-    )[
-      #grid(
-        columns: (1fr, 0.5fr),
-        gutter: 1em,
-        [
-          *Braille* ist eine Blindenschrift, bei der Buchstaben und Zeichen durch ertastbare Muster aus sechs erhabenen Punkten dargestellt werden. Es handelt sich um einen Code, weil es eine festgelegte Sprache ist, die definiert, wie Informationen zwischen Sender und Empfänger übertragen werden. Jedem Schriftzeichen ist genau ein Braille-Zeichen zugeordnet. Dadurch geht keine Information verloren und der ursprüngliche Text kann eindeutig wiederhergestellt werden.
-        ],
-        [
-          #align(horizon)[#image("Bilder/braille.svg",width: 100%)]
-        ]
-      )
-      #v(3mm)
-      #grid(
-        columns: (0.2fr, 1fr),
-        gutter: 1em,
-        [
-          #v(-1.5mm)
-          #align(horizon)[#image("Bilder/qrcode_lerbermatt.ch.png")]
-        ],
-        [Ein *QR-Code* ist ein quadratisches Muster aus schwarzen und weissen Feldern, das Informationen wie Texte oder Internetadressen maschinenlesbar speichert.
-        Ein QR-Code ein Code, weil er Informationen nach festgelegten Regeln in ein anderes Format umwandelt. Die schwarzen und weissen Felder stehen dabei nicht zufällig für Daten, sondern folgen einer genau definierten Codierung. Ein QR-Code kann deshalb von einem Scanner gelesen und wieder in die ursprünglichen Informationen zurückübersetzt werden.]
-      )
-    ]
+  title: "Beispiele: Braille und QR",
+  color: "purple",
+  radius: 3pt,
+  width: auto,
+)[
+  #grid(
+    columns: (1fr, 0.5fr),
+    gutter: 1em,
+    [
+      *Braille* ist eine Blindenschrift, bei der Buchstaben und Zeichen durch ertastbare Muster aus sechs erhabenen Punkten dargestellt werden. Es handelt sich um einen Code, weil es eine festgelegte Sprache ist, die definiert, wie Informationen zwischen Sender und Empfänger übertragen werden. Jedem Schriftzeichen ist genau ein Braille-Zeichen zugeordnet. Dadurch geht keine Information verloren und der ursprüngliche Text kann eindeutig wiederhergestellt werden.
+    ],
+    [
+      #align(horizon)[#image("Bilder/braille.svg", width: 100%)]
+    ],
+  )
+  #v(3mm)
+  #grid(
+    columns: (0.2fr, 1fr),
+    gutter: 1em,
+    [
+      #v(-1.5mm)
+      #align(horizon)[#image("Bilder/qrcode_lerbermatt.ch.png")]
+    ],
+    [Ein *QR-Code* ist ein quadratisches Muster aus schwarzen und weissen Feldern, das Informationen wie Texte oder Internetadressen maschinenlesbar speichert.
+      Ein QR-Code ein Code, weil er Informationen nach festgelegten Regeln in ein anderes Format umwandelt. Die schwarzen und weissen Felder stehen dabei nicht zufällig für Daten, sondern folgen einer genau definierten Codierung. Ein QR-Code kann deshalb von einem Scanner gelesen und wieder in die ursprünglichen Informationen zurückübersetzt werden.],
+  )
+]
 
 /*
 #box(
@@ -159,21 +159,24 @@ Wir erkennen also, dass das Zeichen selber und die Interpretation davon zwei ver
   title: [Ver- und Entschlüsselung],
   exercise: [Erklären Sie in Ihren eigenen Worten, warum folgender Ausdruck wahr ist: "You can have data without information, but you cannot have information without data."],
   solution: [Man kann Daten haben, ohne ihre Bedeutung zu verstehen (also ohne Information). Informationen können aber nur über Daten übermittelt oder dargestellt werden und existieren deshalb nicht ohne Daten.
-  
-  Beispiel: Die Zeichenfolge 3F7A9 sind Daten. Wer den Code oder den Zusammenhang nicht kennt, kann daraus keine Information gewinnen. Sobald bekannt ist, dass es sich um einen Türcode handelt, wird aus denselben Daten eine verständliche Information.]
+
+    Beispiel: Die Zeichenfolge 3F7A9 sind Daten. Wer den Code oder den Zusammenhang nicht kennt, kann daraus keine Information gewinnen. Sobald bekannt ist, dass es sich um einen Türcode handelt, wird aus denselben Daten eine verständliche Information.],
 )
 
 #exo(
   title: [Ver- und Entschlüsselung],
   exercise: [Sie haben folgendes Beispiel eines Satzes, der mit Braille dargestellt wird. Geben Sie an, was hier die Information ist, was die Daten sind, was der Code und der Informationskanal ist.
-  #align(center)[#image("Bilder/braille_frosch.svg",width: 70%)]],
-  solution: [Die Information ist der Satz "ein kleiner Frosch". Die Daten sind die einzelnen Braille-Zeichen. Der Code ist die Braille-Schrift und der Informationskanal hier ist das Blatt Papier das Sie vor sich liegen haben.]
+    #align(center)[#image("Bilder/braille_frosch.svg", width: 70%)]],
+  solution: [Die Information ist der Satz "ein kleiner Frosch". Die Daten sind die einzelnen Braille-Zeichen. Der Code ist die Braille-Schrift und der Informationskanal hier ist das Blatt Papier das Sie vor sich liegen haben.],
 )
 
 #v(10mm)
 
 
-#text(size: 1.2em, weight: "bold")[Und was hat das jetzt alles mit Informatik zu tun?]
+#text(
+  size: 1.2em,
+  weight: "bold",
+)[Und was hat das jetzt alles mit Informatik zu tun?]
 
 
 #grid(
@@ -184,8 +187,8 @@ Wir erkennen also, dass das Zeichen selber und die Interpretation davon zwei ver
   ],
   [
     #v(-10mm)
-    #align(horizon)[#image("Bilder/conversation_human_robot.png",width: 100%)]
-  ]
+    #align(horizon)[#image("Bilder/conversation_human_robot.png", width: 100%)]
+  ],
 )
 
 In diesem Abschnitt im Unterricht (_Information und Daten_) lernen wir also verschiedene Codes kennen, die in der Informatik verwendet werden. Sie werden unter anderem sehen, wie Zahlen im Binärsystem dargestellt werden, wie Texte codiert werden und wie Bilder im Computer gespeichert sind.
