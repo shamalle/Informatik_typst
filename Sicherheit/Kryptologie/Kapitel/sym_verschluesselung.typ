@@ -530,4 +530,371 @@ Diesen Betriebsmodus müssen wir hier also nicht noch mal anschauen, weil Sie vo
 
 #text(size: 1.2em, weight: "bold")[(B) Cipher Block Chaining (CBC)]
 
-Das schauen wir uns (vielleicht) das nächste Mal zusammen an.
+Letzte Woche haben Sie den ECB-Modus kennengelernt. Der CBC-Modus ist um einiges interessanter. In diesem werden die Blöcke nicht mehr getrennt voneinander verarbeitet. Wie in der folgenden Abbildung ersichtlich ist, dient jeder Geheimtext-Block (ausser der letzte) im nachfolgenden Schritt zusätzlich als Input. So werden gleiche Klartext-Blöcke trotz identischem Schlüssel zu unterschiedlichen Geheimtextblöcken verschlüsselt.
+
+Das Plus-Zeichen im Kreis steht hier ebenfalls für die XOR-Operation. Diese ist gegeben, während die Verschlüsselung im grossen Rechteck mit der Bezeichnung *Blockchiffre Verschlüsselung* eigentlich frei gewählt werden kann (also bspw. auch ein aktuell sicheres Verfahren). Wir verwenden hier aber auch die XOR-Operation, der Einfachheit halber.
+
+#v(7pt)
+
+#figure(
+  image("../Bilder/cipher_block_chaining.svg", width: 95%),
+)
+
+#v(10pt)
+
+#grid(
+  columns: (2.8fr, 2fr),
+  gutter: 1em,
+  [
+    Da bei der Verarbeitung des ersten Blocks noch kein Geheimtext-Block zur Verfügung steht, wird als eine Art Platzhalter ein sogenannter Initialisierungsvektor (IV) verwendet. Dieser ist ein absolut beliebiger Text resp. eine beliebige Bitfolge, welche gleich lang wie der Schlüssel sein muss.
+
+    Ein Nachteil des CBC-Modus ist allerdings, dass die Verschlüsselung der verschiedenen Blöcke nicht gleichzeitig (also parallel) berechnet werden können, da das Resultat des vorherigen Blocks für die Verschlüsselung des aktuellen Blocks benötigt wird. D.h. ein bestimmter Klartext-Block kann erst verschlüsselt werden, wenn sämtliche vorherigen Blöcke bereits verschlüsselt sind.
+  ],
+  [
+    #v(10pt)
+    #stickybox(rotation: 4deg)[
+      #align(center)[
+        🚨 *Wichtig* 🚨\
+        Ändert man 1 Bit im IV, führt dies zu Änderungen im gesamten Geheimtext. Ändert man 1 Bit im Klartext, so ändern sich auch sämtliche darauffolgenden Blöcke im Geheimtext.
+      ]
+    ]
+  ],
+)
+
+Sehen Sie uns mal die beiden Modi als Rechenbeispiele im Vergleich an. Wir wählen folgende Texte:
+
+*Klartext: SUSI, Schlüssel: JA, Initialisierungsvektor: VB*
+
+#grid(
+  columns: (2.8fr, 1fr),
+  gutter: 1em,
+  [
+    #figure(
+      caption: [ECB-Modus],
+
+      table(
+        columns: 5,
+        align: (
+          (right + horizon),
+          (center + horizon),
+          (center + horizon),
+          (center + horizon),
+          (center + horizon),
+        ),
+
+        [*Klartext*], [S], [U], [S], [I],
+
+        [*Klartext ASCII*], [1010011], [1010101], [1010011], [1001001],
+
+        [*Schlüssel*], [J], [A], [J], [A],
+
+        [*Schlüssel ASCII*],
+        [#text(fill: red)[1001010]],
+        [#text(fill: red)[1000001]],
+        [#text(fill: red)[1001010]],
+        [#text(fill: red)[1000001]],
+
+        [*Geheimtext*\ #text(size: 0.8em, weight: "light")[(Klartext XOR Schlüssel)]],
+        [0011001],
+        [0010100],
+        [0011001],
+        [0001000],
+      ),
+    )
+  ],
+  [
+    #table(
+      columns: 2,
+      align: (center + horizon),
+      stroke: none,
+      table.cell(
+        colspan: 2,
+        align: center + horizon,
+        fill: luma(230),
+      )[
+        *Schlüssel*
+      ],
+
+      [#text(fill: red)[J]], [#text(fill: red)[A]],
+      [#text(fill: red)[1001010]], [#text(fill: red)[1000001]],
+    )
+  ],
+)
+
+#grid(
+  columns: (2.8fr, 1fr),
+  gutter: 1em,
+  [
+    #figure(
+      caption: [CBC-Modus],
+
+      table(
+        columns: 5,
+        align: (
+          (right + horizon),
+          (center + horizon),
+          (center + horizon),
+          (center + horizon),
+          (center + horizon),
+        ),
+
+        [*Klartext*], [S], [U], [S], [I],
+
+        [*Klartext ASCII*], [1010011], [1010101], [1010011], [1001001],
+
+        [*Initialisierungsvektor*],
+        [#text(fill: green)[1010110]],
+        [#text(fill: green)[1000010]],
+        [#text(fill: blue)[1001111]],
+        [#text(fill: blue)[1010110]],
+
+        [*Zwischenschritt*\ #text(size: 0.8em)[(Klartext XOR IV)]],
+        [0000101],
+        [0010111],
+        [0011100],
+        [0011111],
+
+        [*Schlüssel ASCII*],
+        [#text(fill: red)[1001010]],
+        [#text(fill: red)[1000001]],
+        [#text(fill: red)[1001010]],
+        [#text(fill: red)[1000001]],
+
+        [*Geheimtext*\ #text(size: 0.8em)[(Zwischenschritt XOR Schlüssel)]],
+        [#text(fill: blue)[1001111]],
+        [#text(fill: blue)[1010110]],
+        [1010110],
+        [1011110],
+      ),
+    )
+  ],
+  [
+    #table(
+      columns: 2,
+      align: (center + horizon),
+      stroke: none,
+      table.cell(
+        colspan: 2,
+        align: center + horizon,
+        fill: luma(230),
+      )[
+        *IV*
+      ],
+
+      [#text(fill: green)[V]], [#text(fill: green)[B]],
+      [#text(fill: green)[1010110]], [#text(fill: green)[1000010]],
+    )
+
+    #table(
+      columns: 2,
+      align: (center + horizon),
+      stroke: none,
+      table.cell(
+        colspan: 2,
+        align: center + horizon,
+        fill: luma(230),
+      )[
+        *Schlüssel*
+      ],
+
+      [#text(fill: red)[J]], [#text(fill: red)[A]],
+      [#text(fill: red)[1001010]], [#text(fill: red)[1000001]],
+    )
+  ],
+)
+
+Im ersten Block müssen Sie den grün markierten IV für die vorgängige XOR-Verknüpfung verwenden. Im zweiten Block verwenden Sie nicht mehr den grün markierten IV, sondern den blau markierten Geheimtext.
+
+Hinweis: Betrachten Sie mal im Geheimtext den Buchstaben *S*. Beide Male wurde *S* (von SUSI) mit dem Schlüssel *E* verschlüsselt. Aber trotzdem weisen beide Geheimtexte ganz unterschiedliche Bitfolgen auf. Das liegt eben an dieser Verkettung.
+Und dementsprechend führt diese dazu, dass der Geheimtext ein bisschen schwieriger zu knacken ist als beim simplen ECB-Modus.
+
+#exo(
+  exercise: [
+    Verschlüsseln Sie nochmals den Klartext HALLO mit dem Schlüssel JA, wählen aber diesmal den CBC-Modus (IV: BC). In der Tabelle habe ich ähnliche Hintergrundfarben gewählt wie beim vorherigen Rechenbeispiel als Textfarbe.
+
+    #table(
+      columns: 6,
+      align: (
+        (right + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+      ),
+
+      [*Klartext*], [H], [A], [L], [L], [O],
+
+      [*ASCII*], [1001000], [1000001], [1001100], [1001100], [1001111],
+
+      [*IV*],
+      table.cell(fill: rgb("#a6f5b0"))[],
+      table.cell(fill: rgb("#a6f5b0"))[],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("#f9b4d0"))[],
+
+      [*Zwischenschritt*\ #text(size: 0.8em)[]],
+      [],
+      [],
+      [],
+      [],
+      [],
+
+      [*Schlüssel*],
+      [1001010],
+      [1000001],
+      [1001010],
+      [1000001],
+      [1001010],
+
+      [*Geheimtext\ (binär)*],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("#f9b4d0"))[],
+      table.cell(fill: rgb("#f9b4d0"))[],
+      [],
+    ),
+  ],
+  solution: [
+    #table(
+      columns: 5,
+      align: (
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+      ),
+
+      [H], [A], [L], [L], [O],
+
+      [1001000], [1000001], [1001100], [1001100], [1001111],
+
+      table.cell(fill: rgb("#a6f5b0"))[1000010],
+      table.cell(fill: rgb("#a6f5b0"))[1000011],
+      table.cell(fill: rgb("DCEEFF"))[1000000],
+      table.cell(fill: rgb("DCEEFF"))[1000011],
+      table.cell(fill: rgb("#f9b4d0"))[1000110],
+
+      [0001010],
+      [0000010],
+      [0001100],
+      [0001111],
+      [0001001],
+
+      [1001010],
+      [1000001],
+      [1001010],
+      [1000001],
+      [1001010],
+
+      table.cell(fill: rgb("DCEEFF"))[1000000],
+      table.cell(fill: rgb("DCEEFF"))[1000011],
+      table.cell(fill: rgb("#f9b4d0"))[1000110],
+      table.cell(fill: rgb("#f9b4d0"))[1001110],
+      [1000011],
+    )
+  ],
+)
+
+Bei der Entschlüsselung haben wir übrigens kein Problem mit der fehlenden Parallelität. Da sofort sämtliche Geheimtextblöcke vorliegen, kann die Entschlüsselung problemlos parallelisiert werden.
+
+#exo(
+  exercise: [
+    Entschlüsseln Sie den folgenden Geheimtext. Den IV habe ich Ihnen bereits im ersten Block eingetragen. In der Zeile «Entschlüsselt» schreiben Sie das Resultat der XOR-Verknüpfung rein, das Sie gemäss des obigen Schemas durchführen müssen.
+
+    #table(
+      columns: 6,
+      align: (
+        (right + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+      ),
+
+      [*Geheimtext*],
+      table.cell(fill: rgb("DCEEFF"))[1000000],
+      table.cell(fill: rgb("DCEEFF"))[1000011],
+      table.cell(fill: rgb("#f9b4d0"))[1000110],
+      [1001110],
+      [1000011],
+
+      [*Schlüssel*], [1001010], [1000001], [1001010], [1000001], [1001010],
+
+      [*Entschlüsselt*],
+      [],
+      [],
+      [],
+      [],
+      [],
+
+      [*IV/cipher*],
+      table.cell(fill: rgb("#a6f5b0"))[1000010],
+      table.cell(fill: rgb("#a6f5b0"))[1000011],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("DCEEFF"))[],
+      table.cell(fill: rgb("#f9b4d0"))[],
+
+      [*Klartext ASCII*],
+      [],
+      [],
+      [],
+      [],
+      [],
+
+      [*Klartext*],
+      [],
+      [],
+      [],
+      [],
+      [],
+    ),
+  ],
+  solution: [
+    #table(
+      columns: 5,
+      align: (
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+        (center + horizon),
+      ),
+
+      table.cell(fill: rgb("DCEEFF"))[1000000],
+      table.cell(fill: rgb("DCEEFF"))[1000011],
+      table.cell(fill: rgb("#f9b4d0"))[1000110],
+      [1001110],
+      [1000011],
+
+      [1001010], [1000001], [1001010], [1000001], [1001010],
+
+      [0001010],
+      [0000010],
+      [0001100],
+      [0001111],
+      [0001001],
+
+      table.cell(fill: rgb("#a6f5b0"))[1000010],
+      table.cell(fill: rgb("#a6f5b0"))[1000011],
+      table.cell(fill: rgb("DCEEFF"))[1000000],
+      table.cell(fill: rgb("DCEEFF"))[1000011],
+      table.cell(fill: rgb("#f9b4d0"))[1000110],
+
+      [1001000],
+      [1000001],
+      [1001100],
+      [1001100],
+      [1001111],
+
+      [H],
+      [A],
+      [L],
+      [L],
+      [O],
+    )
+  ],
+)

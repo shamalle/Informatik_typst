@@ -34,7 +34,7 @@
       #set text(font: "Times New Roman", size: 8pt)
       #line(length: 100%)
       #v(-5pt)
-      OInf, Gym2, #context document.author.first()
+      Informatik, #context document.author.first()
       #h(1fr)
       //#context counter(page).display("1/1", both: true)
       #context counter(page).display("1")
