@@ -96,7 +96,7 @@ Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgend
   gutter: 1.5em,
   [
     #exo(
-      title: [dasdf],
+      title: [],
       exercise: [
         Welche der folgenden Zahlen ist die korrekte römische Schreibweise für die Zahl 496?
         #set enum(numbering: "a.")
@@ -109,7 +109,7 @@ Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgend
   ],
   [
     #exo(
-      title: [dasdf],
+      title: [],
       exercise: [
         Welche der folgenden Zahlen ist die korrekte römische Schreibweise für die Zahl 45?
         #set enum(numbering: "a.")
@@ -122,11 +122,72 @@ Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgend
   ]
 )
 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Wandeln Sie folgende Zahlen in ihre römische Schreibweise um: 
+        #set enum(numbering: "a.")
+          + 27
+          + 2024
+          + 18
+          + 98
+          + 2098
+      ],
+      solution: [a)XXVII, b) MMXXIV, c) XVIII, d) XCVIII, e) MMXCVIII])
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Übersetzen Sie die folgende römischen Zahlen ins Dezimalsystem:
+        #set enum(numbering: "a.")
+          + LXVIII
+          + CLVII
+          + XLVIII
+          + XXXIX
+          + MMXXVI
+      ],
+      solution: [a) 68, b) 157, c) 48, d) 39, e) 2026])
+  ]
+)
 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Schreiben Sie Ihr Geburtsjahr in römischen Zahlen. Zum Beispiel: 1999 = MCMXCIX.
+      ],
+      solution: [Selbstüberprüfung])
+      
+      #v(7mm)
 
+      #stickybox(rotation: -3deg)[
+      #align(center)[
+        *Beobachtung*
+        #v(-2pt)
+        Der Wert eines römischen Zeichens hängt nicht von seiner Position ab. Ein X bedeutet immer 10, egal wo es steht. Warum das speziell ist, werden wir jetzt bald sehen.
+      ]]
+      
+  ],
+  [
+    #image("../Bilder/roman_joke_1.jpeg")
+  ]
+)
 
+#v(5mm)
 
+Die römischen Zahlen funktionieren gut, solange Zahlen nur dargestellt werden sollen. Sobald aber viele oder grosse Zahlen vorkommen oder gerechnet werden muss, wird die Darstellung kompliziert und unhandlich. Stellen Sie sich mal vor, Sie müssten im Mathematikunterricht jetzt mit solchen römischen Zahlen rechnen! Da sind unserer Dezimalzahlen viel praktischer. Sie gehören zu den sogenannten Stellenwertsystemen, bei denen die Position einer Ziffer in der Zahl eine Rolle spielt.
 
+Was das jetzt genau bedeutet, werden wir uns im nächsten Kapitel anschauen.
+
+/*
 #grid(
   columns: (0.25fr, 1fr),
   gutter: 3em,
@@ -142,8 +203,4 @@ Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgend
     )
   ]
 )
-
-
-
-
-Die Zahl, die man abbilden möchte, wird durch das Aneinanderreihen der Zeichen dargestellt. Dabei hängt der Wert eines Zeichens nicht von seiner Position ab. Die Zeichen stehen also immer für denselben Wert. Ein X bedeutet immer 10, egal wo es steht.
+*/

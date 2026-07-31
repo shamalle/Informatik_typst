@@ -55,6 +55,8 @@
 
   show heading: set block(below: 1em)
 
+  show figure.caption: set text(size: 8.5pt)
+
   show link: set text(blue)
   show link: underline
 

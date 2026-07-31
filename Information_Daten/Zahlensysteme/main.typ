@@ -24,8 +24,6 @@
   thema: "Information und Daten",
 )
 
-#show figure.caption: set text(size: 9pt)
-
 #include "Kapitel/nicht_stellenwertsysteme.typ"
 
 #include "Kapitel/grundlagen_stellenwertsysteme.typ"
