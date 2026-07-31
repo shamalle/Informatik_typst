@@ -8,11 +8,11 @@
 
 #grid(
   columns: (1fr, 0.5fr),
-  gutter: 1em,
+  gutter: 1.5em,
   [
     Bevor wir uns mit Stellenwertsystemen beschäftigen, wollen wir kurz einen Blick auf andere Zahlensysteme werfen, die nicht auf dem Stellenwertprinzip basieren. 
     
-    Menschen mussten schon vor Tausenden von Jahren Mengen und Zahlen darstellen. Eine Möglichkeit dafür waren die römischen Zahlen. Solche Ziffern sehen Sie heute noch an Gebäudefassaden oder auch auf Uhren. Bei den römischen Zahlen hat jedes Zeichen eine feste Bedeutung.
+    Menschen mussten schon vor Tausenden von Jahren Mengen und Zahlen darstellen. Eine Möglichkeit dafür waren die römischen Zahlen. Solche Ziffern sehen Sie heute noch an Gebäudefassaden oder auch auf Uhren. Bei den römischen Zahlen hat jedes Zeichen eine feste Bedeutung. So steht z.B. das Zeichen V für den Wert 5 oder das L für den Wert 50. Eine Auflistung der Zeichen und ihrer Werte sehen Sie in der @roman-table auf der rechten Seite.
     
     #table(
       columns: (auto, auto),
@@ -30,7 +30,11 @@
         [C], [100],
     )
   ],
-  [#image("../Bilder/roman_number.jpg", height: 3cm)],
+  [
+    #figure(image("../Bilder/roman_number.jpg", height: 3cm), caption: "Römische Zahlen an einer Gebäudefassade")
+
+    #figure(image("../Bilder/roman_numbers_table.png", height: 3.5cm), caption: "Übersicht der römischen Zahlen und ihrer Werte") <roman-table>
+  ],
 )
 
 
