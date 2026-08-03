@@ -170,7 +170,7 @@ Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgend
 
       #stickybox(rotation: -3deg)[
       #align(center)[
-        *Beobachtung*
+        *Beobachtung 🔍*
         #v(-2pt)
         Der Wert eines römischen Zeichens hängt nicht von seiner Position ab. Ein X bedeutet immer 10, egal wo es steht. Warum das speziell ist, werden wir jetzt bald sehen.
       ]]
