@@ -28,8 +28,6 @@
 
 #include "Kapitel/grundlagen_stellenwertsysteme.typ"
 
-#include "Kapitel/unser_zahlensystem.typ"
-
 #include "Kapitel/binaersystem.typ"
 
 #include "Kapitel/hexadezimalsystem.typ"
