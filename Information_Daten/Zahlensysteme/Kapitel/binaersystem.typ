@@ -62,7 +62,10 @@ Jetzt haben wir eigentlich schon alles, was man über das Binärsystem wissen mu
       [
         *Variante 1* Für diese Umrechnung braucht es etwas mehr Zeit. Um von einer Dezimalzahl ins Binärsystem zu kommen, teilen Sie die Zahl immer wieder durch 2 und notieren Sie sich jeweils den Rest. Die Reste, die Sie aufschreiben, ergeben dann rückwärts aufgelistet die binäre Zahl. Das sieht dann wie folgt aus:
       
-        *Variante 2* Dieser Weg führt Sie sicher zum richtigen Ergebnis. Falls es Ihnen aber zu umständlich ist, können Sie mit etwas Überlegen zum gleichen Ergebnis kommen. Sie überlegen sich einfach direkt, welche Zweierpotenzen Sie brauchen. Fangen Sie mit der grössten Zweierpotenz an, die kleiner oder gleich der Zahl ist, die Sie umrechnen möchten: In die 47 passt zum Beispiel *1* Mal die 32 rein und übrig bleibt 15. Die nächste Zweierpotenz, 16, passt nicht mehr rein (*0* Mal). Aber die 8 passt in 15 wieder *1* Mal rein und übrig bleibt 7. Dort passt die 4 wieder *1* Mal rein und übrig bleibt 3. Weiter passt die 2 wieder *1* Mal rein und im Rest 1 passt auch die 1 wieder *1* Mal rein. Die fetten Zahlen aufgeschrieben ergibt sich $101111_2$.
+        *Variante 2* Dieser Weg führt Sie sicher zum richtigen Ergebnis. Mit etwas Übung geht es aber auch schneller: Überlegen Sie sich direkt, welche Zweierpotenzen Sie benötigen.
+        Beginnen Sie mit der grössten Zweierpotenz, die kleiner oder gleich der Zahl ist. Bei 47 ist das 32. Die 32 passt *1*-mal hinein, es bleibt 15 übrig. Die nächste Zweierpotenz, 16, passt nicht mehr hinein (*0*-mal). Die 8 passt wieder *1*-mal hinein, es bleibt 7. Danach passen auch die 4, die 2 und die 1 jeweils *1*-mal hinein.
+        
+        Die fettgedruckten Ziffern ergeben somit direkt die Binärzahl $101111_2$.
       ],
       [
         #image("../Bilder/example_decimal_to_binary.png")
@@ -70,4 +73,153 @@ Jetzt haben wir eigentlich schon alles, was man über das Binärsystem wissen mu
     )
   ]
 
-Hier folgen ein paar Aufgaben, damit Sie das Umrechnen vom Dezimalsystem ins Binärsysten und umgekehrt üben können.
+#v(5mm)
+
+#grid(
+  columns: (1fr, 0.8fr),
+  gutter: 2em,
+  [
+    #stickybox(rotation: -3deg)[
+      #align(center)[
+        *Wichtig!*
+        #v(-2pt)
+        Damit man den Überblick bei so langen binären Zahlen nicht verliert, ist es üblich, die Zahlen in Viererblöcke zu unterteilen. Von rechts nach links zählt man jeweils vier ab und macht dann einen Hochstrich. Wenn der linke Block nicht voll ist, füllt man ihn mit 0 auf.
+
+        #table(
+          columns: (auto, auto, 0.6cm, auto, auto),
+          align: (right, left, center, right, left),
+          stroke: none,
+          
+          [10010111],    [→ 1001\'0111],      [], [11011],       [→ 0001\'1011],
+          [10111001101], [→ 0101\'1100\'1101], [], [111],         [→ 0111],
+)
+      ]]
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Rechnen Sie die folgenden Binärzahlen ins Dezimalsystem um:
+        #set enum(numbering: "a.")
+          + $1001_2$
+          + $0001\'0010_2$
+          + $1011_2$
+          + $1000\'0001_2$
+          + $1010\'0000_2$
+          + $0100\'0110_2$
+      ],
+      solution: [a) 9, b) 18, c) 11, d) 129, e) 160, f) 70])
+  ]
+)
+
+#v(3mm)
+
+#grid(
+  columns: (1fr, 0.8fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Am Bahnhof in St. Gallen sehen Sie folgende Uhr am Gebäude
+        
+        #image("../Bilder/binary_watch.png")
+
+        Können Sie die Uhrzeit auf dem Bild ablesen? Versuchen Sie die aktuelle Zeit ebenso in dieser Darstellung zu schreiben.
+          
+      ],
+      solution: [Die Uhrzeit auf dem Bild ist 17:09 Uhr und 23 Sekunden.])
+  ],
+  [
+    #v(2.5mm)
+    #exo(
+      title: [],
+      exercise: [
+        Wandeln Sie folgende Zahlen in eine binäre um: 
+        #set enum(numbering: "a.")
+          + 15
+          + 96
+          + 19
+          + 131
+          + 72
+          + 128
+      ],
+      solution: [a) 1111, b) 0110\'0000, c) 0001\'0011, d) 1000\'0011, e) 0100\'1000, f) 1000\'0000])
+
+    #v(5mm)
+
+    #exo(
+      title: [],
+      exercise: [
+        Warum darf man bei einer binären Zahl zwar von links her mit 0 auffüllen, aber nicht von rechts her?
+      ],
+      solution: [Wenn man von links her mit 0 auffüllt, ändert sich der Wert der Zahl nicht. Zum Beispiel wenn man bei der Zahl $11_2$ von links eine 9 auffüllt, kommt ja nur $0 dot 4$ hinzu. Wenn man hingegen von rechts eine 0 anhängt wird aus $11_2 = 1 dot 2 + 1 dot 1 = 3$ dann die Zahl $110_2 = 1 dot 4 + 1 dot 2 + 0 dot 1 = 6$.)]
+      )
+  ]
+)
+
+#v(2mm)
+
+#exo(
+  title: [],
+  exercise: [
+    Für diese Aufgabe brauchen Sie ein Set von Zauberkarten und arbeiten in einem Zweierteam. Jemand von Ihnen ist der/die Zauberer/Zauberin (*ZA*), die andere Person ist Zuschauer (*ZU*). Bestimmen Sie, wer welche Rolle bekommt und ZA kann bei der Lehrperson nach einem Stapel Karten fragen.\
+    *Ab hier liest nur noch ZA die Anweisungen und ZU schaut nicht mehr auf das Blatt!*
+
+    Anweisungen an *ZA*:
+
+    1. Mische die 6 Karten zufällig und lege sie auf einen Stapel.
+    2. Fordere *ZU* auf, sich eine Zahl zwischen 0 und 63 auszudenken, nicht zu verraten und verdeckt auf einen Zettel zu schreiben.
+    3. Decke nacheinander die 6 Karten auf und frage jeweils *ZU*, ob sich die ausgedachte Zahl darauf befindet.
+      - Falls "Ja", lege die Karte auf deine linke Seite und zähle immer die erste Zahl auf dieser Karte dazu.
+      - Falls "Nein", lege die Karte auf deine rechte Seite und ignoriere sie.
+    4. Wenn du jetzt alle Karten durchgefragt hast und jeweils die Zahlen addiert hast von den "Ja"-Karten, verkünde diese Summe an *ZU*. Es sollte die Zahl sein, die auf dem Zettel notiert worden ist.
+
+    _Falls es nicht funktioniert hat, hast entweder du dich verrechnet oder ZU hat dir eventuell eine falsche Antwort geliefert._
+
+    Warum funktioniert dieser Zaubertrick? Können Sie ihn erklären?
+  ],
+  solution: [Die Antworten von ZU geben die binäre Darstellung der Zahl an. Falls die Zahl auf der Karte steht, ist die Ziffer 1, falls nicht, ist die Ziffer 0. Die Summe der Zahlen auf den Karten, die mit "Ja" beantwortet wurden, ergibt dann die Zahl, die sich ZU ausgedacht hat. Die Zahlen, die man sich nämlich ausdenkt, findet man nur auf denen Karten, mit der man die Zahl als Summe von Zweierpotenzen darstellen kann.]
+)
+
+== Im Binärsystem rechnen und zählen
+
+Wie im Dezimalsystem auch, kann man im Binärsystem auch rechnen. Ihr Computer macht das schliesslich ständig. Als kleine Repetition schauen wir uns zuerst nochmals die Addition im Dezimalsystem an:
+
+#grid(
+  columns: (0.6fr, 0.4fr),
+  gutter: 1.5em,
+  [
+    Man schreibt die zu addierenden Zahlen übereinander und fängt von rechts her in Spalten zu addieren. Wenn die Summe einer Spalte grösser als 9 ist, schreibt man die Einerstelle auf und merkt sich die Zehnerstelle als kleine 1 auf der nächsten Spalte (Übertrag). Also bei $7+8=15$ schreibt man sich die 5 auf und eine kleine 1 auf der nächsten Spalte. So geht man von rechts nach links, bis es nichts mehr zu addieren gibt.
+  
+  ],
+  [
+    #v(2mm)
+    #image("../Bilder/addition_decimal.png")
+  ]
+)
+
+Im Binärsystem gibt es eigentlich die analogen Regeln auch. Im Dezimalsystem gibt es 10 Ziffern (von 0 bis 9) und sobald etwas grösser ist, gibt es einen Übertrag. Analog gibt es im Binärsystem nur 2 Ziffern (0 und 1) und sobald etwas grösser als 1 ist, gibt es einen Übertrag. 
+
+#grid(
+  columns: (0.7fr, 0.3fr),
+  gutter: 1.5em,
+  [
+    #image("../Bilder/addition_binary.png")
+  ],
+  [
+    #v(-4mm)
+    #outline-colorbox(
+      title: "Regeln der Addition",
+      color: "blue",
+      radius: 3pt,
+      width: auto,
+      )[
+        - $0+0=0$
+        - $0+1=1$
+        - $1+0=1$
+        - $1+1=0$ _Übertrag_ $1$
+      ]
+  ]
+)
+

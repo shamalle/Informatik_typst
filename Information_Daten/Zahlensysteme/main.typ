@@ -56,5 +56,7 @@
 
 = Lösungen
 
+#v(-5mm)
+
 #codly(zebra-fill: luma(240))
 #exo-print-solutions(title: none) // Print collected solutions
