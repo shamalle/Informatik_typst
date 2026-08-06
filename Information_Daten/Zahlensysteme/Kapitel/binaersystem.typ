@@ -223,3 +223,6 @@ Im Binärsystem gibt es eigentlich die analogen Regeln auch. Im Dezimalsystem gi
   ]
 )
 
+Hinweis: Auch Subtraktion, Multiplikation und Division sind im Binärsystem möglich. Da sie nach denselben Regeln wie im Dezimalsystem funktionieren, beschränken wir uns hier auf die Addition.
+
+Vielleicht insert "Arbeitsblatt mit Händen binär zählen"
