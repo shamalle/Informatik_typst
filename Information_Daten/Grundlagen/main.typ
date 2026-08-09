@@ -16,7 +16,7 @@
 
 #set document(
   title: [
-    Grundlagen
+    1 | Grundlagen
   ],
   author: "TaT",
 )

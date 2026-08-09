@@ -45,8 +45,6 @@
 
 // #include "Kapitel/grundlagen.typ"
 
-#pagebreak()
-
 // ========================================
 
 #pagebreak()
