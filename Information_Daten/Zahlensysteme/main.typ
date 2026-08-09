@@ -15,7 +15,7 @@
 
 #set document(
   title: [
-    Zahlensysteme
+    2 | Zahlensysteme
     ],
   author: "TaT",
 )

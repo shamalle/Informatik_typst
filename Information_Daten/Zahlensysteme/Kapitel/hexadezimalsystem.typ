@@ -33,8 +33,202 @@ Das Konzept bleibt das gleiche wie bei den Stellenwertsystemen, die wir vorher g
       - $1010_16 = 1 dot 16^3 + 0 dot 16^2 + 1 dot 16^1 + 0 dot 16^0 = 4096 + 16 = 4112_10$ #h(2mm) $(=0001\'0000\'0001\'0000_2)$ 
   ]
 
+Man sieht an den Beispielen sehr schnell, wie viel kompakter das Hexadezimalsystem grosse Zahlen schreiben kann als das Binärsystem. Und an den Umrechnungen von hexadezimalen Zahlen ins Dezimalsystem ist an den Beispielen oben auch schnell ersichtlich, dass das Konzept das gleiche bleibt. Schauen wir uns aber jetzt andere Umrechnungen zwischen den Systemen an:
 
 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #outline-colorbox(
+      title: "Hexadezimal → Binär",
+      color: "purple",
+      radius: 3pt,
+      width: auto,
+      )[
+        Die Umrechnung ist besonders einfach: Jede Hexadezimalziffer entspricht genau vier Binärziffern. Wir übersetzen deshalb jede Hexadezimalziffer einzeln in ihr 4er-Binär-Päckchen.
+
+        #align(center)[
+          #image("../Bilder/hexadecimal_to_binary.png")
+        ]
+
+        Warum funktioniert das? Das Hexadezimalsystem hat die Basis 16 und es gilt: $16 = 2^4$. Darum kann jede Hexadezimalziffer die Werte von 0-15 darstellen: genau die Werte, die mit vier binären Ziffern möglich sind.
+
+
+      ]
+  ],
+  [
+    #outline-colorbox(
+      title: "Binär → Hexadezimal",
+      color: "purple",
+      radius: 3pt,
+      width: auto,
+      )[
+        Auch diese Umrechnung ist nicht umständlich: Wir teilen die Binärzahl von rechts nach links in 4er-Päckchen auf und übersetzen jedes Päckchen in eine Hexadezimalziffer.
+
+        #align(center)[
+          #image("../Bilder/binary_to_hexadecimal.png", width: 70%)
+        ]
+
+        Falls man noch nicht so geübt darin ist, kann man sich schnell als Zwischenschritt die Dezimalzahl hinschreiben, wie oben im Beispiel abgebildet.
+      ]
+  ]
+)
+
+Damit Sie das ganze Umrechnen etwas üben können, haben Sie hier ein paar Aufgaben.
+
+#v(3mm)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #stickybox(rotation: -3deg)[
+      #align(center)[
+        *Bemerkung 🔍*
+
+        #v(-2pt)
+
+        In der Informatik nennt man eine einzelne binäre Ziffer ein *Bit*. 8 Bits ergeben ein *Byte*.
+
+        #v(-4pt)
+
+        #table(
+          columns: (auto, auto, auto),
+          column-gutter: 10pt,
+          align: (left, left, left),
+          stroke: none,
+          [*Beispiele:*], [101], [→ 3 Bit],
+          [], [1011'0011], [→ 1 Byte],
+        )
+      ]
+    ]
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Schreiben Sie die folgenden Binärzahlen in ihre hexadezimale Form und umgekehrt:
+        #set enum(numbering: "a.")
+          + $0000\'1001_2$
+          + $1011\'0000_2$
+          + $7F_16$
+          + $A D_16$
+      ],
+      solution: [a) $09$, b) $B 0$, c) $0111\'1111$ d) $1010\'1101$])
+  ]
+)
+
+#v(3mm)
+
+Jetzt haben Sie einiges über Zahlenssysteme gelernt. Neues über Zahlensysteme kommt in diesem Kapitel nicht mehr dazu. Jetzt finden Sie einfach noch einen Anhang mit vielen Aufgaben, die nicht Teil des Unterrichts sind, Sie aber zum Üben für die Prüfung brauchen können. Lösungen dazu können Sie selbst recherchieren.
+
+#line(length: 100%)
+
+#text(
+  size: 1.2em,
+  weight: "bold",
+  )[Repetitionsaufgaben zum Kapitel 2 | Zahlensysteme: Umrechnungen]
+
+Aufgabe 1: Rechnen Sie die Dezimalzahlen ins Binärsystem um. Erkennen Sie ein Muster?
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: 5pt,
+
+  table(
+    columns: (1fr, 2fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Dezimal*]],
+    [#align(right)[*Binär*]],
+    align: (right, left),
+
+    [$1$], [],
+    [$3$], [],
+    [$5$], [],
+    [$7$], [],
+  ),
+
+  table(
+    columns: (1fr, 2fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Dezimal*]],
+    [#align(right)[*Binär*]],
+    align: (right, left),
+
+    [$30$], [],
+    [$31$], [],
+    [$32$], [],
+    [$33$], [],
+  ),
+
+  table(
+    columns: (1fr, 2fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Dezimal*]],
+    [#align(right)[*Binär*]],
+    align: (right, left),
+
+    [$128$], [],
+    [$256$], [],
+    [$512$], [],
+    [$1024$], [],
+  ),
+)
+
+Aufgabe 2: Rechnen Sie die Binärzahlen ins Dezimalsystem um. Erkennen Sie ein Muster?
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: 5pt,
+
+  table(
+    columns: (2fr, 1fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Binär*]],
+    [#align(right)[*Dezimal*]],
+    align: (right, left),
+
+    [$1_2$], [],
+    [$10_2$], [],
+    [$100_2$], [],
+    [$1000_2$], [],
+  ),
+
+  table(
+    columns: (2fr, 1fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Binär*]],
+    [#align(right)[*Dezimal*]],
+    align: (right, left),
+
+    [$1001_2$], [],
+    [$0001\'0001_2$], [],
+    [$0010\'0001_2$], [],
+    [$0100\'0001_2$], [],
+  ),
+
+  table(
+    columns: (2fr, 1fr),
+    stroke: 0.5pt,
+
+    [#align(left)[*Dezimal*]],
+    [#align(right)[*Binär*]],
+    align: (right, left),
+
+    [$0010\'1010_2$], [],
+    [$0010\'1011_2$], [],
+    [$0010\'1100_2$], [],
+    [$0010\'1101_2$], [],
+  ),
+)
+
+/*
 #grid(
   columns: (0.5fr, 1fr),
   gutter: 1.5em,
@@ -45,3 +239,4 @@ Das Konzept bleibt das gleiche wie bei den Stellenwertsystemen, die wir vorher g
     
   ]
 )
+*/
