@@ -18,18 +18,21 @@ Bevor wir uns mit Stellenwertsystemen beschäftigen, wollen wir kurz einen Blick
       weight: "bold",
       )[Wie funktioniert das römische Zahlensystem?]
 
-    Sie sehen schnell, dass es für Zahlen wie z.B. die 2 oder die 9 kein eigenes Zeichen gibt. Das heisst aber nicht, dass man diese Zahl nicht darstellen kann. Jede Zahl, die man also darstellen möchte, muss durch eine Aneinanderreihung der sieben Zeichen im rechten Bild erstellt werden. 
+    Jede Zahl, die man darstellen möchte, muss durch eine Aneinanderreihung der sieben Zeichen im rechten Bild erstellt werden. 
 
     Wenn also die Zahl 2 geschrieben werden sollte, hat man einfach zwei Mal das Zeichen für 1 nebeneinander geschrieben. Das sieht dann so aus: II.
     
     Doch nicht jede Zahl wird so einfach gebildet. Nehmen wir die Zahl 9. In der römischen Schreibweise ist es dann: IX. Hierbei wird sozusagen von der 10, also dem X, genau 1 abgezogen, sodass 9 entsteht. Somit haben wir auch schon die zwei Regeln zum Aufschreiben von Zahlen im römischen Zahlensystem:
   ],
   [
+    #v(-4mm)
     #figure(image("../Bilder/roman_number.jpg", height: 3cm), caption: "Römische Zahlen an einer Gebäudefassade welche 1914 bedeuten.")
 
-    #figure(image("../Bilder/roman_numbers_table.png", height: 3.5cm), caption: "Übersicht der römischen Zahlen und ihrer Werte") <roman-table>
+    #figure(image("../Bilder/roman_numbers_table.png", height: 3.5cm), caption: "Die römischen Zeichen") <roman-table>
   ],
 )
+
+#v(-3mm)
 
 #outline-colorbox(
   title: "Regeln des römischen Zahlensystems",
@@ -39,20 +42,30 @@ Bevor wir uns mit Stellenwertsystemen beschäftigen, wollen wir kurz einen Blick
 )[
   + Steht eine Zahl rechts neben einer gleichen oder größeren Zahl, dann werden die Werte *addiert*:
 
-    - #text(fill: blue)[VI = 5 + 1 = 6]\
-    - #text(fill: blue)[XX = 10 + 10 = 20]
+    - #text(fill: blue)[VI $= 5 + 1 = 6$]\
+    //- #text(fill: blue)[XX = 10 + 10 = 20]
 
   + Steht ein Zahlzeichen links neben einem höheren, so wird sein Wert *subtrahiert*:
 
-    - #text(fill: blue)[IV = 5 - 1 = 4]\
-    - #text(fill: blue)[XL = 50 - 10 = 40]
+    - #text(fill: blue)[IV $= 5 - 1 = 4$]\
+    //- #text(fill: blue)[XL = 50 - 10 = 40]
 
-  + (Sonderregel) Die Zeichen der Fünferbündelung (V, L ,D) werden generell *nicht* in subtraktiver Stellung einem größeren Zeichen vorangestellt:
+  + Subtrahiert werden dürfen nur *bestimmte Kombinationen*:
+
+    - #text(fill: blue)[I darf nur vor V oder X stehen: IX $= 10$]\
+    - #text(fill: blue)[X darf nur vor L oder C stehen: XL $=40$]\
+    - #text(fill: blue)[C darf nur vor D oder M stehen: CM $=900$]\
+
+  + Ein Zeichen wird *höchstens dreimal* hintereinander geschrieben.
+
+    - #text(fill: blue)[III ist erlaubt, IIII nicht]\
+
+  + Die Zeichen V, L und D werden generell *nicht* in subtraktiver Stellung einem größeren Zeichen vorangestellt:
 
     - #text(fill: blue)[Also nicht VDI sondern CDXCVI].
   ]
 
-Um eine römische Zahl in unser heutiges Dezimalsystem umzuwandeln, benötigst du nur die beiden Regeln für römische Zahlen und die jeweiligen Symbolbedeutungen. Hingegen um eine Dezimalzahl in eine römische Zahl umzuwandeln, dauert etwas länger, da man sich überlegen muss, welche der beiden Regeln man verwendet oder ob sogar beide verwendet werden müssen. Daher sehen Sie hier ein paar Beispiele:
+Um eine römische Zahl in unser Dezimalsystem umzuwandeln, benötigst du nur die beiden Regeln für römische Zahlen und die jeweiligen Symbolbedeutungen. Die andere Richtung ist etwas mühsamer. Daher sehen Sie hier ein paar Beispiele:
 
 
 #grid(
@@ -87,9 +100,6 @@ Um eine römische Zahl in unser heutiges Dezimalsystem umzuwandeln, benötigst d
       ]
   ]
 )
-
-
-Testen Sie nun selbst Ihr Wissen über das römische Zahlensystem in den folgenden Aufgaben:
 
 #grid(
   columns: (1fr, 1fr),
