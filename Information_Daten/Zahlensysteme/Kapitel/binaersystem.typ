@@ -225,4 +225,47 @@ Im Binärsystem gibt es eigentlich die analogen Regeln auch. Im Dezimalsystem gi
 
 Hinweis: Auch Subtraktion, Multiplikation und Division sind im Binärsystem möglich. Da sie nach denselben Regeln wie im Dezimalsystem funktionieren, beschränken wir uns hier auf die Addition.
 
-Vielleicht insert "Arbeitsblatt mit Händen binär zählen"
+#v(3mm)
+
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #stickybox(rotation: -3deg)[
+      #align(center)[
+        *Bemerkung 🔍*
+
+        #v(-2pt)
+
+        In der Informatik nennt man eine einzelne binäre Ziffer ein *Bit*. 8 Bits ergeben ein *Byte*.
+
+        #v(-4pt)
+
+        #table(
+          columns: (auto, auto, auto),
+          column-gutter: 10pt,
+          align: (left, left, left),
+          stroke: none,
+          [*Beispiele:*], [101], [→ 3 Bit],
+          [], [1011'0011], [→ 1 Byte],
+        )
+      ]
+    ]
+  ], 
+  [
+    #exo(
+      exercise: [
+        Addieren Sie die folgenden binären Zahlen:
+        #set enum(numbering: "a.")
+          + $11_2 + 1110_2$ 
+          + $1100_2 + 0011_2$ 
+          + $11111_2 + 00001_2$
+          + $1111\'1111 + 0000\'0001$ aber der Computer hat nur Platz für 8 Bits (1 Byte)?
+      ],
+      solution: [a) $10001$, b) $1111$, c) $100000$, d) $0000\'0000$
+    )
+  ]
+)
+
+#v(3mm)

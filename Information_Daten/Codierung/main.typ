@@ -15,7 +15,7 @@
 
 #set document(
   title: [
-    4 | Codierung
+    3 | Codierung
     ],
   author: "TaT",
 )
@@ -24,9 +24,23 @@
   thema: "Information und Daten",
 )
 
-Wir haben ja schon mal die Begriffe "Daten", "Information" und "Code" gehört. Auch haben wir gelernt, dass der Computer Texte und Bilder anders sieht als wir. Er sieht per se nicht Buchstaben oder farbige Pixel. Darunter liegen grosse Mengen an binären Zahlen, die dann von der Maschine übersetzt werden, dass wir am Bildschirm eben uns nicht mehr um die Zahlen kümmern müssen, sondern Bilder, Videos oder Texte.
+#grid(
+  columns: (1fr, 0.27fr),
+  gutter: 1em,
+  [
+    Wenn wir ein Foto anschauen, sehen wir ein Bild. Wenn wir ein Lied hören, hören wir Musik. Ein Computer nimmt diese Dinge jedoch nicht so wahr wie wir. Er hat ja keine Augen oder Ohren. Für ihn besteht ein Foto, ein Lied oder ein Video aus einer langen Folge von 0 und 1, weil das ist ja seine Sprache. Jede einzelne 0 oder 1 ist dabei ein *Bit*. 
+
+    Damit wir aber nicht solch für unsere Augen nichtsaussagenden Ansammlungen von 0 und 1 anschauen müssen, übersetzt der Computer diese binären Anordnungen in Pixel oder Buchstaben. Diese Übersetzung zwischen menschenverständlichem und computerverständlichem bezeichnet man als *Codierung* und *Decodierung*.
+  ],
+  [
+    #v(-2mm)
+    #image("Bilder/datenmenge_binary.png")
+  ]
+)
 
 #include "Kapitel/textcodierung.typ"
+
+
 
 #include "Kapitel/bildercodierung.typ"
 
