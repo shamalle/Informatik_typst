@@ -185,7 +185,7 @@ Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für
   )[
 
     #grid(
-      columns: (1fr, 0.71fr),
+      columns: (1fr, 0.73fr),
       gutter: 1em,
       [
         In der Tabelle sehen Sie, dass dem Buchstaben A der Wert 65 zugeordnet ist. Diese Zuordnung wurde festgelegt und jedes Zeichen erhält dadurch einen eindeutigen Code. Das kleine a hat zum Beispiel den Wert 97. Das sind Dezimalzahlen. Der Computer speichert die Informationen jedoch nicht als Dezimalzahlen, sondern binär.
@@ -209,12 +209,38 @@ Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für
     )
   ]
 
+Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie bei der Lehrperson anfragen können.
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Schreiben Sie den folgenden Satz in ASCII, indem Sie die Codes in *dezimaler* Schreibweise hinschreiben:
+
+        Macht Informatik Spass?
+      ],
+      solution: [77 97 99 104 116 32 73 110 102 111 114 109 97 116 105 107 32 83 112 97 115 115 63])
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [
+        Schreiben Sie den folgenden Satz in ASCII, indem Sie die Codes in *binärer* Schreibweise hinschreiben:
+
+        Heute ist es schön😎
+      ],
+      solution: [1001000 1100101 1110101 1110100 1100101 0100000 1101001 1110011 1110100 0100000 1100101 1110011 0100000 1110011 1100011 1101000 1101111 1100101 1101110\
+      Für das ö haben wir kein geeignetes ASCII-Zeichen gesehen, darum haben wir es mit oe ersetzt. Für das Emoji haben wir aber bisher keine Lösung...])
+  ]
+)
+
+ASCII scheint also ebenfalls nicht ganz 
 
 
-    
 
 
 
-
-
-== UTF-8 Codierungehm
+== UTF-8 Codierung
