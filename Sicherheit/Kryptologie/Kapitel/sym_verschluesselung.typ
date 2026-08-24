@@ -272,7 +272,7 @@ Um jetzt den Klartext mit dem Schlüssel zu verschlüsseln müssen wir einfach S
 
 #v(5pt)
 
-Wenn Sie die Aufgabe gemacht haben, sollten Sie jetzt den Geheimtext als als Binärzahl haben. Wir wissen nicht, was diese binäre Zahlen für Zeichen sind. Das ist aber nicht sonderlich schlimm, weil der Geheimtext häufig gar nicht sinnvoll als ASCII-Zeichen dargestellt werden, resp. nicht als für uns lesbares ASCII-Zeichen in Form von Buchstaben, Zahlen oder Sonderzeichen. Warum nicht? Schauen Sie nochmals die folgende Tabelle an:
+Wenn Sie die Aufgabe gemacht haben, sollten Sie jetzt den Geheimtext als Binärzahl haben. Wir wissen nicht, was diese binäre Zahlen für Zeichen sind. Das ist aber nicht sonderlich schlimm, weil der Geheimtext häufig gar nicht sinnvoll als ASCII-Zeichen dargestellt werden, resp. nicht als für uns lesbares ASCII-Zeichen in Form von Buchstaben, Zahlen oder Sonderzeichen. Warum nicht? Schauen Sie nochmals die folgende Tabelle an:
 
 #v(5pt)
 
@@ -530,7 +530,7 @@ Diesen Betriebsmodus müssen wir hier also nicht noch mal anschauen, weil Sie vo
 
 #text(size: 1.2em, weight: "bold")[(B) Cipher Block Chaining (CBC)]
 
-Letzte Woche haben Sie den ECB-Modus kennengelernt. Der CBC-Modus ist um einiges interessanter. In diesem werden die Blöcke nicht mehr getrennt voneinander verarbeitet. Wie in der folgenden Abbildung ersichtlich ist, dient jeder Geheimtext-Block (ausser der letzte) im nachfolgenden Schritt zusätzlich als Input. So werden gleiche Klartext-Blöcke trotz identischem Schlüssel zu unterschiedlichen Geheimtextblöcken verschlüsselt.
+Der CBC-Modus ist um einiges interessanter. In diesem werden die Blöcke nicht mehr getrennt voneinander verarbeitet. Wie in der folgenden Abbildung ersichtlich ist, dient jeder Geheimtext-Block (ausser der letzte) im nachfolgenden Schritt zusätzlich als Input. So werden gleiche Klartext-Blöcke trotz identischem Schlüssel zu unterschiedlichen Geheimtextblöcken verschlüsselt.
 
 Das Plus-Zeichen im Kreis steht hier ebenfalls für die XOR-Operation. Diese ist gegeben, während die Verschlüsselung im grossen Rechteck mit der Bezeichnung *Blockchiffre Verschlüsselung* eigentlich frei gewählt werden kann (also bspw. auch ein aktuell sicheres Verfahren). Wir verwenden hier aber auch die XOR-Operation, der Einfachheit halber.
 
@@ -851,7 +851,7 @@ Bei der Entschlüsselung haben wir übrigens kein Problem mit der fehlenden Para
       [],
       [],
       [],
-    ),
+    )
   ],
   solution: [
     #table(
@@ -896,5 +896,5 @@ Bei der Entschlüsselung haben wir übrigens kein Problem mit der fehlenden Para
       [L],
       [O],
     )
-  ],
+  ]
 )

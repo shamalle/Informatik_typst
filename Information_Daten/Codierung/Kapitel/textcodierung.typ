@@ -209,7 +209,7 @@ Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für
     )
   ]
 
-Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie bei der Lehrperson anfragen können.
+Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unterhalb einsehen können.
 
 #grid(
   columns: (1fr, 1fr),
@@ -237,10 +237,78 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie bei der Leh
   ]
 )
 
-ASCII scheint also ebenfalls nicht ganz 
+#figure(image("../Bilder/complete_7bit_ascii.jpg"))<ascii-table>
+
+ASCII scheint also ebenfalls nicht ganz vollständig unsere modernen Anforderungen zu erfüllen. Zwei der Zeichen aus den Sätzen von den Aufgaben sind nicht in der Tabelle enthalten... Haben Sie eine Ahnung, warum Zeichen mit Akzent (é, â, ö, $tilde(n)$) nicht enthalten sind? Die Antwort liegt im A von ASCII.
+
+== Weitere Codierungen
+
+Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits. Genau das machte IBM beispielsweise mit Code Page 437. Die ersten 128 Zeichen blieben unverändert und entsprachen ASCII. Die zusätzlichen 128 Zeichen wurden mit weiteren Buchstaben, Symbolen und grafischen Zeichen gefüllt.
+
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1em,
+  [
+    #exo(
+      exercise: [
+        Wie viele verschiedene Zeichen können mit 8 Bits dargestellt werden? Wie viele davon kommen im Vergleich zu 7 Bits hinzu?
+      ],
+      solution: [
+        $2^7=128$ und $2^8=256$. Es kommen also $128$ neue Zeichen dazu (doppelt so viele wie vorher).
+      ]
+    )
+
+    Wenn wir uns die Code Page 437 in @codepage437 genauer betrachten, können wir schnell überprüfen, dass die Zeichen für die ASCII Werte dieselben sind wie vorher:
+
+    Nehmen wir mal den Grossbuchstaben A. In der Tabelle sehen wir, dass er in Zeile 4, Spalte 1 ist. Das kann man so lesen, dass der Hexadezimalwert von A $41_16$ ist. Das ist derselbe Wert, den A in der Tabelle in @ascii-table hat.
+
+
+  ],
+  [
+    #figure(
+      box(
+        stroke: 1pt,
+        inset: 4pt,
+        image("../Bilder/codepage437_ibm1981.png"),
+      ),
+      caption: [Code Page 437, wie sie IBM für ihren Computer 1981 darstellte. Die Reihen und Spalten sind Hexadezimalzahlen.],) <codepage437>
+    #figure(
+      image("../Bilder/norton_commander.png"),
+      caption: [Der Norton Commander war eine frühere Version ihres heutigen Explorers/Finders auf ihrem Windows/Mac.])
+  ]
+) 
 
 
 
+
+
+
+
+
+
+#pagebreak()
+
+Da ASCII nicht ausreichte für einen grossen Teil der Weltbevölkerung, hat man das Konzept weiterentwickelt. Zuvor hat man die Kosten von einem weiteren Bit gescheut, sich aber dann schlussendlich doch dafür entschieden, auf 8 Bit zu erweitern. Diese Systeme hatten dann andere Namen (ANSII, Codepage 437, Codepage 850, Unicode, ...).
+
+Codepage 437:
+
+IBM hatte 1981 bei der Einführung ihres Computers vorgehabt, ASCII zu nehmen und dann gemerkt, dass wenn man in der Schweiz oder anderen europäischen Länder den Computer verkaufen möchte, man wohl oder übel Umlaute braucht. Und darum haben die zwar ASCII genommen aber dann 1 Bit dazugenommen und somit von 7 Bit auf 8 Bit erweitert. Was bedeutet das? Wie viele zusätzliche Zeichen kriegen wir dann? Zusätzlich 128 Zeichen! (Aufgabe)
+
+(Zeige hier die Tabelle von Codepage 437 mit dem Vergleich, was 1 Bit zusätzlich ausmacht.)
+
+Also mit einem Bit hat man all die unteren Zeichen dazugewonnen inklusive all die mit den Umlauten. Sowie weitere Zeichen, die IBM damals als sinnvoll angeschaut hat. Diese komischen Linien wurden z.B. gebraucht, um Linien zu zeichnen. Also Grafiken zu erstellen, was sonst nicht möglich war.
+
+(Beispiel vom Norton Commander, wo man die Linien sieht)
+
+Das Problem bleibt halt immer noch, dass andere Sprachen schwieriger waren.. Deutsch war okay, aber dänisch oder spanisch wird schon schwieriger. Drum ein paar Jahre später ist Microsoft ein paar Schritte weitergegangen und hat eine Codepage 850 erstellt, welche spezifisch auf westeuropäische Sprachen spezialisiert war. Also all die speziellen LInien zeichen,, wurden dann effektiv mit Zeichen ersetzt, welche in westeuropäischen Sprachen benutzt werden. Speziell: Griechisch und Kyrillisch haben gefehlt... Darum hat man ganz viele Codepages definiert.. z.B. eine andere Codepage war extra für mitteleuropäisch und sollte albanisch,kroatisch, polnisch etc beinhalten.
+
+Die Folge: Eine lange Liste von verschiedenen Codepages... (insert Liste von Codepages)
+
+Aber das Problem besteht... Wenn ich meinen Computer auf westeuropäisch eingestellt habe und einen Brief auf Word schreibe. Diesen verschicke in ein Land, wo z.B. Kyrillisch verwendet wird. Dann konnte nicht sichergestellt werden, dass die Person am anderen Ende diesen Brief in sinnvollen ZEichen darstellen konnte...
+
+insert Beispielbild, wo Zeichen falsch angezeigt werden, z.B. grad bei Norton Commander wenn die Linien als Buchstaben mit Umlauten angeziegt werden.
+
+Schlussendlich blieb das ganze ein riesiges Chaos. Die erste 128 Zeichen blieben ASCII aber der Rest hat sich überall unterschieden. Wie konnte man das ganze vereinheitlichen?
 
 
 == UTF-8 Codierung
