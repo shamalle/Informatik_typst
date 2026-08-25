@@ -263,7 +263,7 @@ Hinweis: Auch Subtraktion, Multiplikation und Division sind im Binärsystem mög
           + $11111_2 + 00001_2$
           + $1111\'1111 + 0000\'0001$ aber der Computer hat nur Platz für 8 Bits (1 Byte)?
       ],
-      solution: [a) $10001$, b) $1111$, c) $100000$, d) $0000\'0000$
+      solution: [a) $10001$, b) $1111$, c) $100000$, d) $0000\'0000$ (eigentlich mit Übertrag 1, aber weil es nicht mehr gespeichert werden kann, löscht der Computer diesen Übertrag. Der Wertebereich fängt wieder von vorne an.] 
     )
   ]
 )

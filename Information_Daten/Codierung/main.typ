@@ -40,8 +40,6 @@
 
 #include "Kapitel/textcodierung.typ"
 
-
-
 #include "Kapitel/bildercodierung.typ"
 
 

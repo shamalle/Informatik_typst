@@ -11,7 +11,7 @@
     Das Binärsystem eignet sich hervorragend für Computer, für Menschen werden lange Binärzahlen jedoch schnell unübersichtlich. Deshalb verwendet man in der Informatik häufig das *Hexadezimalsystem*. Es ist ein Stellenwertsystem zur Basis 16 und ermöglicht eine deutlich kompaktere Darstellung von Binärzahlen.
   ],
   [
-    #v(-8mm)
+    #v(-5mm)
     #image("../Bilder/hexadecimal_spongebob.jpg")
   ]
 )
@@ -79,33 +79,7 @@ Damit Sie das ganze Umrechnen etwas üben können, haben Sie hier ein paar Aufga
 
 #v(3mm)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 1.5em,
-  [
-    #stickybox(rotation: -3deg)[
-      #align(center)[
-        *Bemerkung 🔍*
-
-        #v(-2pt)
-
-        In der Informatik nennt man eine einzelne binäre Ziffer ein *Bit*. 8 Bits ergeben ein *Byte*.
-
-        #v(-4pt)
-
-        #table(
-          columns: (auto, auto, auto),
-          column-gutter: 10pt,
-          align: (left, left, left),
-          stroke: none,
-          [*Beispiele:*], [101], [→ 3 Bit],
-          [], [1011'0011], [→ 1 Byte],
-        )
-      ]
-    ]
-  ],
-  [
-    #exo(
+#exo(
       title: [],
       exercise: [
         Schreiben Sie die folgenden Binärzahlen in ihre hexadezimale Form und umgekehrt:
@@ -116,8 +90,7 @@ Damit Sie das ganze Umrechnen etwas üben können, haben Sie hier ein paar Aufga
           + $A D_16$
       ],
       solution: [a) $09$, b) $B 0$, c) $0111\'1111$ d) $1010\'1101$])
-  ]
-)
+
 
 #v(3mm)
 

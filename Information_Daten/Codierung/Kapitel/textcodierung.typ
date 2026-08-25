@@ -157,7 +157,7 @@ Keine grosse Überraschung, aber sowohl der Telex sowie auch der Morsecode sind 
 
 == ASCII Codierung
 
-1963 wurde schliesslich der ASCII-Code eingeführt. Dieser verzichtete auf Start- und Stoppbits und wurde ursprünglich für alle Zeichen einheitlich auf 7 Bit festgelegt.\
+1963 wurde schliesslich der *ASCII-Code* eingeführt. Dieser verzichtete auf Start- und Stoppbits und wurde ursprünglich für alle Zeichen einheitlich auf 7 Bit festgelegt.\
 Diese Zeichen beinhalten:
 
 #grid(
@@ -218,6 +218,7 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unte
     #exo(
       title: [],
       exercise: [
+        #v(-2mm)    
         Schreiben Sie den folgenden Satz in ASCII, indem Sie die Codes in *dezimaler* Schreibweise hinschreiben:
 
         Macht Informatik Spass?
@@ -228,6 +229,7 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unte
     #exo(
       title: [],
       exercise: [
+        #v(-2mm)
         Schreiben Sie den folgenden Satz in ASCII, indem Sie die Codes in *binärer* Schreibweise hinschreiben:
 
         Heute ist es schön😎
@@ -243,14 +245,15 @@ ASCII scheint also ebenfalls nicht ganz vollständig unsere modernen Anforderung
 
 == Weitere Codierungen
 
-Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits. Genau das machte IBM beispielsweise mit Code Page 437. Die ersten 128 Zeichen blieben unverändert und entsprachen ASCII. Die zusätzlichen 128 Zeichen wurden mit weiteren Buchstaben, Symbolen und grafischen Zeichen gefüllt.
+Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits. Genau das machte IBM beispielsweise mit *Code Page 437*. Die ersten 128 Zeichen blieben unverändert und entsprachen ASCII. Die zusätzlichen 128 Zeichen wurden mit weiteren Buchstaben, Symbolen und grafischen Zeichen gefüllt.
 
 #grid(
-  columns: (0.5fr, 0.5fr),
-  gutter: 1em,
+  columns: (0.55fr, 0.45fr),
+  gutter: 1.5em,
   [
     #exo(
       exercise: [
+        #v(-2mm)
         Wie viele verschiedene Zeichen können mit 8 Bits dargestellt werden? Wie viele davon kommen im Vergleich zu 7 Bits hinzu?
       ],
       solution: [
@@ -258,57 +261,103 @@ Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits
       ]
     )
 
-    Wenn wir uns die Code Page 437 in @codepage437 genauer betrachten, können wir schnell überprüfen, dass die Zeichen für die ASCII Werte dieselben sind wie vorher:
-
+    Wenn wir uns die Code Page 437 in @codepage437 genauer betrachten, können wir schnell überprüfen, dass die Zeichen für die ASCII Werte dieselben sind wie vorher:\
     Nehmen wir mal den Grossbuchstaben A. In der Tabelle sehen wir, dass er in Zeile 4, Spalte 1 ist. Das kann man so lesen, dass der Hexadezimalwert von A $41_16$ ist. Das ist derselbe Wert, den A in der Tabelle in @ascii-table hat.
 
+    Nun konnte man den Computer auch in Ländern mit Sprachen mit Umlauten (z.B. Schweiz) verkaufen. Ein paar der Zeichen sehen aber sehr speziell aus. Diese Linien, die man z.B. in der Zeile C sieht, dienten damals zur Hilfe, um grafisch zu malen. So sehen Sie in @norton-commander die rot eingezeichneten Quadrate entsprechen den Zeichen B3, C1 und C7 in der Code Page 437.
 
+    #exo(
+      exercise: [
+        #v(-2mm)
+        Ein Problem bleibt aber. 128 zusätzliche Zeichen reichen immer noch nicht für alle Sprachen auf der Welt. Kennen Sie ein Alphabet wessen Zeichen nicht in dieser Code Page 437 enthalten sind?
+      ],
+      solution: [
+        Das kyrillische Alphabet, welches z.B. für die ukrainische, bulgarische oder auch russische Sprache verwendet wird, ist nicht in diesen Zeichen enthalten. Ein anderes Beispiel wäre auch das griechische Alphabet.
+      ]
+    )
+
+    Deshalb wurden weitere Codepages entwickelt. Codepage 850 war beispielsweise stärker auf westeuropäische Sprachen ausgerichtet und enthielt dafür andere Zeichen als Codepage 437 (wobei die ursprünglichen ASCII-Zeichen dieselben blieben).
   ],
   [
     #figure(
       box(
-        stroke: 1pt,
-        inset: 4pt,
+        stroke: 0.5pt,
+        inset: 2pt,
         image("../Bilder/codepage437_ibm1981.png"),
       ),
-      caption: [Code Page 437, wie sie IBM für ihren Computer 1981 darstellte. Die Reihen und Spalten sind Hexadezimalzahlen.],) <codepage437>
+      caption: [Code Page 437, wie sie IBM 1981 darstellte. Die Reihen und Spalten sind Hexadezimalzahlen.]) <codepage437>
     #figure(
       image("../Bilder/norton_commander.png"),
       caption: [Der Norton Commander war eine frühere Version ihres heutigen Explorers/Finders auf ihrem Windows/Mac.])
+      <norton-commander>
   ]
 ) 
 
+#v(2mm)
 
+#figure(
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 1em,
+    [#image("../Bilder/codepages_example1.png")],
+    [#image("../Bilder/codepages_example2.png")],
+    [#image("../Bilder/codepages_example3.png")]
+  ),
+  caption: [Beispiele verschiedener Codepages. Sie finden noch einige mehr unter #link("https://de.wikipedia.org/wiki/Zeichensatztabelle")]
+)
 
+#v(2.5mm)
 
+#grid(
+  columns: (0.6fr, 0.45fr),
+  gutter: 1.5em,
+  [
+    #v(1.5mm)
+    Jetzt stellen Sie sich nun aber mal vor, Sie schreiben einen Text auf ihrem Computer in der Schweiz (Codepage 850). Anschliessend schicken Sie diesen Text an jemanden, dessen Computer griechisch eingestellt ist (Code Page 869). Die hexadezimalen Zahlen werden zwar korrekt übertragen – aber der Empfänger interpretiert sie mit einer anderen Tabelle. Aus einem Zeichen kann dadurch plötzlich ein völlig anderes Zeichen werden. 
+  
+  Diese falsche Interpretation können Sie in @norton-false sehen: Die Linien, welche in @norton-commander noch schön dargestellt wurden, entsprechen jetzt zum Teil dem Zeichen â.
+  ],
+  [
+    #figure(
+      image("../Bilder/norton_commander_false.png"),
+      caption: [Der Norton Commander mit einer falschen Darstellung der Linien.])
+      <norton-false>
+  ]
+  )
 
+== Unicode
 
+Die vielen verschiedenen Codepages führten zu einem grossen Problem: Es gab zwar immer mehr Zeichen, aber nicht überall dieselben. Ein Zeichen konnte auf einem Computer etwas anderes bedeuten als auf einem anderen. Es brauchte deshalb eine einheitliche Zeichencodierung, die möglichst alle Zeichen der Welt umfasst.
 
+Die Idee dahinter ist zunächst einfach: Wenn wir mehr Bits verwenden, können wir viel mehr verschiedene Zeichen darstellen. Das sieht man ganz schnell, wenn man sich die Auswirkungen der Zweierpotenzen anschaut:
 
+- $2^7=128$ mögliche Zeichen (ASCII) bei 7 Bit
+- $2^8=256$ mögliche Zeichen (Codepage) für 1 Byte
+- $2^16=65\'536$ mögliche Zeichen bei 2 Bytes 
+- $2^32=4\'294\'967\'296$ mögliche Zeichen bei 4 Bytes
+
+#grid(
+  columns: (1fr, 0.4fr),
+  gutter: 1em,
+  [
+    Genau hier setzt *Unicode* an. Unicode ist ein weltweit einheitliches System, bei dem Zeichen aus verschiedensten Sprachen eine eindeutige Nummer erhalten. Dazu gehören beispielsweise lateinische, griechische und chinesische Schriftzeichen, aber auch mathematische Symbole, Sonderzeichen und Emojis (siehe ).
+  ],
+  []
+)
 
 #pagebreak()
 
-Da ASCII nicht ausreichte für einen grossen Teil der Weltbevölkerung, hat man das Konzept weiterentwickelt. Zuvor hat man die Kosten von einem weiteren Bit gescheut, sich aber dann schlussendlich doch dafür entschieden, auf 8 Bit zu erweitern. Diese Systeme hatten dann andere Namen (ANSII, Codepage 437, Codepage 850, Unicode, ...).
+Diese vielen verschiedenen Codepages waren unglaublich chaotisch. Und wieder das Problem hier war, dass es einfach zu wenig Platz für alle Zeichen gab... Dieses Problem kann man schnell lösen, sobald man mehr Bit hinzufügt. Und so kam, dass wohl oder übel endlich ein einheitliches globales System eingeführt wurde: Unicode (oder UTF-8?).
+Die Anzahl lässt sichschnell erhöhen. Wenn wir anstatt 1 Byte jetezt 2 Byte in Betracht ziehen, haben wir schon $2^16=65\'536$ mögliche Zeichen! Bei 4 Byte sind es schon $2^32=4\'294\'967\'296$!
 
-Codepage 437:
+Der Unicode enthält ungefähr $150\'000$ Zeichen aus verschiedenstens Sprachen der Welt. Er einhaltet aber auch Emojis und weitere Zeichen. Es kommen regelmässig neue dazu. Davon haben Sie sicher gehört, dass es auf einmal heisst, neue Emojis werden bald auf ihr Handy kommen. Der Grund, warum man das machen kann, ist diese unglaubliche Anzahl möglicher Zeichen, die man mit 4 Byte darstellen kann. 4 Bytes sind aber auch sehr viel für jedes einzelne Zeichen... stellen Sie sich ein Wort von 5 Zeichen vor, besteht schon aus 20 Bytes.
 
-IBM hatte 1981 bei der Einführung ihres Computers vorgehabt, ASCII zu nehmen und dann gemerkt, dass wenn man in der Schweiz oder anderen europäischen Länder den Computer verkaufen möchte, man wohl oder übel Umlaute braucht. Und darum haben die zwar ASCII genommen aber dann 1 Bit dazugenommen und somit von 7 Bit auf 8 Bit erweitert. Was bedeutet das? Wie viele zusätzliche Zeichen kriegen wir dann? Zusätzlich 128 Zeichen! (Aufgabe)
+(Insert ein paar Beispiel: Japanische Zeichen, Griechische, Emoji, Sonderzeichen etc)
 
-(Zeige hier die Tabelle von Codepage 437 mit dem Vergleich, was 1 Bit zusätzlich ausmacht.)
+Und so kam der UTF: Unicode Transofrmation Format. Das löste das Speicherproblem, weil nur so viele Bytes verwendet werden, wie für das Zeichen nötig sind. ABer jetzt sind wir ja wieder beim gleichen Problem wie. beim Morsecode... Unterschiedliche Länge der Zeichen.. Woher weiss der computer, wann ein zeichen anfängt und wann es endet?
 
-Also mit einem Bit hat man all die unteren Zeichen dazugewonnen inklusive all die mit den Umlauten. Sowie weitere Zeichen, die IBM damals als sinnvoll angeschaut hat. Diese komischen Linien wurden z.B. gebraucht, um Linien zu zeichnen. Also Grafiken zu erstellen, was sonst nicht möglich war.
+Erklärung mit Beispiel des Zuges. Am Anfang sitzt der Lokführer und der weiss, wie viele Wagen er hat. Und jeder Wagen hat einfach ein Zeichen, dass er dazugehört. Der Lokführer signalisiert mit einer Abfolge, wie viele Wagen der ganze Zug beinhaltet: Wenn der Zug 2 Wagen hat (also 2 Bytes), dann hat das erste Byte (der Lokführer) die Kombination 110 am anfang. Wenn er insgesamt 3 Wagen (3 Bytes) hat, dann beginnt er mit 1110 und bei 4 Wagen mit 11110. Jeder Wagen dahinter beginnt einfach mit 10. Wenn der Zug nur 1 Wagen hat (1 Byte) ist es der gleiche FAll wie bei ASCII und beginnt einfach mit 0 (ASCII war ja 7 Bits lang).
 
-(Beispiel vom Norton Commander, wo man die Linien sieht)
+(Insert Beispielbiild mit Zug und UTF-8 Kodierung daneben als Tabelle)
 
-Das Problem bleibt halt immer noch, dass andere Sprachen schwieriger waren.. Deutsch war okay, aber dänisch oder spanisch wird schon schwieriger. Drum ein paar Jahre später ist Microsoft ein paar Schritte weitergegangen und hat eine Codepage 850 erstellt, welche spezifisch auf westeuropäische Sprachen spezialisiert war. Also all die speziellen LInien zeichen,, wurden dann effektiv mit Zeichen ersetzt, welche in westeuropäischen Sprachen benutzt werden. Speziell: Griechisch und Kyrillisch haben gefehlt... Darum hat man ganz viele Codepages definiert.. z.B. eine andere Codepage war extra für mitteleuropäisch und sollte albanisch,kroatisch, polnisch etc beinhalten.
-
-Die Folge: Eine lange Liste von verschiedenen Codepages... (insert Liste von Codepages)
-
-Aber das Problem besteht... Wenn ich meinen Computer auf westeuropäisch eingestellt habe und einen Brief auf Word schreibe. Diesen verschicke in ein Land, wo z.B. Kyrillisch verwendet wird. Dann konnte nicht sichergestellt werden, dass die Person am anderen Ende diesen Brief in sinnvollen ZEichen darstellen konnte...
-
-insert Beispielbild, wo Zeichen falsch angezeigt werden, z.B. grad bei Norton Commander wenn die Linien als Buchstaben mit Umlauten angeziegt werden.
-
-Schlussendlich blieb das ganze ein riesiges Chaos. Die erste 128 Zeichen blieben ASCII aber der Rest hat sich überall unterschieden. Wie konnte man das ganze vereinheitlichen?
-
-
-== UTF-8 Codierung
+In Europa verwendet man den UTF-8 (was ist der Unterschied sonstwo?). Die ersten 128 Zeichen entsprechen de nASCII Zeichen und brauchen auch genau gleich viel Platz wie früher bei reinem ASCII der FAll war. Nur weniger häufige zeichen benötigen mehr Speicherplatz.

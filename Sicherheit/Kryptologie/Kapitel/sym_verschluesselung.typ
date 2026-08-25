@@ -898,3 +898,15 @@ Bei der Entschlüsselung haben wir übrigens kein Problem mit der fehlenden Para
     )
   ]
 )
+
+#pagebreak()
+
+#text(
+  size: 1.2em,
+  weight: "bold",
+  )[Anhang 7Bit ASCII Tabelle]
+
+
+#figure(
+  image("../Bilder/complete_7bit_ascii.jpg"),
+) <ascii-table>
