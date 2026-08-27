@@ -47,6 +47,7 @@ Anschliessend werden fünf Bits übertragen. Beim A lautet die Folge:
         #v(-2mm)
         Für einen Buchstaben gibt es 1 Startimpuls, 5 Impulse (5 Bit) für das Zeichen und 1.5 Stoppimpulse (eigentlich kein Bit, sondern eine Zeit). Das Ganze dauert 150ms. Wie lange dauert ein einzelner Impuls? Wie viele Zeichen pro Minute sind möglich?],
       solution: [
+        #v(-2mm)
         $150/7.5$ms $= 20$ms für die ersten 6 Impulse und $30$ms für den Stoppimpuls.\
         Eine Sekunde hat $1000$ms, dh. pro Sekunde können $1000/150 ≈ 6.67$ Zeichen geschrieben werden. Pro Minute bedeutet das $400$ Zeichen. Das ist nicht die schnellste Technologie aber sicher auch nicht so langsam, wie man sich das vielleicht vorstellt!
         ]
@@ -147,6 +148,7 @@ Keine grosse Überraschung, aber sowohl der Telex sowie auch der Morsecode sind 
     
   ],
   solution: [
+    #v(-2mm)
     #set enum(numbering: "a.")
     + Bei 5 Bit gibt es $2^5=32$ Möglichkeiten. Das heisst 32 verschiedene Zeichen sind möglich.\
     + Nein. 32 Zeichen reichen nicht aus, um beispielsweise alle Gross- und Kleinbuchstaben, Zahlen, Satzzeichen und weitere Sonderzeichen (Emojis?) darzustellen.\
@@ -224,7 +226,10 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unte
 
         Macht Informatik Spass?
       ],
-      solution: [77 97 99 104 116 32 73 110 102 111 114 109 97 116 105 107 32 83 112 97 115 115 63])
+      solution: [
+        #v(-2mm)
+        77 97 99 104 116 32 73 110 102 111 114 109 97 116 105 107 32 83 112 97 115 115 63
+        ])
   ],
   [
     #exo(
@@ -235,8 +240,10 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unte
 
         Heute ist es schön😎
       ],
-      solution: [1001000 1100101 1110101 1110100 1100101 0100000 1101001 1110011 1110100 0100000 1100101 1110011 0100000 1110011 1100011 1101000 1101111 1100101 1101110\
-      Für das ö haben wir kein geeignetes ASCII-Zeichen gesehen, darum haben wir es mit oe ersetzt. Für das Emoji haben wir aber bisher keine Lösung...])
+      solution: [
+        #v(-2mm)
+        1001000 1100101 1110101 1110100 1100101 0100000 1101001 1110011 1110100 0100000 1100101 1110011 0100000 1110011 1100011 1101000 1101111 1100101 1101110\
+        Für das ö haben wir kein geeignetes ASCII-Zeichen gesehen, darum haben wir es mit oe ersetzt. Für das Emoji haben wir aber bisher keine Lösung...])
   ]
 )
 
@@ -258,6 +265,7 @@ Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits
         Wie viele verschiedene Zeichen können mit 8 Bits dargestellt werden? Wie viele davon kommen im Vergleich zu 7 Bits hinzu?
       ],
       solution: [
+        #v(-2mm)
         $2^7=128$ und $2^8=256$. Es kommen also $128$ neue Zeichen dazu (doppelt so viele wie vorher).
       ]
     )
@@ -273,6 +281,7 @@ Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits
         Ein Problem bleibt aber. 128 zusätzliche Zeichen reichen immer noch nicht für alle Sprachen auf der Welt. Kennen Sie ein Alphabet wessen Zeichen nicht in dieser Code Page 437 enthalten sind?
       ],
       solution: [
+        #v(-2mm)
         Das kyrillische Alphabet, welches z.B. für die ukrainische, bulgarische oder auch russische Sprache verwendet wird, ist nicht in diesen Zeichen enthalten. Ein anderes Beispiel wäre auch das griechische Alphabet.
       ]
     )
@@ -502,7 +511,7 @@ Damit verbindet UTF-8 die grosse Zeichenvielfalt von Unicode mit einer platzspar
 ]
 
 #v(2mm)
-Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu üben.
+Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen (ASCII und UTF-8) zu üben.
 
 #grid(
   columns: (1fr, 1fr),
@@ -512,16 +521,13 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
       title: [],
       exercise: [ 
         #v(-2mm)
-        Nochmals zur Wiederholung von ASCII: Decodieren Sie die beiden codierten Wörter.
-        
-        #set enum(numbering: "a.")
-        + $110\'0100$ #h(1mm) $110\'1111$ #h(1mm) $110\'0111$
-        + $011\'1010$ #h(1mm) $111\'1011$ #h(1mm) $010\'1001$
+        Codieren Sie die ASCII Nachricht hexadezimal:
+
+        Hinter 100 Hecken hocken 100 Hasen!
       ],
       solution: [
-        #set enum(numbering: "a.")
-        + dog\
-        + :{)
+        #v(-2mm)
+        48 69 6E 74 65 72 20 31 30 30 20 48 65 63 6B 65 6E 20 68 6F 63 6B 65 6E 20 31 30 30 20 48 61 73 65 6E
       ])
   ],
   [
@@ -529,7 +535,45 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
       title: [],
       exercise: [
         #v(-2mm)
-        Finden Sie die einzelnen Unicode Zeichen in folgendem Text:
+        Erklären Sie in Ihren eigenen Worten, was mit "nicht druckbaren Steuerzeichen" gemeint ist in der ASCII Tabelle.
+      ],
+      solution: [
+        #v(-2mm)
+        Mit „nicht druckbaren Steuerzeichen“ sind Zeichen in der ASCII-Tabelle gemeint, die nicht als sichtbares Zeichen auf dem Bildschirm dargestellt oder ausgedruckt werden. Sie dienen stattdessen dazu, bestimmte Funktionen zu steuern, zum Beispiel einen Zeilenumbruch oder das Ende einer Eingabe zu kennzeichnen.
+      ])
+  ]
+)
+
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Decodieren Sie die beiden mit ASCII codierten Texte:
+        
+        #set enum(numbering: "a.")
+        + $110\'0100$ #h(1mm) $110\'1111$ #h(1mm) $110\'0111$
+        + $011\'1010$ #h(1mm) $111\'1011$ #h(1mm) $010\'1001$
+        + $011\'0010$ #h(1mm) $011\'1000$ #h(1mm) $010\'0000$ #h(1mm) $010\'1011$ #h(1mm) $010\'0000$ $011\'0011$ #h(1mm) $011\'0111$ #h(1mm) $010\'0000$ #h(1mm) $011\'1101$ #h(1mm) $010\'0000$ $011\'0110$  #h(1mm) $011\'0101$ 
+      ],
+      solution: [
+        #v(-2mm)
+        #set enum(numbering: "a.")
+        + dog\
+        + :{)
+        + 28 + 37 = 65
+      ])
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [
+        #v(-2mm)
+        Finden Sie die einzelnen Unicode Zeichen:
 
         $0100\'1000$ #h(1mm) $0110\'0101$ #h(1mm) $0111\'1001$ #h(1mm) $1111\'0000$ #h(1mm)\ 
         $1001\'1111$ #h(1mm) $1001\'1000$ #h(1mm) $1000\'1001$ #h(1mm) $1100\'0011$ #h(1mm)\ 
@@ -537,6 +581,7 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
         $1001\'1111$ #h(1mm) $1000\'1111$ #h(1mm) $1000\'0001$
       ],
       solution: [
+        #v(-2mm)
         - $0100\'1000$\
         - $0110\'0101$\
         - $0111\'1001$\
@@ -578,6 +623,7 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
         )
       ],
       solution: [
+        #v(-2mm)
         #set enum(numbering: "a.")
         + $0101\'0001$\
         + $1111\'0000$ #h(1mm) $1001\'1111$ #h(1mm) $1001\'0010$ #h(1mm) $1010\'1001$
@@ -597,6 +643,7 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
         + $1111\'0000$ #h(1mm) $1001\'1111$ #h(1mm) $1001\'0000$ #h(1mm) $1011\'0110$
       ],
       solution: [
+        #v(-2mm)
         #set enum(numbering: "a.")
         + $10\'0000$ #h(1mm) $1010\'1100$
         + $1$ #h(1mm) $1111\'0100$ #h(1mm) $0011\'0110$
@@ -621,7 +668,7 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
         + $1100\'0011$ #h(1mm)  $1010\'0100$
       ],
       solution: [
-        #v(-1mm)
+        #v(-2mm)
         #set enum(numbering: "a.")
         + $0\'0001$ #h(1mm) $1111\'0011$ #h(1mm) $1100\'0001$ $arrow$ 01F3CI $arrow$ 🏁
         + $000$ #h(1mm) $1110\'0100$ $arrow$ 0E4 $arrow$ ä
@@ -639,7 +686,10 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
         + $0111\'0110$ #h(1mm) $0110\'1111$ #h(1mm) $0110\'1001$ #h(1mm) $0110\'1100$\ $1100\'0011$ #h(1mm)$1010\'0000$
       ],
       solution: [
-
+        #v(-2mm)
+        #set enum(numbering: "a.")
+        + Gemüse
+        + voilà
       ])
   ]
 )

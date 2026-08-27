@@ -40,6 +40,8 @@
 
 #include "Kapitel/textcodierung.typ"
 
+#pagebreak()
+
 #include "Kapitel/bildercodierung.typ"
 
 
