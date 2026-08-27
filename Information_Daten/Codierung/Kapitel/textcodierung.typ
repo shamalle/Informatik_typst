@@ -632,7 +632,11 @@ Hier folgen genügend Aufgaben, um das Codieren mit den gelernten Codierungen zu
       title: [],
       exercise: [
         #v(-2mm)
+        Was wird hier codiert?
 
+        #set enum(numbering: "a.")
+        + $0100\'0111$ #h(1mm) $0110\'0101$ #h(1mm) $0110\'1101$ #h(1mm) $1100\'0011$\ $1011\'1100$ #h(1mm) $0111\'0011$ #h(1mm) $0110\'0101$
+        + $0111\'0110$ #h(1mm) $0110\'1111$ #h(1mm) $0110\'1001$ #h(1mm) $0110\'1100$\ $1100\'0011$ #h(1mm)$1010\'0000$
       ],
       solution: [
 
