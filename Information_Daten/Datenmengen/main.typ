@@ -35,8 +35,7 @@
     Und diese vielen Bits müssen irgendwo gespeichert werden. Ein einfaches Bild kann bereits aus Millionen von Bits bestehen, ein Lied aus noch viel mehr. Damit stellt sich eine neue Frage: Wie viel Platz benötigen digitale Informationen eigentlich?
   ],
   [
-    #v(-5mm)
-    #image("Bilder/datenmenge_binary.png")
+    #image("Bilder/matrix_01.png")
   ]
 )
 
