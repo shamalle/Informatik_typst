@@ -133,7 +133,7 @@ Aber wie soll das nun jetzt gehen? Für das brauchen wir ein paar Konzepte, die 
 ]
 #v(2mm)
 
-== RSA als Beispiel
+== RSA und die Primfaktorzerlegung <chapter-rsa>
 
 Wir schauen uns ein einfaches Beispiel einer asymmetrischen Verschlüsselung an: RSA. Dieses Verfahren wurde 1977 erfunden und gilt heute immer noch als sicher (wenn man gewisse Vorkehrungen trifft)!\
 RSA wurde von den drei Wissenschaftlern Ronald *R* #h(-0.8mm)ivest, Adi *S* #h(-0.8mm)hamir und Leonard *A* #h(-0.8mm)dleman entwickelt und ist von der Idee her eigentlich unglaublich einfach. Das Verfahren ist öffentlich (Kerkhoff's Prinzip) und einfach anwendbar. Um RSA zu knacken, werden Sie aber lange brauchen...
@@ -245,7 +245,7 @@ In der Praxis werden aber sogar heute Zahlen mit $2048$ Bit oder sogar $4096$ Bi
 
     Bei RSA geht es einerseits um die Multiplikation zweier Primzahlen, andererseits um die Primfaktorzerlegung dieses Produkts, also das Zurückrechnen auf diese beiden Primzahlen. Bei 55 war das sehr einfach, weil die Zahl klein ist.
 
-    Zerlegen Sie doch mal von Hand (nur mit Taschenrechner) die Zahl $37901$ in Primfaktoren. Stoppen Sie dabei die Zeit.
+    Zerlegen Sie doch mal von Hand (nur mit Taschenrechner)   $ 37901$ in Primfaktoren. Stoppen Sie dabei die Zeit.
 
   
 
@@ -298,7 +298,7 @@ _Hinweis_: Es kann sein, dass diese superlangsamen Algorithmen mit Hilfe von Qua
 
 #grid(
   columns: (0.65fr, 0.35fr),
-  gutter: 1.5em,
+  gutter: 1.2em,
   [
     Multiplizieren wir  mal die beiden 1024 Bit Primzahlen mithilfe von Thonny:\
 
@@ -312,16 +312,13 @@ _Hinweis_: Es kann sein, dass diese superlangsamen Algorithmen mit Hilfe von Qua
   ]
 )
 
-#v(-1mm)
-#text(size: 0.95em)[
-  $1203918709313374632576931044511467317592141349875956917059900202917894821576326563828468560929391229$\
-  $8570633457953679419213841243904380259271191456688037187508295995891562439763448361573431883201261286$\
-  $4138274141135591249891942480801467423640161065027280453385552999713495205541142706525310895170290276$\
-  $6983325627362489655937996922129045644310034762856615035096261404819841591134543151073026531975117053$\
-  $0256989057978334508132274953170579386432297919489295999422769268125809579980035279946444309272008329$\
-  $0653663804496111591528539755887470078189657756794284270949841808205008727787796652433044657549699552$\
-  $48694794743301043$
-]
+$12039187093133746325769310445114673175921413498759569170599002029178948215763265638284685609293$\
+$91229857063345795367941921384124390438025927119145668803718750829599589156243976344836157343188$\
+$32012612864138274141135591249891942480801467423640161065027280453385552999713495205541142706525$\
+$31089517029027669833256273624896559379969221290456443100347628566150350962614048198415911345431$\
+$51073026531975117053025698905797833450813227495317057938643229791948929599942276926812580957998$\
+$00352799464443092720083290653663804496111591528539755887470078189657756794284270949841808205008$\
+$72778779665243304465754969955248694794743301043$
 
 #v(2mm)
 #exo(
@@ -338,8 +335,92 @@ _Hinweis_: Es kann sein, dass diese superlangsamen Algorithmen mit Hilfe von Qua
         [blabla ...]\
         *Fazit:* Solange keine revolutionären neuen Algorithmen oder leistungsfähigen Quantencomputer existieren, bleibt die Faktorisierung großer Primzahlen extrem schwer und wird als sicherheitskritische Grundlage in der Kryptographie genutzt.
       ]
-    )
+)
+#v(2mm)
 
 Unser Fazit: Multiplikation ist sehr einfach, Faktorisierung unglaublich schwer. Die obige Zahl in ihre Primfaktoren zu zerlegen, dauert voraussichtlich länger, als unser Universum exisiter, also mehr als $4.5$ Milliarden Jahre!
 
+#v(2mm)
+#exo(
+  exercise: [
+    #v(-2mm)
+    Erinnern Sie sich an die erwähnte Hintertür einer Einwegsfunktion, die ganz am Anfang von @chapter-rsa erwähnt wurde? Was ist nun bei der Faktorisierung die Hintertür? Wann ist diese ganz einfach?
+  ],
+  solution: [
+    Die Faktorisierung ist dann ganz einfach, wenn wir einen der beiden Primfaktoren kennen.
+    Eben: 55 in Primfaktoren zerlegen ist schwierig. Wenn wir aber die Zahl 5 kennen (den einen der beiden Primfaktoren), dann müssen wir nur eine ganz einfache Division machen: 55 geteilt durch 5, und schon kriegen wir 11 für den zweiten Primfaktor.
+    Haben Sie 11 gegeben, dann dividieren wir einfach 55 geteilt durch 11, und schon kriegen wir 5 als zweiten Primfaktor.\
+    Also ist einer der beiden Primfaktoren das Geheimnis/die Hintertür.
+    
+  ]
+)
+#v(2mm)
+
+Das Spezielle an RSA ist nun, dass wir diese Hintertür, also das Geheimnis nicht mit der anderen Person auszutauschen brauchen. Das ist genau der Unterschied zur symmetrischen Verschlüsselung. Dort müssen wir den Schlüssel austauschen. Hier ist das nicht nötig. Wie das funktioniert, sehen wir gleich.
+#v(2mm)
+
+== Das Konzept von RSA (und anderen aymmetrischen Verfahren)
+
+Nun schauen wir das Grundprinzip von RSA resp. von jedem asymmetrischen Verschlüsselungsverfahren mit Hilfe von Analogien an, damit Sie das Prinzip verstehen.\
+
+#grid(
+  columns: (0.65fr, 0.35fr),
+  gutter: 1em,
+  [
+    Das Grundprinzip asymmetrischer Verschlüsselung beruht darauf, dass jede Person, die damit arbeitet, zwei Schlüssel hat:
+
+    - einen *privaten* Schlüssel, den sie geheim hält: #box(baseline: 0.2em)[#image("../Bilder/private_key.png", width: 1em)]
+    - einen *öffentlichen* Schlüssel, der verteilt werden kann: #box(baseline: 0.2em)[#image("../Bilder/public_key.png", width: 0.85em)]
+
+    Lassen Sie sich hier nicht verwirren. Sie sehen richtig, das ist wirklich jeweils ein Schloss und ein Schlüssel. So funktioniert einfach die Analogie recht gut.
+  ],
+  [
+    #v(-5mm)
+    
+    #figure(
+      image("../Bilder/character_public_private_key.png"), 
+      caption: [3 Personen mit ihren jeweils\ öffentlichen und privaten Schlüsseln] 
+    ) <characters-with-keys>
+  ]
+)
+
+Man spricht von einem *Schlüsselpaar*, wenn man die beiden Schlüssel einer Person betrachtet. Jede Person besitzt ein eigenes Schlüsselpaar, so auch Bob. Die beiden Schlüssel, die dieses Schlüsselpaar bilden, sind mathematisch verwandt. Der private Schlüssel lässt sich jedoch nicht in sinnvoller Zeit aus dem öffentlichen Schlüssel berechnen.\
+Bobs öffentlicher Schlüssel entspricht also einem Bügelschloss. Bobs privater Schlüssel ist der Schlüssel, der zum Bügelschloss passt. Das Schloss kann (in geöffneter Form natürlich) frei in der Welt herumgeschickt werden. Das ist nicht geheim. Oder das Schloss kann bei einer vertrauenswürdigen Stelle (Trent) deponiert werden, wo es von Alice abgeholt werden kann. Den Schlüssel aber behält Bob stets für sich.
+
+#text(size: 1.2em, weight: "bold")[Analogie erklärt]
+
+Das mit dem Vorhängeschloss und dem dazu passenden Schlüssel ist lediglich eine Analogie, damit Sie sich das Ganze merken können. In echt sind die Schlüssel einfach Zahlen oder Buchstaben. Erinnern Sie sich an Vigenère oder ein anderes Verschlüsselungsverfahren? Dort war der Schlüssel ja auch eine Buchstabenfolge. Das ist hier natürlich auch so.
+
+Damit die Analogie funktioniert, müssen Sie sich vorstellen, dass jede Person quasi beliebig viele identische Vorhängeschlösser (öffentliche Schlüssel) hat, aber nur einen einzigen Schlüssel (privater Schlüssel). Der Schlüssel passt zu allen Schlössern. Die @characters-with-keys stellen Sie sich also besser so vor:
+
+#align(center)[
+  #figure(
+    image("../Bilder/character_public_private_key_corrected.png", width: 45%),
+    caption: [Jede Person hat beliebig viele identische öffentliche Schlüssel,\
+    aber nur einen einzigen privaten Schlüssel.]
+  )
+]
+#v(2mm)
+
+Untersuchen wir nun mal RSA bezüglich den Standard-Sicherheitszielen der Kryptologie. 
+
+#outline-colorbox(
+  title: "Sicherheitsziele der Kryptologie",
+  color: "blue",
+  radius: 3pt,
+  width: auto,
+  inset: 6pt,
+  )[
+    #v(1mm)
+      *Sicherheitsziele* beschreiben, was bei der sicheren Kommunikation von Nachrichten gewährleistet werden soll. In unserem Beispiel: Standards, die sich also Alice und Bob bei ihrer Kommunikation wünschen:
+
+      - *Vertraulichkeit*: Niemand Unbefugtes soll mitlesen können.
+      - *Integrität*: Die Daten wurden bei der Übermittlung nicht unbemerkt verändert.
+      - *Authentizität*: Der Empfänger muss sich sicher sein, dass die Nachricht auch wirklich vom Sender stammt.
+      - *Verbindlichkeit*: Der Sender kann nicht abstreiten, die Nachricht gesendet zu haben.
+
+      _In unserem Beispiel konkret würde das wie folgt aussehen:_\
+      Die Kommunikation zwischen Alice und Bob ist vertraulich, wenn Eve die Nachricht nicht mitlesen kann. Sie ist integer, wenn Eve also nichts an der Nachricht manipulieren konnte und authentisch, wenn Bob mit 100% Sicherheit weiss, dass die Nachricht von Alice kommt. Verbindlich ist die Nachricht, wenn Alice die Nachricht z.B. unterschreibt.
+      #v(2mm)
+]
 
