@@ -423,4 +423,250 @@ Untersuchen wir nun mal RSA bezüglich den Standard-Sicherheitszielen der Krypto
       Die Kommunikation zwischen Alice und Bob ist vertraulich, wenn Eve die Nachricht nicht mitlesen kann. Sie ist integer, wenn Eve also nichts an der Nachricht manipulieren konnte und authentisch, wenn Bob mit 100% Sicherheit weiss, dass die Nachricht von Alice kommt. Verbindlich ist die Nachricht, wenn Alice die Nachricht z.B. unterschreibt.
       #v(2mm)
 ]
+#v(3mm)
 
+
+#grid(
+  columns: (0.5fr, 0.45fr),
+  gutter: 1.2em,
+  [
+    #text(size: 1.2em, weight: "bold")[Vertraulichkeit]
+
+    Alice möchte Bob einen Liebesbrief schreiben. Nur Bob soll ihn lesen können. Bob weiss, dass Alice ihm einen Liebesbrief schreiben will. In dem Fall schickt Bob Alice eines seiner Schlösser (im offenen Zustand). Alice kriegt das Schloss per Post und schliesst ihren Liebesbrief damit ab. Jetzt kann sie den verschlüsselten Liebesbrief in aller Öffentlichkeit versenden. Egal, ob der Liebesbrief über einen Kurier, über die Post oder über das Internet verschickt wird; er bleibt verschlüsselt. Nur Bob kann seine eigenen Schlösser öffnen. Er ist also der Einzige, der den Brief lesen kann. Die graphische Darstellung rechts zeigt den Ablauf der Kommunikation auf.
+  ],
+  [
+    #v(-1.5mm)
+    #image("../Bilder/rsa_vertraulichkeit.png")
+  ]
+)
+
+#text(size: 1.2em, weight: "bold")[Authentizität]
+
+    Ist der Brief wirklich von Alice? Bob weiss das im Moment noch nicht, dass der Brief wirklich von Alice ist. Auch Eve hätte Zugriff auf den öffnetlichen Schlüssel von Bob (auf eines seiner vielen Schlösser) und könnte damit einen gefakten Liebesbrief schreiben und an ihn senden.\
+
+    Bob weiss also nicht, ob der Brief authentisch ist. Alice kann ihm jedoch abhelfen, indem sie ihren Brief zuerst mit ihrem privaten (und geheimen) Schlüssel verschlüsselt. Erst anschliessend verschlüsselt sie diesen verschlüsselten Text mit dem öffentlichen Schlüssel von Bob.\
+    Bob kann nun die erhaltene Nachricht mit seinem privaten (geheimen) Schlüssel entschlüsseln. Jetzt kann er aber den Liebesbrief noch nicht lesen. Da er weiss, dass er den Brief angeblich von Alice erhalten hat, kann er den verschlüsselten Text mit dem öffentlichen Schlüssel von Alice öffnen. Falls jetzt ein Liebesbrief rauskommt, dann weiss Bob, dass dieser von Alice stammt.\
+    #v(2mm)
+
+    Sie merken jetzt vielleicht, dass obige Analogie hier ein wenig hinkt. Das Gedankenspiel mit dem Vorhängeschloss und dem Schlüssel funktioniert zwar noch, ist aber plötzlich grad umgekehrt. Das finden Sie zwar im Internet nirgends so erklärt, aber eigentlich müsste man die Analogie wie folgt korrigieren:
+
+#grid(
+  columns: (0.5fr, 0.25fr),
+  gutter: 1.2em,
+  [
+    *Analogie korrigiert:* 
+
+    - Alice verschlüsselt den Brief mit ihrem roten Schloss (privater Schlüssel).
+    - Dieses Schloss kann von allen Menschen geöffnet werden. Das sorgt nicht für Vertraulichkeit, sondern gewährleistet lediglich, dass der Brief wirklich von Alice ist (Authentizität). Weil der rote Schlüssel, welcher öffentlich ist, kann nur dieses rote Schloss öffnen.
+    - Zusätzlich fordert Alice aber noch ein grünes Schloss von Bob an und verschlüsselt die vorher bereits verschlüsselte Nachricht nochmals.
+    - Jetzt ist aber so, dass nur Bob den grünen Schlüssel hat (privater Schlüssel) und nur er kann das grüne Schloss öffnen.
+    
+  ],
+  [
+    #align(horizon)[
+      #image("../Bilder/authentizitaet_korrigiert.png")
+    ]
+  ]
+)
+#v(2mm)
+
+Als Analogie für die Authentizität können Sie sich auch ein Siegel auf einem Brief vorstellen. Nur Alice hat genau diesen einen Stempel, um das Siegel zu erstellen. Deshalb weiss Bob, dass der Brief von Alice ist.
+
+#text(size: 1.2em, weight: "bold")[Übliche Notation resp. kürzere Analogie]
+
+Sie haben gemerkt, das mit den Schlössern und den Schlüsseln ist zwar eine nette Analogie. Aber man kann sie nie für jedes Szenario verwenden, weil sie dann doch irgendwo hinkt.\
+Das, was wirklich stimmt, ist, dass wir bei RSA von einem Schlüsselpaar sprechen mit den folgenden Eigenschaften:
+
+#grid(
+  columns: (0.8fr, 0.2fr),
+  gutter: 1.5em,
+  [
+    - privater Schlüssel
+    - öffentlicher Schlüssel
+    - jede Person, die kommunizieren will, hat ein solches Schlüsselpaar
+    - den privaten Schlüssel hat nur sie. Den darf sie auch nie rausgeben
+    - den öffentlichen Schlüssel darf sie frei verteilen (kann man sogar auf Visitenkarten drucken)
+
+    Jetzt lassen wir die Schlösser weg und denken nur noch in Schlüsseln. Behalten Sie im Hinterkopf, dass es sich dabei nicht um physische Schlüssel wie bei der vorherigen Analogie handelt, sondern um irgendwelche Zeichen- oder Zahlenfolgen.
+  ],
+  [
+    #figure(
+      box(
+        stroke: 0.5pt,
+        inset: 2pt,
+        image("../Bilder/private_public_pair.png")
+      ),
+      caption: [Das Schlüsselpaar wird häufig so gekennzeichnet.])
+  ]
+)
+
+#v(2mm)
+
+#align(center)[
+  #block(width: 65%)[
+    #stickybox(rotation: -2deg)[
+      #align(center)[
+        #v(-1.5mm)
+
+        🚨 *Wichtiger Merksatz*🚨\
+        
+        Eine mit einem privaten Schlüssel verschlüsselte Nachricht kann nur mit dem dazu passenden öffentlichen Schlüssel entschlüsselt werden.\
+        
+        Eine mit einem öffentlichen Schlüssel verschlüsselte Nachricht kann nur mit dem dazu passenden privaten Schlüssel entschlüsselt werden.
+      ]
+    ]
+  ]
+]
+
+#v(2mm)
+
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1.5em,
+  [
+    #exo(
+      exercise: [
+        #v(-2mm)
+        Alice will Bob einen Brief schicken. Sie verschlüsselt den Brief mit ihrem öffentlichen Schlüssel. Denken Sie sich das Ganze durch und überlegen Sie, zu welchen Problemen das führt.
+      ],
+      solution: [
+        Wenn Alice eine Nachricht mit ihrem öffentlichen Schlüssel verschlüsselt, ist das witzlos. Weil diese Nachricht kann nur sie mit ihrem privaten Schlüssel wieder entschlüsseln. OK, das könnte allenfalls für ein Geheimnis interessant sein, das Alice niemand anderem sagen will; quasi eine geheime Liebesbekundung jemandem gegenüber, oder das eigene Tagebuch, etc.
+      ]
+    )
+  ],
+  [
+    #exo(
+      exercise: [
+        #v(-2mm)
+        Alice will Bob einen Brief schicken. Sie verschlüsselt den Brief mit Bobs privatem Schlüssel. Denken Sie sich das Ganze durch und überlegen Sie, zu welchen Problemen das führt.
+      ],
+      solution: [
+        Alice ist nicht in der Lage, eine Nachricht mit dem privaten Schlüssel von Bob zu verschlüsseln, weil Bob seinen privaten Schlüssel geheimhält.
+      ]
+    )
+  ]
+)
+#v(2mm)
+
+== RSA in der Praxis (Kombination mit symm. Verschlüsselung)
+
+Wir haben jetzt schon mehrmals gesehen, dass asymmetrische Verschlüsselungsverfahren grundsätzlich sehr langsam sind. Durchschnittlich dauern asymmetrische Ver- und Entschlüsselungen ca. 1000x langsamer als symmetrische Verschlüsselungsverfahren.
+
+Eine kurze Nachricht «Ich liebe dich» mit RSA zu verschlüsseln, ist kein Problem. Was ist aber, wenn Sie lange Briefe, geheime Verträge, etc. verschlüsseln wollen? Sie können nicht jedes Mal bei der Verschlüsselung 3min warten, bis diese erledigt ist. Ich als Empfänger habe auch keinen Bock, jedes Mal 3min zu warten. Das muss schneller gehen.\
+Aus diesem Grund kombiniert man beide Verfahren zusammen: die asymmetrische und symmetrische Verschlüsselung.
+
+Was war das Hauptproblem der symmetrischen Verschlüsselung? Der Schlüsselaustausch! Sobald der Schlüssel ausgetauscht wurde, können wir mit dem sehr schnellen symmetrischen Verschlüsselungsverfahren unsere Nachrichten sicher austauschen.
+
+#grid(
+  columns: (0.5fr, 0.51fr),
+  gutter: 0.7em,
+  [
+    RSA wird nur verwendet, um den symmetrischen Schlüssel sicher auszutauschen. Die eigentliche Nachricht wird mit dem schnellen symmetrischen Verfahren verschlüsselt. Sobald beide im Besitz des symmetrischen Schlüssels sind, können sie problemlos  sicher kommunizieren.
+    #v(2mm)
+
+    #set enum(numbering: "1.", start: 1)
+    + Alice erzeugt einen zufälligen symmetrischen Schlüssel.
+    #v(-1mm) #set enum(numbering: "1.", start: 2)
+    + Alice verschlüsselt die Nachricht mit diesem Schlüssel.
+    #v(-1mm) #set enum(numbering: "1.", start: 3)
+    + Alice verschlüsselt den symmetrischen Schlüssel mit Bobs öffentlichem RSA-Schlüssel.
+    #v(-1mm) #set enum(numbering: "1.", start: 4)
+    + Bob entschlüsselt den symmetrischen Schlüssel mit seinem privaten Schlüssel.
+    #v(-1mm) #set enum(numbering: "1.", start: 5)
+    + Mit diesem Schlüssel kann Bob dann die eigentliche Nachricht schnell entschlüsseln.
+  ],
+  [
+    #align(horizon)[
+      #image("../Bilder/asymm_symm_combined.png", width: 103%)
+    ]
+  ]
+)
+
+== Signieren von Nachrichten
+
+Sie haben vorhin gesehen, dass Alice ihre Nachricht an Bob mit ihrem privaten Schlüssel verschlüsseln kann, damit er sicherstellen kann, dass die Nachricht von Alice ist. Da ging es um die Authentizität.
+Nun, wir haben aber auch gesehen, dass die asymmetrische Verschlüsselung bei langen Texten sehr langsam ist. Also ist es nicht optimal, wenn Alice die vollständige Nachricht asymmetrisch verschlüsselt, nur um zu bestätigen, dass die Nachricht von ihr ist.\
+
+Was könnte sie tun?
+
+#v(2mm)
+#exo(
+  exercise: [
+    #v(-2mm)
+    Denken Sie an Hashes zurück. Was könnten Hashes bei diesem Problem bringen?
+  ],
+  solution: [
+
+  ]
+)
+#v(2mm)
+
+Abschliessend können wir sagen, dass wir die asymmetrische Verschlüsselung bei folgenden 2 Übertragungen benötigen:
+
+- Übertragen eines symmetrischen Schlüssels, was vertraulich geschehen muss
+- Übertragung des Hashes einer Nachricht, damit die Authentizität sichergestellt wird
+
+#v(2mm)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.3em,
+  [
+    Weiter in @rsa-example-calculated sehen Sie ein konkretes Beispiel, wie man RSA rechnerisch durchführt. Das müssen Sie selbst nicht so durchrechnen und merken können. Es hilft Ihnen aber, das Verfahren etwas konkreter zu verstehen. 
+
+    Sie haben nun zwei Verschlüsselungsverfahren kennengelernt: symmetrische und asymmetrische Verschlüsselungsverfahren. Ihnen sollten die Unterschiede klar sein.
+  ],
+  [
+    #stickybox(rotation: 2deg)[
+      #align(center)[
+        #v(-1.5mm)
+
+        🚨 *Achtung!* 🚨\
+        
+        Beachten Sie, dass symmetrische Verschlüsselung nicht schlechter als asymmetrische ist. Aktuelle symmetrische Verschlüsselungstechnologien sind zum aktuellen Stand der Technik nicht knackbar.\
+        Die beiden Verschlüsselungen werden einfach für unterschiedliche Anwendungen eingesetzt.
+      ]
+    ]
+  ]
+)
+
+
+
+== Konkretes Beispiel zu RSA <rsa-example-calculated>
+
+Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an, Alice will Bob eine Nachricht in ASCII schicken.
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  [
+    #text(size: 1.1em, weight: "bold")[#align(center)[Theorie]]
+
+    #text(size: 1.1em, weight: "bold")[Erstellung eines Schlüsselpaars]\
+
+    Bevor das klappt, brauchen wir Schlüssel für die Ver- und Etnschlüsselung (das sind zwei verschiedene Schlüssel!). Das Vorgehen geht wie folgt:
+
+    + Bob wählt 2 grosse Primzahlen $p$ und $q$ und bildet das Produkt $n = p dot q$
+    + Bob rechnet das Produkt $x = (p-1) dot (q-1)$ aus
+    + Bob wählt zwei Zahlen $d$ und $e$ so, dass gilt: 
+      $ d dot e % x = 1 $ 
+      (% bedeutet Rest einer Ganzzahldivision, siehe Gym1)
+    + $d$ und $e$ sind übrigens teilerfremd zu $p-1$ und $q-1$
+    + Bob veröffentlicht $n$ und $e$ als öffentliche Schlüssel
+    + $d$ ist sein geheimer Schlüssel, $p$ und $q$ werden vernichtet
+
+    #text(size: 1.1em, weight: "bold")[Verschlüsselung]\
+
+    + Sei $m$ der Klartext
+    + Alice berechnet mithilfe von Bobs öffentlichem Schlüssel den Geheimtext $c$, und zwar so:
+      $ c = m^e % n $
+    + Alice überträgt $c$ an Bob
+
+    #text(size: 1.1em, weight: "bold")[Entschlüsselung]\
+
+    Bob berechnet den Klartext $m'=c^d % n$
+  ],
+  [
+    #text(size: 1.1em, weight: "bold")[#align(center)[Konkretes Beispiel]]
+  ]
+)
