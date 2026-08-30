@@ -637,36 +637,59 @@ Abschliessend können wir sagen, dass wir die asymmetrische Verschlüsselung bei
 Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an, Alice will Bob eine Nachricht in ASCII schicken.
 
 #grid(
-  columns: (1fr, 1fr),
+  columns: (1fr, 0.5pt,  1fr),
   gutter: 1.5em,
   [
     #text(size: 1.1em, weight: "bold")[#align(center)[Theorie]]
 
     #text(size: 1.1em, weight: "bold")[Erstellung eines Schlüsselpaars]\
 
-    Bevor das klappt, brauchen wir Schlüssel für die Ver- und Etnschlüsselung (das sind zwei verschiedene Schlüssel!). Das Vorgehen geht wie folgt:
+    Bevor das klappt, brauchen wir Schlüssel für die Ver- und Etnschlüsselung (das sind 2 verschiedene Schlüssel!):
 
     + Bob wählt 2 grosse Primzahlen $p$ und $q$ und bildet das Produkt $n = p dot q$
     + Bob rechnet das Produkt $x = (p-1) dot (q-1)$ aus
     + Bob wählt zwei Zahlen $d$ und $e$ so, dass gilt: 
-      $ d dot e % x = 1 $ 
-      (% bedeutet Rest einer Ganzzahldivision, siehe Gym1)
+      $ (d dot e) #h(1.5mm) % #h(1.5mm) x = 1 $ 
+      (% bedeutet Rest einer Ganzzahldivision)
     + $d$ und $e$ sind übrigens teilerfremd zu $p-1$ und $q-1$
     + Bob veröffentlicht $n$ und $e$ als öffentliche Schlüssel
-    + $d$ ist sein geheimer Schlüssel, $p$ und $q$ werden vernichtet
+    + $d$ ist der geheime Schlüssel, $p$ und $q$ werden vernichtet
 
     #text(size: 1.1em, weight: "bold")[Verschlüsselung]\
 
     + Sei $m$ der Klartext
     + Alice berechnet mithilfe von Bobs öffentlichem Schlüssel den Geheimtext $c$, und zwar so:
-      $ c = m^e % n $
+      $ c = m^e #h(1.5mm) % #h(1.5mm) n $ #v(1.7mm)
     + Alice überträgt $c$ an Bob
 
     #text(size: 1.1em, weight: "bold")[Entschlüsselung]\
 
     Bob berechnet den Klartext $m'=c^d % n$
   ],
+  [#rect(width: 0.5pt, height: 48%)],
   [
     #text(size: 1.1em, weight: "bold")[#align(center)[Konkretes Beispiel]]
+
+    #text(size: 1.1em, weight: "bold")[Schlüsselerstellung]\
+
+    Wir benutzen die Anleitung und verwenden aber wieder die gleichen Zahlen wie vorher auch schon:
+
+    + Bob wählt zufällig $p=5$ und $q=11$, also ist $n = 5 dot 11 = 55$
+    + Bob berechnet $x = (5-1) dot (11-1) = 40$
+    + Bob wählt $d = 3$. Dann ergibt sich daraus $e = 27$ weil das der erste Wert ist, der in Frage kommt, damit 
+      $ (3 dot 27) #h(1.5mm) % #h(1.5mm) 40=1 $ #v(2.1mm)
+    + Kontrolle: Die Werte sind wirklich teilerfremd
+    + Bob veröffentlicht $55$ und $27$ als öffentliche Schlüssel
+    + Bob vernichtet $5$ und $11$
+
+    #text(size: 1.1em, weight: "bold")[Verschlüsselung]\
+
+    Alice nimmt den öffentlichen Schlüssel von Bob und verschlüsselt damit eine Nachricht. Sie will die Zahl 5 verschlüsseln (ASCII kommt nachher):
+    $ c = 5^27 #h(1.5mm) % #h(1.5mm) 55 = 25 $ #v(-0.7mm)
+    Alice schickt Bob also die verschlüsselte Nachricht $25$
+
+    #text(size: 1.1em, weight: "bold")[Entschlüsselung]\
+
+    
   ]
 )
