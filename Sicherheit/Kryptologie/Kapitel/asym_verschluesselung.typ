@@ -34,7 +34,8 @@ In diesem Kapitel verwenden wir in Beispielen Personen, um das Verfahren praktis
     Formulieren Sie in Ihren eigenen Worten, warum der Begriff *symmetrische* Verschlüsselung so heisst. Was ist das Besondere daran?
   ],
   solution: [
-    Symmetrisch bedeutet, dass zum Ver- und Entschlüsseln der gleiche Schlüssel verwendet wird. Das kann man sich wie den eigenen Haus- oder Wohnungsschlüssel vorstellen.
+    #v(-2mm)
+    Symmetrisch bedeutet, dass zum Ver- und Entschlüsseln der gleiche Schlüssel verwendet wird.
   ]
 )
 #v(2mm)
@@ -55,6 +56,7 @@ Die Frage, die man sich vermutlich zuerst stellen müsste ist, warum man denn ni
     Was war noch ein Hauptproblem der symmetrischen Verschlüsselung?
   ],
   solution: [
+    #v(-2mm)
     Der Schlüsseltausch ist das Hauptproblem! Wenn Alice und Bob miteinander verschlüsselt kommunizieren wollen, müssen sie den Schlüssel irgendwie austauschen. Wenn Alice in Australien und Bob in Alaska wohnen, dann wird das ein wenig umständlich oder teuer. Dementsprechend muss man Wege suchen, dass dieser Schlüsseltausch trotzdem klappt und vor allem sicher passiert. Und das Coole der asymmetrischen Verschlüsselung, dass wir den Schlüsseltausch über das nicht geschützte Internet übertragen können.
   ]
 )
@@ -147,6 +149,7 @@ Oben haben Sie gehört, dass es Einwegfunktionen gibt, die kaum rückgängig zu 
     Stellen Sie sich in diesem Zusammenhang ein Auto vor. Nehmen Sie an, Sie zerlegen das Auto in all seine Einzelteile. Werden Sie es wieder zusammenbauen können? Ich bezweifle es, ausser… Unter welchen Umständen können Sie das Auto wieder zusammenbauen?
   ],
   solution: [
+    #v(-2mm)
     Unter der Voraussetzung, dass Sie den Bauplan dafür haben. Der Bauplan ist quasi das Geheimnis. Ohne das Geheimnis wird es praktisch unmöglich sein, mit Bauplan hingegen recht einfach (vorausgesetzt, Sie können den Bauplan lesen).
   ]
 )
@@ -272,6 +275,7 @@ $ "Anzahl Primzahlen" = frac(2^24-2^23, ln(2^24-2^23)) = 1.3 dot 10^305 "Primzah
         Wie viele Atome im ganzen Universum gibt es eigentlich? Vergleichen Sie die Zahl mit der Anzahl der Primzahlen mit einer Länge von 1024 Bit.
       ],
       solution: [
+        #v(-2mm)
         Atome gibt es «nur» etwa $10^80$, Primzahlen mit einer Länge von $1024$ Bit jedoch $10^305$..!
       ]
     )
@@ -327,6 +331,7 @@ $72778779665243304465754969955248694794743301043$
         Zerlegen Sie diese Zahl in ihre Primfaktoren. Fragen Sie doch dazu vorher z.B. ChatGPT, ob er Ihnen einen schnellen Algorithmus für die Faktorisierung einer Zahl liefern kann. Welche Antwort kriegen Sie?
       ],
       solution: [
+        #v(-2mm)
         Meine Frage an ChatGPT hat so gelautet:
         «Gibt es einen schnellen Algorithmus, um die Multiplikation zweier Primzahlen (also das Produkt) wieder zu faktorisieren?»
 
@@ -347,6 +352,7 @@ Unser Fazit: Multiplikation ist sehr einfach, Faktorisierung unglaublich schwer.
     Erinnern Sie sich an die erwähnte Hintertür einer Einwegsfunktion, die ganz am Anfang von @chapter-rsa erwähnt wurde? Was ist nun bei der Faktorisierung die Hintertür? Wann ist diese ganz einfach?
   ],
   solution: [
+    #v(-2mm)
     Die Faktorisierung ist dann ganz einfach, wenn wir einen der beiden Primfaktoren kennen.
     Eben: 55 in Primfaktoren zerlegen ist schwierig. Wenn wir aber die Zahl 5 kennen (den einen der beiden Primfaktoren), dann müssen wir nur eine ganz einfache Division machen: 55 geteilt durch 5, und schon kriegen wir 11 für den zweiten Primfaktor.
     Haben Sie 11 gegeben, dann dividieren wir einfach 55 geteilt durch 11, und schon kriegen wir 5 als zweiten Primfaktor.\
@@ -530,6 +536,7 @@ Das, was wirklich stimmt, ist, dass wir bei RSA von einem Schlüsselpaar spreche
         Alice will Bob einen Brief schicken. Sie verschlüsselt den Brief mit ihrem öffentlichen Schlüssel. Denken Sie sich das Ganze durch und überlegen Sie, zu welchen Problemen das führt.
       ],
       solution: [
+        #v(-2mm)
         Wenn Alice eine Nachricht mit ihrem öffentlichen Schlüssel verschlüsselt, ist das witzlos. Weil diese Nachricht kann nur sie mit ihrem privaten Schlüssel wieder entschlüsseln. OK, das könnte allenfalls für ein Geheimnis interessant sein, das Alice niemand anderem sagen will; quasi eine geheime Liebesbekundung jemandem gegenüber, oder das eigene Tagebuch, etc.
       ]
     )
@@ -541,6 +548,7 @@ Das, was wirklich stimmt, ist, dass wir bei RSA von einem Schlüsselpaar spreche
         Alice will Bob einen Brief schicken. Sie verschlüsselt den Brief mit Bobs privatem Schlüssel. Denken Sie sich das Ganze durch und überlegen Sie, zu welchen Problemen das führt.
       ],
       solution: [
+        #v(-2mm)
         Alice ist nicht in der Lage, eine Nachricht mit dem privaten Schlüssel von Bob zu verschlüsseln, weil Bob seinen privaten Schlüssel geheimhält.
       ]
     )
@@ -596,7 +604,14 @@ Was könnte sie tun?
     Denken Sie an Hashes zurück. Was könnten Hashes bei diesem Problem bringen?
   ],
   solution: [
-
+    #v(-2mm)
+    Alice könnte von ihrer Nachricht einen Hash erstellen lassen. Das geht sauschnell und sorgt dafür, dass dieser Hash mehr oder weniger einmalig ist.
+    Sie verschlüsselt nun nicht die ganze Nachricht asymmetrisch, sondern nur diesen Hash.\
+    Bob kriegt dann mit Hilfe des öffentlichen Schlüssels von Alice den Hash.
+    Er muss die Nachricht, die er separat von Alice kriegt (symmetrisch verschlüsselt), nur noch mit der gleichen Hash-Funktion hashen und vergleichen mit dem Hash, den er von Alice erhalten hat. So ist er sicher:
+    - dass die Nachricht von Alice stammt (weil er mit ihrem öffentlichen Schlüssel den Hash von ihr kriegte
+    - dass die Nachricht unterwegs nicht verändert wurde, wenn er den gleichen Hash kriegt (das Sicherheitsziel der Integrität ist erfüllt)
+    
   ]
 )
 #v(2mm)
@@ -634,7 +649,8 @@ Abschliessend können wir sagen, dass wir die asymmetrische Verschlüsselung bei
 
 == Konkretes Beispiel zu RSA <rsa-example-calculated>
 
-Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an, Alice will Bob eine Nachricht in ASCII schicken.
+Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. 
+#v(4mm)
 
 #grid(
   columns: (1fr, 0.5pt,  1fr),
@@ -642,7 +658,7 @@ Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an
   [
     #text(size: 1.1em, weight: "bold")[#align(center)[Theorie]]
 
-    #text(size: 1.1em, weight: "bold")[Erstellung eines Schlüsselpaars]\
+    #text(size: 1.1em, weight: "bold")[Schlüsselerstellung]\
 
     Bevor das klappt, brauchen wir Schlüssel für die Ver- und Etnschlüsselung (das sind 2 verschiedene Schlüssel!):
 
@@ -664,7 +680,7 @@ Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an
 
     #text(size: 1.1em, weight: "bold")[Entschlüsselung]\
 
-    Bob berechnet den Klartext $m'=c^d % n$
+    Bob berechnet den Klartext $m'=c^d #h(1.5mm) % #h(1.5mm) n$
   ],
   [#rect(width: 0.5pt, height: 48%)],
   [
@@ -684,12 +700,31 @@ Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert. Nehmen wir an
 
     #text(size: 1.1em, weight: "bold")[Verschlüsselung]\
 
-    Alice nimmt den öffentlichen Schlüssel von Bob und verschlüsselt damit eine Nachricht. Sie will die Zahl 5 verschlüsseln (ASCII kommt nachher):
+    Alice nimmt den öffentlichen Schlüssel von Bob und verschlüsselt damit eine Nachricht. Sie will die Zahl 5 verschlüsseln (einfachheitshalber kein ASCII vorerst):
     $ c = 5^27 #h(1.5mm) % #h(1.5mm) 55 = 25 $ #v(-0.7mm)
     Alice schickt Bob also die verschlüsselte Nachricht $25$
 
     #text(size: 1.1em, weight: "bold")[Entschlüsselung]\
 
-    
+    Bob kann mit seinem privaten Schlüssel entschlüsseln:
+
+    $ m' = 25^3 #h(1.5mm) % #h(1.5mm) 55 = 15625 #h(1.5mm) % #h(1.5mm) 55 = 5 $
+  ]
+)
+
+#exo(
+  exercise: [
+    #v(-2mm)
+    Sie kriegen eine mit meinem privaten Schlüssel verschlüsselte Nachricht $m$ mit den folgenden Zahlen:
+    $ m = 84 #h(2mm) 124 #h(2mm) 69 #h(2mm) 69 #h(2mm) 136 $
+    Der öffentliche Schlüssel $(n,e)$ lautet $(143,7)$.\
+
+    Entschlüsseln Sie jede Zahl separat. Sie sollten danach ASCII-Zeichen erhalten, welche einen Sinn ergeben.
+  ],
+  solution: [
+    #v(-2mm)
+    Die entschlüsselten ASCII-Codes sollten dezimal wie folgt lauten:
+    72	97	108	108	137.\
+    Und das sollte «Hallo» heissen.
   ]
 )
