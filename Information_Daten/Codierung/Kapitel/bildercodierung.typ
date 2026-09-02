@@ -8,7 +8,7 @@
   columns: (0.7fr, 0.3fr),
   gutter: 1.5em,
   [
-    Für uns heutzutage ist es normal, dass unser Computer (oder sonstigen elektronischen Geräte) ohne Mühe Bilder darstellen können. Wie wir im Kapitel vorher gesehen haben, war das früher überhaupt nicht selbstverständlich. Da hat man noch mit Textzeichen getrickst, um einfache Linien darstellen zu können.\
+    Für uns heutzutage ist es normal, dass unser Computer (oder sonstigen elektronischen Geräte) ohne Mühe Bilder darstellen kann. Wie wir im Kapitel vorher gesehen haben, war das früher überhaupt nicht selbstverständlich. Da hat man noch mit Textzeichen getrickst, um einfache Linien darstellen zu können.\
     Ein bekanntes Beispiel früherer solcher Darstellungen von Bildern ist sogar die eigene Kunstrichtung "ASCII-Art", bei der man Bilder nur mit ASCII-Zeichen dargestellt hat (siehe @ascii-art-fish).
 
 
@@ -26,9 +26,28 @@
 
         Solche Grafiken bestehen aus einer rasterförmigen Anordnung von sogenannten Pixeln (Bildpunkten, siehe @pixel-zoom), denen jeweils eine Farbe zugeordnet ist. Die Hauptmerkmale einer Rastergrafik sind:
 
-        - die Bildgrösse (Breite und Höhe gemessen in Pixeln, umgangssprachlich auch _Bildauflösung_ genannt)
-        - die Farbtiefe
-      ]    
+        - die Bildgrösse: Breite und Höhe gemessen in Pixeln, umgangssprachlich auch _Bildauflösung_ genannt)
+        - die Farbtiefe: wie viele mögliche Werte kann ein Pixel annehmen
+    ]    
+
+    #text(
+      size: 1.2em,
+      weight: "bold",
+        )[Schwarz-Weiss Bilder]
+
+    Schwarz-Weiss Bilder lassen sich sehr einfach mithilfe von Bits direkt darstellen. Schwarz zum Beispiel mit 1 und weiss mit 0 (oder umgekehrt). Soche einfachen Darstellungen kann der Computer im PBM (Portable BitMap/.pbm) Format speichern. Heutzutage ist das aber nicht mehr ein so weit verbreitetes Format und eignet sich besonders für Spielereien mit kariertem Papier (siehe @portable-bitmap).
+    
+
+    #text(
+      size: 1.2em,
+      weight: "bold",
+        )[Graustufen Bilder]
+
+    #text(
+      size: 1.2em,
+      weight: "bold",
+        )[Farbbilder]
+  
 
 
   ],
@@ -62,6 +81,11 @@
       image("../Bilder/zoom_pixel.png"),
       caption: [Beim Reinzoomen kann man die einzelnen Pixel erkennen.]
     ) <pixel-zoom>
+
+    #figure(
+      image("../Bilder/portable-bitmap.png"),
+      caption: [Beim PBM zeigen die oberen zwei Zahlen jeweils Breite und Höhe der Grafik an.]
+    ) <portable-bitmap>
   ]
 )
 

@@ -14,7 +14,7 @@ In diesem Kapitel verwenden wir in Beispielen Personen, um das Verfahren praktis
   [
     - Alice und Bob kommunizieren (geheim) miteinander, Alice sendet eine Nachricht, Bob empfängt sie.
     - Eve ist die Person mit bösen Absichten zwischen Alice und Bob. Sie möchte immer mitlesen können, wenn die beiden was Geheimes austauschen (engl.: *eaves* #h(-0.8mm)dropping).
-    - Trent is eine vertrauenswürdige Person, eine dritte Stelle wie z.B. ein Notar oder eine Anwältin (engl.: *Tr* #h(-0.8mm)usted *Ent* #h(-0.8mm)ity)
+    - Trent is eine vertrauenswürdige Person, eine dritte Stelle wie z.B. ein Notar oder eine Anwältin (engl.: *tr* #h(-0.8mm)usted *ent* #h(-0.8mm)ity)
   ],
   [
     #v(1mm)
@@ -81,20 +81,20 @@ Das Problem ist aber: Wenn jemand diesen Schlüssel kriegt, dann sind Alice und 
       #align(center)[
         #v(-1.5mm)
         🚨 *Wichtig* 🚨\
-        Das Erstellen eines symmetrischen Schlüssels ist nicht schwierig und auch nicht gefährlich. Aber ihn der gewünschten Person zu überreichen, *DAS* ist das Hauptproblem der symmetrischen Verschlüsselung
+        Das Erstellen eines symmetrischen Schlüssels ist nicht schwierig und auch nicht gefährlich. Aber ihn der gewünschten Person zu überreichen, *DAS* ist das Hauptproblem der symmetrischen Verschlüsselung!
       ]
     ]
   ]
 )
 #v(2mm)
 
-Angenommen Alice steckt den erstellten Schlüssel in einen Umschlag und will ihn Bob senden. Der Umschlag mit dem handgeschriebenen Schlüssel könnte ja geklaut werden bei der Übergabe. Oder man lässt den Umschlag per Kuriert (Post, DHL, ...) senden. Aber ist dieser vertrauenswürdig? Ein direktes Treffen für den Austausch ist vielleicht auch nicht machbar, falls Alice im Wunderland wohnt und Bob hier in der Schweiz... Ein solches Treffen braucht Zeit und kostet.
+Angenommen Alice steckt den erstellten Schlüssel in einen Umschlag und will ihn Bob senden. Der Umschlag mit dem handgeschriebenen Schlüssel könnte ja geklaut werden bei der Übergabe. Oder man lässt den Umschlag per Kurier (Post, DHL, ...) senden. Aber ist dieser vertrauenswürdig? Ein direktes Treffen für den Austausch ist vielleicht auch nicht machbar, falls Alice im Wunderland wohnt und Bob hier in der Schweiz... Ein solches Treffen braucht Zeit und kostet.
 
 #text(size: 1.2em, weight: "bold")[Wäre es nicht praktisch, wenn man diesen Schlüssel gar nicht mehr austauschen müsste?]
 
 Und das ist die Idee der asymmetrischen Verschlüsselung. Beide haben jetzt nämlich 2 Schlüssel: Einer ist geheim und darf (muss) nicht ausgetauscht werden und der zweite Schlüssel darf (muss) man austauschen. Dieser ist aber nicht geheim.
 - Den geheimen Schlüssel nennt man *privaten Schlüssel* und
-- den nicht-geheimen Schlüssel nennt man *öffentlicher Schlüssel* (den kann man frei an alle verteilen sogar).
+- den nicht-geheimen Schlüssel nennt man *öffentlichen Schlüssel* (den kann man frei an alle verteilen sogar).
 
 Aber wie soll das nun jetzt gehen? Für das brauchen wir ein paar Konzepte, die wir zuerst kennenlernen müssen.
 
@@ -167,7 +167,7 @@ Oben haben Sie gehört, dass es Einwegfunktionen gibt, die kaum rückgängig zu 
     #stickybox(rotation: 2deg)[
       #align(center)[
         #v(-1.5mm)
-        Zuerst schauen wir uns eine vereinfachte Darstellung an. Die konkrete mathematische Implementation anhand eines Beispiel finden Sie weiter hinten (siehe ...)
+        Zuerst schauen wir uns eine vereinfachte Darstellung an. Die konkrete mathematische Implementation anhand eines Beispiel finden Sie in @rsa-example-calculated.
       ]
     ]
   ]
@@ -185,7 +185,7 @@ Natürlich sieht man so etwas sehr schnell, wenn wir so kleine Primzahlen verwen
   )[
       _Es ist bisher kein effizientes Faktorisierungsverfahren bekannt, um die Primfaktorzerlegung einer beliebigen Zahl zu erhalten._ (Wikipedia)
 
-      Wen es interessiert: wir sprechen von einer Komplexität von O($2^n$). n entspricht der Anzahl der Bits der Zahl. Wir haben also ein exponentielles Wachstum der Laufzeit, was Brute-Force Angriffe kaum möglich macht.
+      Wen es interessiert: wir sprechen von einer Komplexität von O($2^n$). $n$ entspricht der Anzahl der Bits der Zahl. Wir haben also ein exponentielles Wachstum der Laufzeit, was Brute-Force Angriffe kaum möglich macht.
 ]
 #v(1mm)
 
@@ -343,7 +343,7 @@ $72778779665243304465754969955248694794743301043$
 )
 #v(2mm)
 
-Unser Fazit: Multiplikation ist sehr einfach, Faktorisierung unglaublich schwer. Die obige Zahl in ihre Primfaktoren zu zerlegen, dauert voraussichtlich länger, als unser Universum exisiter, also mehr als $4.5$ Milliarden Jahre!
+Unser Fazit: Multiplikation ist sehr einfach, Faktorisierung unglaublich schwer. Die obige Zahl in ihre Primfaktoren zu zerlegen, dauert voraussichtlich länger, als unser Universum existiert, also mehr als $4.5$ Milliarden Jahre!
 
 #v(2mm)
 #exo(
@@ -362,7 +362,7 @@ Unser Fazit: Multiplikation ist sehr einfach, Faktorisierung unglaublich schwer.
 )
 #v(2mm)
 
-Das Spezielle an RSA ist nun, dass wir diese Hintertür, also das Geheimnis nicht mit der anderen Person auszutauschen brauchen. Das ist genau der Unterschied zur symmetrischen Verschlüsselung. Dort müssen wir den Schlüssel austauschen. Hier ist das nicht nötig. Wie das funktioniert, sehen wir gleich.
+Das Spezielle an RSA ist nun, dass wir diese Hintertür (also das Geheimnis) nicht mit der anderen Person auszutauschen brauchen. Das ist genau der Unterschied zur symmetrischen Verschlüsselung. Dort müssen wir den Schlüssel austauschen. Hier ist das nicht nötig. Wie das funktioniert, sehen wir gleich.
 #v(2mm)
 
 == Das Konzept von RSA (und anderen aymmetrischen Verfahren)
@@ -391,7 +391,7 @@ Nun schauen wir das Grundprinzip von RSA resp. von jedem asymmetrischen Verschl�
 )
 
 Man spricht von einem *Schlüsselpaar*, wenn man die beiden Schlüssel einer Person betrachtet. Jede Person besitzt ein eigenes Schlüsselpaar, so auch Bob. Die beiden Schlüssel, die dieses Schlüsselpaar bilden, sind mathematisch verwandt. Der private Schlüssel lässt sich jedoch nicht in sinnvoller Zeit aus dem öffentlichen Schlüssel berechnen.\
-Bobs öffentlicher Schlüssel entspricht also einem Bügelschloss. Bobs privater Schlüssel ist der Schlüssel, der zum Bügelschloss passt. Das Schloss kann (in geöffneter Form natürlich) frei in der Welt herumgeschickt werden. Das ist nicht geheim. Oder das Schloss kann bei einer vertrauenswürdigen Stelle (Trent) deponiert werden, wo es von Alice abgeholt werden kann. Den Schlüssel aber behält Bob stets für sich.
+Bobs öffentlicher Schlüssel entspricht also einem Bügelschloss. Bobs privater Schlüssel ist der Schlüssel, der zum Bügelschloss passt. Das Schloss kann (in geöffneter Form natürlich) frei in der Welt herumgeschickt werden. Das ist nicht geheim. Oder das Schloss kann bei einer vertrauenswürdigen Stelle (Trent) deponiert werden, wo es von Alice abgeholt werden kann. Den (privaten) Schlüssel aber behält Bob stets für sich.
 
 #text(size: 1.2em, weight: "bold")[Analogie erklärt]
 
@@ -418,7 +418,7 @@ Untersuchen wir nun mal RSA bezüglich den Standard-Sicherheitszielen der Krypto
   inset: 6pt,
   )[
     #v(1mm)
-      *Sicherheitsziele* beschreiben, was bei der sicheren Kommunikation von Nachrichten gewährleistet werden soll. In unserem Beispiel: Standards, die sich also Alice und Bob bei ihrer Kommunikation wünschen:
+      *Sicherheitsziele* beschreiben, was bei der sicheren Kommunikation von Nachrichten gewährleistet werden soll. In unserem Beispiel Standards, die sich also Alice und Bob bei ihrer Kommunikation wünschen:
 
       - *Vertraulichkeit*: Niemand Unbefugtes soll mitlesen können.
       - *Integrität*: Die Daten wurden bei der Übermittlung nicht unbemerkt verändert.
@@ -463,9 +463,9 @@ Untersuchen wir nun mal RSA bezüglich den Standard-Sicherheitszielen der Krypto
     *Analogie korrigiert:* 
 
     - Alice verschlüsselt den Brief mit ihrem roten Schloss (privater Schlüssel).
-    - Dieses Schloss kann von allen Menschen geöffnet werden. Das sorgt nicht für Vertraulichkeit, sondern gewährleistet lediglich, dass der Brief wirklich von Alice ist (Authentizität). Weil der rote Schlüssel, welcher öffentlich ist, kann nur dieses rote Schloss öffnen.
+    - Dieses Schloss kann von allen Menschen geöffnet werden. Das sorgt nicht für Vertraulichkeit, sondern gewährleistet lediglich, dass der Brief wirklich von Alice ist (Authentizität). Weil der rote Schlüssel, welcher öffentlich ist, kann dieses rote Schloss öffnen.
     - Zusätzlich fordert Alice aber noch ein grünes Schloss von Bob an und verschlüsselt die vorher bereits verschlüsselte Nachricht nochmals.
-    - Jetzt ist aber so, dass nur Bob den grünen Schlüssel hat (privater Schlüssel) und nur er kann das grüne Schloss öffnen.
+    - Jetzt ist es aber so, dass nur Bob den grünen Schlüssel hat (privater Schlüssel) und nur er kann das grüne Schloss öffnen.
     
   ],
   [
@@ -558,7 +558,7 @@ Das, was wirklich stimmt, ist, dass wir bei RSA von einem Schlüsselpaar spreche
 
 == RSA in der Praxis (Kombination mit symm. Verschlüsselung)
 
-Wir haben jetzt schon mehrmals gesehen, dass asymmetrische Verschlüsselungsverfahren grundsätzlich sehr langsam sind. Durchschnittlich dauern asymmetrische Ver- und Entschlüsselungen ca. 1000x langsamer als symmetrische Verschlüsselungsverfahren.
+Wir haben schon gehört, dass asymmetrische Verschlüsselungsverfahren grundsätzlich sehr langsam sind. Durchschnittlich dauern asymmetrische Ver- und Entschlüsselungen ca. 1000x langsamer als symmetrische Verschlüsselungsverfahren.
 
 Eine kurze Nachricht «Ich liebe dich» mit RSA zu verschlüsseln, ist kein Problem. Was ist aber, wenn Sie lange Briefe, geheime Verträge, etc. verschlüsseln wollen? Sie können nicht jedes Mal bei der Verschlüsselung 3min warten, bis diese erledigt ist. Ich als Empfänger habe auch keinen Bock, jedes Mal 3min zu warten. Das muss schneller gehen.\
 Aus diesem Grund kombiniert man beide Verfahren zusammen: die asymmetrische und symmetrische Verschlüsselung.
@@ -577,7 +577,7 @@ Was war das Hauptproblem der symmetrischen Verschlüsselung? Der Schlüsselausta
     #v(-1mm) #set enum(numbering: "1.", start: 2)
     + Alice verschlüsselt die Nachricht mit diesem Schlüssel.
     #v(-1mm) #set enum(numbering: "1.", start: 3)
-    + Alice verschlüsselt den symmetrischen Schlüssel mit Bobs öffentlichem RSA-Schlüssel.
+    + Alice verschlüsselt den symmetrischen Schlüssel mit Bobs öffentlichem Schlüssel.
     #v(-1mm) #set enum(numbering: "1.", start: 4)
     + Bob entschlüsselt den symmetrischen Schlüssel mit seinem privaten Schlüssel.
     #v(-1mm) #set enum(numbering: "1.", start: 5)
@@ -627,7 +627,7 @@ Abschliessend können wir sagen, dass wir die asymmetrische Verschlüsselung bei
   columns: (1fr, 1fr),
   gutter: 1.3em,
   [
-    Weiter in @rsa-example-calculated sehen Sie ein konkretes Beispiel, wie man RSA rechnerisch durchführt. Das müssen Sie selbst nicht so durchrechnen und merken können. Es hilft Ihnen aber, das Verfahren etwas konkreter zu verstehen. 
+    Weiter in @rsa-example-calculated sehen Sie ein konkretes Beispiel, wie man RSA rechnerisch durchführt. Das müssen Sie sich so nicht auswendig merken können. Es hilft Ihnen aber, das Verfahren etwas konkreter zu verstehen. 
 
     Sie haben nun zwei Verschlüsselungsverfahren kennengelernt: symmetrische und asymmetrische Verschlüsselungsverfahren. Ihnen sollten die Unterschiede klar sein.
   ],
@@ -715,16 +715,27 @@ Hier wird ein konkretes Beispiel angeschaut, wie RSA funktioniert.
 #exo(
   exercise: [
     #v(-2mm)
-    Sie kriegen eine mit meinem privaten Schlüssel verschlüsselte Nachricht $m$ mit den folgenden Zahlen:
+    Sie erhalten eine mit Bobs öffentlichem Schlüssel verschlüsselte Nachricht. Der Schlüssel lautet $(n,e)=(143,7)$.
+
+    Die verschlüsselte Nachricht besteht aus folgenden Zahlen:
+
+    $ c = 19 #h(2mm) 59 #h(2mm) 4 #h(2mm) 4 #h(2mm) 45 $
+
+    Entschlüsseln Sie jede Zahl separat. Verwenden Sie dazu den privaten Schlüssel $d=103$.\
+    Die erhaltenen Zahlen entsprechen ASCII-Codes. Wandeln Sie diese anschliessend in die entsprechenden Zeichen um. Welche Nachricht hat Alice an Bob geschickt?
+
+    /*
+    Sie erhalten eine mit meinem privaten Schlüssel verschlüsselte Nachricht $m$ mit den folgenden Zahlen:
     $ m = 84 #h(2mm) 124 #h(2mm) 69 #h(2mm) 69 #h(2mm) 136 $
     Der öffentliche Schlüssel $(n,e)$ lautet $(143,7)$.\
 
-    Entschlüsseln Sie jede Zahl separat. Sie sollten danach ASCII-Zeichen erhalten, welche einen Sinn ergeben.
+    Entschlüsseln Sie jede Zahl xseparat. Sie sollten danach ASCII-Zeichen erhalten, welche einen Sinn ergeben.
+  */
   ],
   solution: [
     #v(-2mm)
     Die entschlüsselten ASCII-Codes sollten dezimal wie folgt lauten:
-    72	97	108	108	137.\
+    72	97	108	108	111.\
     Und das sollte «Hallo» heissen.
   ]
 )

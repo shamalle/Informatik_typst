@@ -30,7 +30,7 @@ Bei der Textcodierung geht es also darum, wie der Computer Text (Buchstaben, Emo
   columns: (1fr, 0.35fr),
   gutter: 1.2em,
   [
-    Die Tabelle zeigt, wie die einzelnen Zeichen codiert wurden. Schwarz bedeutet, dass Strom fliesst, Weiss bedeutet, dass kein Strom fliesst. Wenn Sie beispielsweise den Buchstaben A eingeben, sendet der Fernschreiber zunächst ein Startimpuls. Dieses signalisiert dem empfangenden Gerät, dass nun ein neues Zeichen übertragen wird.\
+    Die Tabelle zeigt, wie die einzelnen Zeichen codiert wurden. Schwarz bedeutet, dass Strom fliesst, weiss bedeutet, dass kein Strom fliesst. Wenn Sie beispielsweise den Buchstaben A eingeben, sendet der Fernschreiber zunächst ein Startimpuls. Dieses signalisiert dem empfangenden Gerät, dass nun ein neues Zeichen übertragen wird.\
 Anschliessend werden fünf Bits übertragen. Beim A lautet die Folge: 
     
     Strom – Strom – kein Strom – kein Strom – kein Strom
@@ -60,7 +60,7 @@ Anschliessend werden fünf Bits übertragen. Beim A lautet die Folge:
       weight: "bold",
         )[Der Morsecode]
 
-    Ein anderes System, um Texte über weite Strecken zu senden ist der Morsecode. Jeder Buchstabe wird durch eine Folge aus Punkten und Strichen dargestellt. Ein Punkt steht für ein kurzes Signal, ein Strich für ein langes Signal (siehe die Beispielbuchstaben in @morse-code). Die Zeichen sind unterschiedlich lang, ein E besteht beispielsweise aus einem einzelnen Punkt und das J aus einem Punkt und drei Strichen.
+    Ein anderes System, um Texte über weite Strecken zu senden ist der Morsecode. Jeder Buchstabe wird durch eine Folge aus Punkten und Strichen dargestellt. Ein Punkt steht für ein kurzes Signal, ein Strich für ein langes Signal (siehe die Beispielbuchstaben in @morse-code). Die Zeichen sind unterschiedlich lang. Ein E besteht beispielsweise aus einem einzelnen Punkt und das J aus einem Punkt und drei Strichen.
 
     
   ],
@@ -140,9 +140,9 @@ Keine grosse Überraschung, aber sowohl der Telex sowie auch der Morsecode sind 
     Beim Telex wird jedes Zeichen mit 5 Bits codiert und beim Morsecode sind die Zeichen unterschiedlich lang.
 
     #set enum(numbering: "a.")
-    + Wie viele verschiedene Zeichen könne mit 5 Bits grundsätzlich dargestellt werden?
+    + Wie viele verschiedene Zeichen können mit 5 Bits wie beim Telex grundsätzlich dargestellt werden?
     + Reicht diese Anzahl aus, um alle Zeichen darzustellen, die wir heute beim Schreiben benötigen?
-    + Sie möchten die Nachricht "GE" übertragen. Schreiben Sie die entsprechende Folge aus Punkten und Strichen auf.
+    + Sie möchten die Nachricht "GE" übertragen. Schreiben Sie den entsprechenden Morsecode auf.
     + Könnte ein Empfänger anhand dieser Folge eindeutig die einzelnen Zeichen erkennen? Was müsste noch zusätzlich gesendet werden, damit die Eindeutigkeit gewährleistet ist?
     + Welche Eigenschaften müsste eine neue Zeichencodierung besitzen, damit sie die Schwachstellen von Telex und Morsecode möglichst gut löst?
     
@@ -177,11 +177,11 @@ Diese Zeichen beinhalten:
   ]
 )
 
-Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für das gibt es ASCII-Tabellen, welche Sie auch an der Prüfung benutzen dürfen. Schauen wir uns eine solche Tabelle konkret an ein paar Beispielen an:
+Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für das gibt es ASCII-Tabellen (@ascii-table), welche Sie auch an der Prüfung benutzen dürfen. Schauen wir uns eine solche Tabelle konkret an ein paar Beispielen an:
 
 #outline-colorbox(
   title: "ASCII-Tabelle lesen",
-  color: "purple",
+  color: "blue",
   radius: 3pt,
   width: auto,
   inset: 6pt,
@@ -212,7 +212,7 @@ Diese Codes für jedes einzelne Zeichen müssen Sie nicht auswendig lernen. Für
     )
   ]
 
-Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unterhalb einsehen können.
+Für die folgenden Aufgaben brauchen Sie die ASCII-Tabelle, die Sie direkt unterhalb einsehen können.
 
 #grid(
   columns: (1fr, 1fr),
@@ -246,14 +246,19 @@ Für die folgenden Aufgaben brauchen Sie eine ASCII-Tabelle, die Sie direkt unte
         Für das ö haben wir kein geeignetes ASCII-Zeichen gesehen, darum haben wir es mit oe ersetzt. Für das Emoji haben wir aber bisher keine Lösung...])
   ]
 )
+#v(-3mm)
 
-#figure(image("../Bilder/complete_7bit_ascii.jpg"))<ascii-table>
+#figure(
+  image("../Bilder/complete_7bit_ascii.jpg"),
+  caption: [Die ASCII-Tabelle mit allen Zeichen von 0 bis 127 (insgesamt 128 Zeichen).]
+)<ascii-table>
+#v(1mm)
 
 ASCII scheint also ebenfalls nicht ganz vollständig unsere modernen Anforderungen zu erfüllen. Zwei der Zeichen aus den Sätzen von den Aufgaben sind nicht in der Tabelle enthalten... Haben Sie eine Ahnung, warum Zeichen mit Akzent (é, â, ö, $tilde(n)$) nicht enthalten sind? Die Antwort liegt im A von ASCII.
 
 == Weitere Codierungen
 
-Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits. Genau das machte IBM beispielsweise mit *Code Page 437*. Die ersten 128 Zeichen blieben unverändert und entsprachen ASCII. Die zusätzlichen 128 Zeichen wurden mit weiteren Buchstaben, Symbolen und grafischen Zeichen gefüllt.
+Eine naheliegende Idee war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits. Genau das machte IBM beispielsweise mit *Code Page 437*. Die ersten 128 Zeichen blieben unverändert und entsprachen ASCII. Die zusätzlichen 128 Zeichen wurden mit weiteren Buchstaben, Symbolen und grafischen Zeichen gefüllt.
 
 #grid(
   columns: (0.55fr, 0.45fr),
@@ -319,18 +324,19 @@ Eine naheliegende Ide war, ASCII zu erweitern: Statt 7 Bits verwendet man 8 Bits
 #v(2.5mm)
 
 #grid(
-  columns: (0.6fr, 0.45fr),
-  gutter: 1.5em,
+  columns: (0.6fr, 0.48fr),
+  gutter: 1.2em,
   [
     #v(1.5mm)
-    Jetzt stellen Sie sich nun aber mal vor, Sie schreiben einen Text auf ihrem Computer in der Schweiz (Codepage 850). Anschliessend schicken Sie diesen Text an jemanden, dessen Computer griechisch eingestellt ist (Code Page 869). Die hexadezimalen Zahlen werden zwar korrekt übertragen – aber der Empfänger interpretiert sie mit einer anderen Tabelle. Aus einem Zeichen kann dadurch plötzlich ein völlig anderes Zeichen werden. 
+    Jetzt stellen Sie sich nun aber mal vor, Sie schreiben einen Text auf Ihrem Computer in der Schweiz (Codepage 850). Anschliessend schicken Sie diesen Text an jemanden, dessen Computer griechisch eingestellt ist (Code Page 869). Die hexadezimalen Zahlen werden zwar korrekt übertragen – aber der Empfänger interpretiert sie mit einer anderen Tabelle. Aus einem Zeichen kann dadurch plötzlich ein völlig anderes Zeichen werden. 
   
   Diese falsche Interpretation können Sie in @norton-false sehen: Die Linien, welche in @norton-commander noch schön dargestellt wurden, entsprechen jetzt zum Teil dem Zeichen â.
   ],
   [
+    #v(-2mm)
     #figure(
       image("../Bilder/norton_commander_false.png"),
-      caption: [Der Norton Commander mit einer falschen Darstellung der Linien.])
+      caption: [Der Norton Commander mit einer\ falschen Darstellung der Linien.])
       <norton-false>
   ]
   )
@@ -487,7 +493,7 @@ Damit verbindet UTF-8 die grosse Zeichenvielfalt von Unicode mit einer platzspar
       columns: (0.9fr, 0.1fr),
       gutter: 1em,
       [
-        Das Emoji mit der Sonnenbrille ist an der 128'526. Stelle (HEX:1F60E). Das in binär übersetzt ergibt die Zahl *#text(fill: rgb("#895aa9"))[$0001\'1111\'0110\'0000\'1110_2$]* (20 Bit). Für das braucht man einen Zug mit insgesamt 4 Wagen, damit man die x besetzen kann. Der hat die Form *$1111\'0$*xxx *$10$*xx\'xxxx *$10$*xx\'xxxx* $10$*xx\'xxxx. Analog wie oben befüllt man von rechts her in die Form und füllt die übrigen Stellen mit 0:
+        Das Emoji mit der Sonnenbrille ist an der 128'526. Stelle (HEX:1F60E). Das in binär übersetzt ergibt die Zahl *#text(fill: rgb("#895aa9"))[$0001\'1111\'0110\'0000\'1110_2$]* (20 Bit). Für das braucht man einen Zug mit insgesamt 4 Wagen, damit man die x besetzen kann. Der hat die Form *$1111\'0$*xxx *$10$*xx\'xxxx *$10$*xx\'xxxx* $10$*xx\'xxxx. Analog wie oben befüllt man von rechts her die Form und füllt die übrigen Stellen mit 0:
 
         #align(center)[
           *#text(size: 1.5em)[$1111\'0$]* #h(-0.8mm)
