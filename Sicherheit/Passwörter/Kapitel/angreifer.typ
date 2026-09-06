@@ -31,10 +31,13 @@ Beginnen wir mit der einfachsten Idee: Ein Angreifer probiert möglichst viele m
   ],
   [
     #v(-2mm)
-    #image("../Bilder/4_pin.jpg")
+    #box(
+      clip: true,
+      radius: 8pt,
+    )[#image("../Bilder/4_pin.jpg")]
   ]
 )
-
+#v(-2mm)
 - $1$ Zeichen $arrow$ $26$ Möglichkeiten
 - $2$ Zeichen $arrow$ $26^2 = 676$ Möglichkeiten
 - $8$ Zeichen $arrow$ $26^8 = 208\'827\'064\'576$ Möglichkeiten 
@@ -96,13 +99,22 @@ Der Angreifer versucht sich direkt beim Dienst anzumelden. Er versucht also eine
 
 #grid(
   columns: (0.5fr, 0.5fr),
-  gutter: 1em,
+  gutter: 1.5em,
   [
     Der Dienst kann die Attacke erschweren, indem er:
     - die Anzahl der Loginversuche begrenzt,
     - zwischen Versuchen wartet,
     - verdächtige Anmeldungen blockiert,
     - ein Captcha verlangt.
+
+    #v(1.5mm)
+    #figure(
+      image("../Bilder/captcha_examples.png", width: 60%),
+      caption: [Beispiele verschiedener Captchas, die das automatische Aufrufen mittels Algorithmen verlangsamen oder verhindern sollen.]
+
+    )
+    
+
   ],
   [
     #stickybox(rotation: 2deg)[
@@ -113,14 +125,15 @@ Der Angreifer versucht sich direkt beim Dienst anzumelden. Er versucht also eine
         Bei einem Online-Angriff muss der Server jeden Versuch bearbeiten. Bei einem Offline-Angriff kann der Angreifer die gestohlenen Daten selbst untersuchen.
       ]
     ]
+    #v(3mm)
+    #text(size: 1.1em, weight: "bold")[Offline]
+    #v(-1mm)
+
+    Anders sieht es aus, wenn der Angreifer eine Datenbank mit Passwort-Hashes gestohlen hat. Dann muss er nicht mehr bei Instagram jedes Mal nachfragen, sondern kann auf seinem Computer rechnen (haben wir weiter oben schon mal gesehen). Er stiehlt also den Hash. Dann probiert er ein Passwort am eigenen Computer aus, berechnet davon den Hash und vergleicht es mit dem gestohlenen Wert.
   ]
 )
 
-#v(-3mm)
-#text(size: 1.1em, weight: "bold")[Offline]
-#v(-1mm)
 
-Anders sieht es aus, wenn der Angreifer eine Datenbank mit Passwort-Hashes gestohlen hat. Dann muss er nicht mehr bei Instagram jedes Mal nachfragen, sondern kann auf seinem Computer rechnen (haben wir weiter oben schon mal gesehen). Er stiehlt also den Hash. Dann probiert er ein Passwort am eigenen Computer aus, berechnet davon den Hash und vergleicht es mit dem gestohlenen Wert.
 
 == Wörterbuchattacken
 
@@ -128,18 +141,28 @@ Brute Force hat allerdings ein Problem: Menschen wählen ihre Passwörter nicht 
 
 Ein Angreifer kann deshalb eine Liste mit häufig verwendeten Passwörtern verwenden. Das nennt man eine *Wörterbuchattacke*. Dabei wird nicht unbedingt nur ein normales Wörterbuch verwendet, sondern diese Listen beinhalten auch:
 
-- häufig verwendeten Passwörtern
-- Namen
-- Orten
-- häufigen Zahlenfolgen
-- bekannten Passwortmustern
-
-
+#grid(
+  columns: (0.3fr, 0.3fr, 0.3fr),
+  gutter: 1.5em,
+  [
+    - häufig verwendeten Passwörter
+    - Namen
+  ],
+  [
+    - Orte
+    - häufigen Zahlenfolgen
+  ],
+  [
+    - Geburtstage
+    - bekannten Passwortmuster
+  ]
+)
 
 #grid(
   columns: (0.7fr, 0.3fr),
-  gutter: 1em,
+  gutter: 1.5em,
   [
+    #v(2mm)
     Zusätzlich können Varianten ausprobiert werden: sommer, Sommer, Sommer1, Sommer!, Sommer2026, ... Der Angreifer versucht also, möglichst gut vorherzusagen, welches Passwort ein Mensch gewählt haben könnte.
 
     Öffentlich zugängliche Informationen, entweder über Webseiten oder Social Media Profilen, können diese Attacken noch zusätzlich unterstützen. Wenn Max also auf seinem öffentlichen Instagram-Profil Informationen über seinen Geburtstag, Lieblingsverein, Hund und seine Freundin teilt, kann ein Angreifer diese Informationen benutzen, um das Wörterbuch geschickt zu erweitern:
@@ -149,11 +172,12 @@ Ein Angreifer kann deshalb eine Liste mit häufig verwendeten Passwörtern verwe
     - Bello123
   ],
   [
-    #v(-2mm)
-    #figure(
-      image("../Bilder/max_dictionary_attack.png"),
-      caption: [Max hat auf Social Media viele Informationen über sich geteilt.]
-    )
+    #align(horizon)[
+      #figure(
+        image("../Bilder/max_dictionary_attack.png"),
+        caption: [Max hat auf Social Media viele Informationen über sich geteilt.]
+      )
+    ]
   ]
 )
 
@@ -208,16 +232,54 @@ Haben wir vorher schon in Abschnitt 2 gesehen.
 
 == Credential Stuffing
 
-Bisher haben wir betrachtet, wie ein Angreifer ein Passwort herausfinden kann. Aber manchmal muss er das gar nicht.\
-Stellen wir uns vor, eine Webseite wird gehackt. Das ist übrigens gar nicht so unwahrscheinlich :(
+#grid(
+  columns: (0.65fr, 0.35fr),
+  gutter: 1.5em,
+  [
+    Bisher haben wir betrachtet, wie ein Angreifer ein Passwort herausfinden kann. Aber manchmal muss er das gar nicht.\
+    Stellen wir uns vor, eine Webseite wird gehackt. Das ist übrigens gar nicht so unwahrscheinlich :(
 
-Entweder hat der Angreifer selbst die Seite gehackt und somit von allen Benutzern direkt den Namen und Passwort oder er kauft solche gestohlenen Daten im Darknet. Der Angreifer weiss nun, dass z.B. Max auf der Webseite das Passwort "Sommer2026!" verwendet.\
-Vielleicht verwendet Max dasselbe Passwort auch bei anderen Diensten? Beim *Credential Stuffing* versucht der Angreifer nun einfach bei weiteren Diensten mit demselben Email/Benutzernamen und Passwort die Konten von Max zu hacken. Zum Beispiel bei Instagram, Discord, Gmail, usw. Mit einem Computer und automatisierten Programm kann man auf tausenden von Seiten extrem schnell diese Login-Versuche durchführen.
+    Entweder hat der Angreifer selbst die Seite gehackt und somit von allen Benutzern direkt den Namen und Passwort oder er kauft solche gestohlenen Daten im Darknet. Der Angreifer weiss nun, dass z.B. Max auf der Webseite das Passwort "Sommer2026!" verwendet.\
+    Vielleicht verwendet Max dasselbe Passwort auch bei anderen Diensten?
+  ],
+  [
+    #v(-6mm)
+    #figure(
+      image("../Bilder/credential_stuffing.png"),
+      caption: [Der Angreifer versucht die gleichen Credentials bei anderen Diensten]
+    )
+  ]
+)
 
+ Beim *Credential Stuffing* versucht der Angreifer nun einfach bei weiteren Diensten mit demselben Email/Benutzernamen und Passwort die Konten von Max zu hacken. Zum Beispiel bei Instagram, Discord, Gmail, usw. Mit einem Computer und automatisierten Programm kann man auf tausenden von Seiten extrem schnell diese Login-Versuche durchführen .
+
+
+
+#pagebreak()
 == Phishing
 
+Nicht jeder Angreifer versucht, ein Passwort technisch zu berechnen. Manchmal versucht er stattdessen, den Menschen zu täuschen. 
 
+Max bekommt z.B. folgende Nachricht: „Dein Gmail-Konto wurde aufgrund verdächtiger Anmeldeversuche sicherheitshalber gesperrt. Bitte melde dich innerhalb von 24 Stunden an, um dein Konto zu entsperren.“ 
 
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1.5em,
+  [
+    
+  ],
+  [
+    #figure(
+      box(
+        stroke: 0.5pt + rgb("#1c90d0"),
+        inset: 5pt,
+      )[
+        #image("../Bilder/phishing_example_instagram.png")
+      ],
+      caption: [Ein klassisches Phishing-Mail, das echten Mails nachempfunden ist, aber den User täuschen soll.]
+)
+  ]
+)
 
 == Was passiert bei einem Datenleck?
 
