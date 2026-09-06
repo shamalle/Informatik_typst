@@ -80,22 +80,23 @@ Hier kommt ein Prinzip ins Spiel, das wir schon aus der Kryptologie bei der asym
   Der konkrete Hashwert hängt natürlich von der verwendeten Hashfunktion ab. Wichtig dabei ist: Aus demselben Passwort entsteht bei derselben Hashfunktion immer derselbe Hashwert.
 ]
 
-#v(2mm)
+#v(3mm)
 
 #grid(
-  columns: (0.7fr, 0.3fr),
-  gutter: 1em,
+  columns: (0.6fr, 0.4fr),
+  gutter: 1.2em,
   [
     Das Ganze sieht einer Verschlüsselung verdächtig ähnlich... Aber hier müssen wir eine Unterscheidung machen:\
     Bei einer Verschlüsselung wird eine Nachricht so verändert, dass sie ohne den passenden Schlüssel nicht gelesen werden kann.\
     Beim Hashing wird aus einer Eingabe ein Hashwert berechnet. Und dieser Wert ist nicht dazu gedacht, wieder in die ursprüngliche Eingabe zurückverwandelt zu werden. Deshalb spricht man hier von einer Einwegfunktion.
   ],
   [
-    _insert image vergleich verschlüsselung hash_
+    #v(-4mm)
+    #image("../Bilder/encryption_vs_hashing.png")
   ]
 )
 
-
+#v(-6mm)
 
 #text(size: 1.1em, weight: "bold")[Wie kann Instagram dann das Passwort überprüfen?]
 
@@ -113,7 +114,7 @@ Bei der Registrierung von Max speichert Instagram nicht sein Passwort als Klarte
           inset: 7pt,
 
           [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
-          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort-Hash]],
 
           // Linie unter der Kopfzeile
           table.hline(
@@ -169,7 +170,11 @@ Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. 
   ]
 )
 
-#v(4mm)
+#line(
+  length: 100%,
+  stroke: 0.5pt + rgb("#1c90d0"),
+)
+
 
 #grid(
   columns: (0.5fr, 0.5fr),
@@ -250,7 +255,7 @@ Das nennt man einen *Offline-Angriff*, weil der Angreifer kann die gestohlenen D
   radius: 3pt,
   width: auto,
 )[
-  Eine Rainbow Table ist vereinfacht gesagt eine vorberechnete Sammlung von Passwort- und Hashwerten. Quasi wei ein Nachschlagewerk für Angreifer.
+  Eine Rainbow Table ist vereinfacht gesagt eine vorberechnete Sammlung von Passwort- und Hashwerten. Quasi wie ein Nachschlagewerk für Angreifer.
 
   Wenn ein Angreifer einen gestohlenen Hash besitzt, kann er versuchen, den passenden Eintrag zu finden. Solche vorbereiteten Tabellen sind also besonders für schwache Passwörter eine gute Angriffsmöglichkeit.
 ]
@@ -270,7 +275,7 @@ Das nennt man einen *Offline-Angriff*, weil der Angreifer kann die gestohlenen D
           inset: 5pt,
 
           [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
-          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort-Hash]],
 
           // Linie unter der Kopfzeile
           table.hline(
@@ -299,7 +304,7 @@ Das nennt man einen *Offline-Angriff*, weil der Angreifer kann die gestohlenen D
           inset: 5pt,
 
           [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
-          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort-Hash]],
 
           // Linie unter der Kopfzeile
           table.hline(
@@ -399,9 +404,10 @@ Das nennt man einen *Offline-Angriff*, weil der Angreifer kann die gestohlenen D
   ]
 )
 
-#v(2mm)
+#v(4mm)
 
-Da überall in diesen Firmen auch nur Menschen arbeiten, ist es gar nicht so unwahrscheinlich, dass Unbefugte an solche Benutzernamen-Hash-Tabellen rankommen. Daher müssen wir die Sicherheit noch etwas mehr aufdrehen. Hier kommt der Salt ins Spiel:
+Da überall in diesen Firmen auch nur Menschen (potentielle Schwachstellen...) arbeiten, ist es gar nicht so unwahrscheinlich, dass Unbefugte an solche Benutzernamen-Hash-Tabellen rankommen. Daher müssen wir die Sicherheit noch etwas mehr aufdrehen. Hier kommt der Salt ins Spiel:
+#v(2mm)
 
 #outline-colorbox(
   title: "Salting",
@@ -409,9 +415,64 @@ Da überall in diesen Firmen auch nur Menschen arbeiten, ist es gar nicht so unw
   radius: 3pt,
   width: auto,
 )[
-  Eine Rainbow Table ist vereinfacht gesagt eine vorberechnete Sammlung von Passwort- und Hashwerten. Quasi wei ein Nachschlagewerk für Angreifer.
+  #grid(
+    columns: (0.6fr, 0.4fr),
+    gutter: 1em,
+    [
+      Ein Salt ist eine zufällig erzeugte Zeichenfolge, die vor dem Hashen mit dem Passwort kombiniert wird. Der Salt ist kein Geheimnis. Er wird zusammen mit dem Hash gespeichert werden (siehe ).
 
-  Wenn ein Angreifer einen gestohlenen Hash besitzt, kann er versuchen, den passenden Eintrag zu finden. Solche vorbereiteten Tabellen sind also besonders für schwache Passwörter eine gute Angriffsmöglichkeit.
+      #text(size: 1.1em, weight: "bold")[Warum hilft der Salt?]
+      #v(-1mm)
+      Nehmen wir mal an, dass Max und Nina dasselbe Passwort verwenden. Ohne Salt hätten beide denselben Hash und der Angreifer könnte auf einen Schlag von 2 Benutzern das Passwort erkennen. Mit dem Salt entstehen unterschiedliche Hashwerte und für den Angreifer wird es so viel schwieriger, eine einzige vorberechnete Tabelle für alle Benutzer zu verwenden.
+
+    ],
+    [
+      #image("../Bilder/salting.png")
+    ]
+  )
 ]
+
+#grid(
+  columns: (0.7fr, 0.3fr),
+  gutter: 1.5em,
+  [
+    #figure(
+      table(
+        columns: (auto, auto, auto),
+        stroke: none,
+        inset: 7pt,
+
+        [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
+        [#text(weight: "bold", fill: rgb("#1c90d0"))[Salt]],
+        [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort-Hash]],
+
+        // Linie unter der Kopfzeile
+        table.hline(
+          y: 1,
+          stroke: 1pt + rgb("#1c90d0"),
+        ),
+
+        [Max], [a7K2mQ9x], [0ec22f12d2aef35308467e125d3996de],
+        [Anna], [P4z8Lr1N], [7ed70c52ce29499ba647a775cec40d6d],
+        [Luca], [xQ6vT3b9], [2981b5bf5f6772a8b0f2c43b5f98e80a],
+        [Sara], [M9cR2k7W], [25f9e794323b453885f5181f1b624d0b],
+
+        // Vertikale Linie zwischen den Spalten
+        table.vline(
+          x: 1,
+          start: 1,
+          end: 5,
+          stroke: 0.5pt + rgb("#1c90d0"),
+        ),
+      ),
+      caption: [Der Salt wird zusätzlich in der Datenbank gespeichert. Der ist nicht geheim.],
+    ) <zugangsdaten-hash-salt>
+  ],
+  [
+    
+  ]
+)
+
+    
 
 

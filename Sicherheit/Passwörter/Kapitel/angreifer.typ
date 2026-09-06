@@ -95,16 +95,20 @@ Bei Brute-Force kann man zwischen zwei Situationen noch weiter unterscheiden: On
 
 #text(size: 1.1em, weight: "bold")[Online]
 #v(-1mm)
-Der Angreifer versucht sich direkt beim Dienst anzumelden. Er versucht also einen 1. Login-Versuch z.B. bei Intagram mit Ihrem Benutzernamen. Vermutlich wird dann "Passwort falsch" erscheinen. Also geht der Angreifer weiter zum nächsten Login-Versuch usw.
+Der Angreifer versucht sich direkt beim Dienst anzumelden. Er versucht also einen ersten Login-Versuch z.B. bei Intagram mit Ihrem Benutzernamen. Vermutlich wird dann "Passwort falsch" erscheinen. Also geht der Angreifer weiter zum nächsten Login-Versuch usw.\
+Der Dienst kann die Attacke erschweren, indem er:
 
 #grid(
   columns: (0.5fr, 0.5fr),
   gutter: 1.5em,
   [
-    Der Dienst kann die Attacke erschweren, indem er:
+    #v(-1mm)
     - die Anzahl der Loginversuche begrenzt,
+    #v(-1.5mm)
     - zwischen Versuchen wartet,
+    #v(-1.5mm)
     - verdächtige Anmeldungen blockiert,
+    #v(-1.5mm)
     - ein Captcha verlangt.
 
     #v(1.5mm)
@@ -113,15 +117,13 @@ Der Angreifer versucht sich direkt beim Dienst anzumelden. Er versucht also eine
       caption: [Beispiele verschiedener Captchas, die das automatische Aufrufen mittels Algorithmen verlangsamen oder verhindern sollen.]
 
     )
-    
-
   ],
   [
+    #v(-3mm)
     #stickybox(rotation: 2deg)[
       #align(center)[
         *Wichtiger Unterschied* \
         #v(-1mm)
-
         Bei einem Online-Angriff muss der Server jeden Versuch bearbeiten. Bei einem Offline-Angriff kann der Angreifer die gestohlenen Daten selbst untersuchen.
       ]
     ]
@@ -260,13 +262,19 @@ Haben wir vorher schon in Abschnitt 2 gesehen.
 
 Nicht jeder Angreifer versucht, ein Passwort technisch zu berechnen. Manchmal versucht er stattdessen, den Menschen zu täuschen. 
 
-Max bekommt z.B. folgende Nachricht: „Dein Gmail-Konto wurde aufgrund verdächtiger Anmeldeversuche sicherheitshalber gesperrt. Bitte melde dich innerhalb von 24 Stunden an, um dein Konto zu entsperren.“ 
+Max bekommt z.B. folgende Nachricht: „Dein Gmail-Konto wurde aufgrund verdächtiger Anmeldeversuche sicherheitshalber gesperrt. Bitte melde dich innerhalb von 24 Stunden an, um dein Konto zu entsperren.“. Oder eine Mail wie in 
 
 #grid(
   columns: (0.5fr, 0.5fr),
   gutter: 1.5em,
   [
-    
+    #v(-2mm)
+    @phishing-example.
+    Dazu gibt es meist einen Link, den das potentielle Opfer aufrufen sollte. Sobald nun Max also auf diesen Button mit diesem Link klickt, öffnet sich eine Webseite, die fast genau so aussieht, wie die von Instagram. Dort gibt er wie bei einem normalen Login-Versuch seinen Benutzernamen und Passwort ein.\
+    Doch die Webseite gehört nicht Instagram. Sobald die Credentials von Max eingegeben wurden, werden die an den Angreifer übermittelt. Das nennt man *Phishing*.\
+    Der Angreifer musste hier das Passwort also gar nicht selbst herausfinden. Max hat es ihm selbst gegeben.
+
+    Phishing ist eines der häufigsten Angriffe in der Arbeitswelt und kann Firmen (aufgrund Fehler von Mitarbeitenden) mehrere Millionen Franken kosten. Heutzutage wird Fishing sogar noch erweitert - man nennt es *Quishing*. Das ist sozusagen Phishing über manipulierte QR-Codes.
   ],
   [
     #figure(
@@ -276,8 +284,70 @@ Max bekommt z.B. folgende Nachricht: „Dein Gmail-Konto wurde aufgrund verdäch
       )[
         #image("../Bilder/phishing_example_instagram.png")
       ],
-      caption: [Ein klassisches Phishing-Mail, das echten Mails nachempfunden ist, aber den User täuschen soll.]
+      caption: [Ein klassisches Phishing-Mail für einen Instagram-User]
+    ) <phishing-example>
+  ]
 )
+
+#v(-2mm)
+#text(size: 1.1em, weight: "bold")[Typische Warnzeichen]
+#v(-1mm)
+Phishing-Nachrichten versuchen häufig, Druck oder Unsicherheit zu erzeugen, wie zum Beispiel:
+
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1em,
+  [
+    - „Ihr Konto wird heute gelöscht.“
+    - „Dringende Sicherheitsüberprüfung erforderlich.“
+  ],
+  [
+    - „Sie haben eine Zahlung erhalten.“
+    - „Klicken Sie sofort hier.“
+  ]
+)
+
+Die meisten Phishing-Versuche geschehen über Mail. Aber nicht alle. Folgende Punkte sollte man immer überprüfen:
+
+- Woher kommt die Nachricht? Ist diese Mail die offizielle Mail der Firma, für die sie sich ausgibt?
+- Ist die Adresse der Webseite wirklich korrekt, wenn man schon auf den Link geklickt hat?
+- Wird unnötiger Zeitdruck erzeugt?
+- Wird nach einem Passwort oder Code gefragt?
+
+#v(4mm)
+
+#grid(
+  columns: (0.52fr, 0.48fr),
+  gutter: 1.5em,
+  [
+    #figure(
+      image("../Bilder/phishing_example_post.jpg"),
+      caption: [Phishing-Mail am Beispiel der Schweizer Post. Markiert finden Sie einige auffällige Punkte, an denen man die Attacke erkennt.]
+    )
+  ],
+  [
+    #align(horizon)[
+      #figure(
+        image("../Bilder/quishing.jpg"),
+        caption: [Quishing ist aktuell in der Schweiz ein grosses Thema. Falsche QR-Codes an Parkautomaten.]
+      )
+    ]
+  ]
+)
+#v(2mm)
+
+#exo(
+  exercise: [
+    #v(-2mm)
+    Wir haben verschiedene Möglichkeiten kennengelernt, wie ein Angreifer an ein Passwort (oder allgemeiner an eine Information) gelangen kann. Nenne die verschiedenen Möglichkeiten, wie ein Passwort in die Hände eines Angreifers gelangen kann. 
+  ],
+  solution: [
+    #v(-2mm)
+    - Reines Ausprobieren (Brute Force)
+    - Das Passwort gehört zu eines der häufigst benutzten Passwörter (Wörterbuchattacke)
+    - Der Angreifer vergleicht einen gestohlenen Passwort-Hash mit vorberechneten Hashes (Rainbow Tables)
+    - Der Angreifer verwendet bereits bekannte Zugangsdaten bei einem anderen Dienst (Credential Stuffing)
+    - Der Angreifer täuscht den Benutzer und bringt ihn dazu, sein Passwort selbst einzugeben (Phishing)
   ]
 )
 
