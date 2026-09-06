@@ -25,8 +25,9 @@
 
         Solche Grafiken bestehen aus einer rasterförmigen Anordnung von sogenannten Pixeln (Bildpunkten, siehe @pixel-zoom), denen jeweils eine Farbe zugeordnet ist. Die Hauptmerkmale einer Rastergrafik sind:
 
-        - die Bildgrösse: Breite und Höhe gemessen in Pixeln, umgangssprachlich auch _Bildauflösung_ genannt)
-        - die Farbtiefe: wie viele mögliche Werte kann ein Pixel annehmen
+        - *Bildgrösse*: Breite + Höhe gemessen in Pixeln (auch _Bildauflösung_ genannt)
+
+        - *Farbtiefe*: wie viele mögliche Werte ein Pixel annehmen kann
     ]    
 
     #text(
@@ -99,7 +100,7 @@
 
     #figure(
       image("../Bilder/portable-bitmap.png"),
-      caption: [Beim PBM zeigen die oberen zwei Zahlen jeweils Breite und Höhe der Grafik an.]
+      caption: [Beim .pbm zeigen die oberen zwei Zahlen jeweils Breite und Höhe der Grafik an.]
     ) <portable-bitmap>
     #v(1mm)
 
