@@ -147,5 +147,51 @@ Bei der Registrierung von Max speichert Instagram nicht sein Passwort als Klarte
 == Besonderheiten bei Hashes
 
 Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. Gehen wir nun auf diese ein.
+#v(2mm)
 
-#text(size: 1.1em, weight: "bold")[Avalanche Effekt]
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1em,
+  [
+    #text(size: 1.1em, weight: "bold")[Avalanche Effekt]
+
+    Eine wichtige Grundvoraussetzung ist, dass man nicht aus dem Hashwert das Passwort irgendwie zurückrechnen kann. Daher ist es auch wichtig, dass sich der Hashwert bei einer kleinen Änderung des Passworts stark verändert.
+
+    Im Beispiel im Bild sieht man, dann eine Änderung eines einzelnen Zeichens im Passwort dazu führt, dass der Hashwert komplett anders aussieht. Das nennt man den *Avalanche Effekt* oder *Streuung*. 
+  ],
+  [
+    #align(horizon)[
+      #figure(
+        image("../Bilder/hash_avalanche.png"),
+        caption: [Nur ein einziges Zeichen verändert den Hashwert ganz.]
+      )
+    ]
+  ]
+)
+
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1em,
+  [
+    #align(horizon)[
+      #figure(
+        image("../Bilder/hash_collision.png"),
+        caption: [Verschiedene Passwörter ergeben denselben Hash.]
+      )
+    ]
+  ],
+  [
+    #text(size: 1.1em, weight: "bold")[Kollisionen]
+
+    Wir haben bereits gesehen, dass Hashfunktionen eine Eingabe in einen Hashwert fester Länge umwandeln. Damit entsteht ein interessantes mathematisches Problem: Es gibt sehr viele mögliche Passwörter, aber nur eine begrenzte Anzahl möglicher Hashwerte. Deshalb ist es theoretisch möglich, dass zwei verschiedene Eingaben denselben Hashwert erzeugen. Das nennt man eine *Kollision*.
+  ]
+)
+
+
+
+
+
+
+
+
+#text(size: 1.1em, weight: "bold")[Bekannte Hashfunktionen]
