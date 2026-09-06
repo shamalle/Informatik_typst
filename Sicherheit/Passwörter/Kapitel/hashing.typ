@@ -49,7 +49,7 @@
 
 Die Übermittlung selbst kann man zwar mit einer Verschlüsselung irgendwie sichern, sodass keine Eve das Passwort abfangen kann. Aber in dieser Situation gibt es noch eine weitere Schwachstelle. Angenommen, ein Angreifer verschafft sich Zugriff auf die Datenbank bei Instagram. Dann könnte er sofort alle (!) Passwörter lesen! Er müsste die Passwörter also nicht einmal knacken, sondern könnte sie einfach so verwenden. Deshalb sollten Passwörter niemals im Klartext gespeichert werden.
 
-== Die Idee der Hashfunktionß
+== Die Idee der Hashfunktion
 
 Hier kommt ein Prinzip ins Spiel, das wir schon aus der Kryptologie bei der asymmetrischen Verschlüsselung kennengelernt haben: Die Hashfunktion.
 
@@ -169,6 +169,8 @@ Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. 
   ]
 )
 
+#v(4mm)
+
 #grid(
   columns: (0.5fr, 0.5fr),
   gutter: 1em,
@@ -183,15 +185,233 @@ Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. 
   [
     #text(size: 1.1em, weight: "bold")[Kollisionen]
 
-    Wir haben bereits gesehen, dass Hashfunktionen eine Eingabe in einen Hashwert fester Länge umwandeln. Damit entsteht ein interessantes mathematisches Problem: Es gibt sehr viele mögliche Passwörter, aber nur eine begrenzte Anzahl möglicher Hashwerte. Deshalb ist es theoretisch möglich, dass zwei verschiedene Eingaben denselben Hashwert erzeugen. Das nennt man eine *Kollision*.
+    Wir haben bereits gesehen, dass Hashfunktionen eine Eingabe in einen Hashwert fester Länge umwandeln. Damit entsteht ein interessantes mathematisches Problem: Es gibt sehr viele mögliche Passwörter, aber nur eine begrenzte Anzahl möglicher Hashwerte. Deshalb ist es theoretisch möglich, dass zwei verschiedene Eingaben denselben Hashwert erzeugen. Das nennt man eine *Kollision*. Bei einer guten kryptografischen Hashfunktion soll es allerdings extrem schwierig sein, absichtlich zwei passende Eingaben mit demselben Hash zu finden.
   ]
 )
 
-
-
-
-
-
-
-
 #text(size: 1.1em, weight: "bold")[Bekannte Hashfunktionen]
+
+== Rainbow Tables und Salting
+
+So, jetzt stellt sich die Frage, ob ein Angreifer, der Zugriff auf die Datenbank hat, die Passwörter trotzdem irgendwie herausfinden kann. 
+
+#v(2mm)
+#exo(
+  exercise: [
+    #v(-2mm)
+    Überlegen Sie sich, wie ein Angreifer vorgehen könnte, um die Passwörter zu knacken, falls er so eine Tabelle wie in @zugangsdaten-hash gestohlen hat und nun besitzt.
+  ],
+  solution: [
+    #v(-2mm)
+    Der Angreifer könnte eine Liste von möglichen/beliebten Passwörtern nehmen und diese mit derselben Hashfunktion in Hashwerte umwandeln. Dann könnte er die berechneten Hashwerte mit den gestohlenen Hashwerten vergleichen. Wenn er eine Übereinstimmung findet, weiss er, welches Passwort zu welchem Benutzer gehört.
+  ]
+)
+#v(2mm)
+
+
+
+
+
+#grid(
+  columns: (0.7fr, 0.3fr),
+  gutter: 1.5em,
+  [
+    Falls nun also ein Angreifer in den Besitz einer solchen Benutzernamen-Hash-Tabelle (wie in @zugangsdaten-hash) kommt, könnte er eventuell durch Ausprobieren beliebter Passwörter die Passwörter der Benutzer herausfinden.
+
+    Sara's Passwort in @zugangsdaten ist zum Beispiel "123456789" gewesen. Falls der Angreifer nun selbst auf die Idee kommt, dass viele Leute dieses Passwort verwenden könnten, könnte er dieses Passwort selbst hashen und mit den Hashwerten in der Tabelle vergleichen. Er würde dann feststellen, dass der Hashwert übereinstimmt und somit wüsste er mit Sicherheit, dass Sara's Passwort "123456789" ist.
+  ],
+  [
+    #v(1mm)
+    #stickybox(rotation: 2deg)[
+      #align(center)[
+        *Beliebte Passwörter* \
+        (ein paar Beispiele)\
+
+        #table(
+        columns: (auto, auto),
+        align: (left, left),
+        inset: (x: 5pt, y: 3pt),
+        stroke: none,
+        
+        [- password],    [- 123456], [- qwertz],       [- abc123],
+        [- iloveyou], [- 123123]
+        )
+      ]
+    ]
+  ]
+)
+
+Das nennt man einen *Offline-Angriff*, weil der Angreifer kann die gestohlenen Daten in Ruhe auf seinem eigenen System untersuchen, ohne bei Instagram für jeden Versuch einen Login durchführen zu müssen.
+#v(2mm)
+
+#outline-colorbox(
+  title: "Rainbow Tables",
+  color: "blue",
+  radius: 3pt,
+  width: auto,
+)[
+  Eine Rainbow Table ist vereinfacht gesagt eine vorberechnete Sammlung von Passwort- und Hashwerten. Quasi wei ein Nachschlagewerk für Angreifer.
+
+  Wenn ein Angreifer einen gestohlenen Hash besitzt, kann er versuchen, den passenden Eintrag zu finden. Solche vorbereiteten Tabellen sind also besonders für schwache Passwörter eine gute Angriffsmöglichkeit.
+]
+
+#exo(
+  exercise: [
+    #v(-2mm)
+    Sie sind eine bekannte oder ein bekannter AngreiferIn und haben durch einen internen Maulwurf bei Instagram den Zugriff auf eine Tabelle mit Benutzernamen und deren gehashed Passwörtern bekommen:
+
+    #grid(
+      columns: (0.5fr, 0.5fr),
+      gutter: 1em,
+      [
+        #table(
+          columns: (auto, auto),
+          stroke: none,
+          inset: 5pt,
+
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+
+          // Linie unter der Kopfzeile
+          table.hline(
+            y: 1,
+            stroke: 1pt + rgb("#1c90d0"),
+          ),
+
+          [Max], [3d46feca7646fe8451af309a9f014123],
+          [Anna], [a864a7d0f33a71467c81e7724df0020d],
+          [Luca], [7ed70c52ce29499ba647a775cec40d6d],
+          [Sara], [3d6cfeb3fefefb2ae3310444ad66d13b],
+
+          // Vertikale Linie zwischen den Spalten
+          table.vline(
+            x: 1,
+            start: 1,
+            end: 5,
+            stroke: 0.5pt + rgb("#1c90d0"),
+          )
+        )
+      ],
+      [
+        #table(
+          columns: (auto, auto),
+          stroke: none,
+          inset: 5pt,
+
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Benutzer]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+
+          // Linie unter der Kopfzeile
+          table.hline(
+            y: 1,
+            stroke: 1pt + rgb("#1c90d0"),
+          ),
+
+          [Nina], [6049e0b0903501a92fffb52ea35ff91f],
+          [Tim], [3d54cf48eb2dee70ccf8a1e40c621d03],
+          [Lea], [c4aaa2e7db25e4042eda12c47668d341],
+          [Jonas], [e2b764068994715ed3bc13c21ac3ad79],
+
+          // Vertikale Linie zwischen den Spalten
+          table.vline(
+            x: 1,
+            start: 1,
+            end: 5,
+            stroke: 0.5pt + rgb("#1c90d0"),
+          )
+        )
+      ]
+    )
+    Praktischerweise haben Sie auch schon Ihre Rainbow Table bereit:
+
+    #grid(
+      columns: (0.5fr, 0.5fr),
+      gutter: 1em,
+      [
+        #table(
+          columns: (auto, auto),
+          stroke: none,
+          inset: 5pt,
+
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Hash]],
+
+          // Linie unter der Kopfzeile
+          table.hline(
+            y: 1,
+            stroke: 1pt + rgb("#1c90d0"),
+          ),
+
+          [Pizza123], [c4aaa2e7db25e4042eda12c47668d341],
+          [Mauzi454], [3d6cfeb3fefefb2ae3310444ad66d13b],
+          [Passwort1], [e2b764068994715ed3bc13c21ac3ad79],
+          [Sommer0], [3d46feca7646fe8451af309a9f014123],
+          [Hallo123], [c10fedc1a97741855818849f936d2463],
+
+          // Vertikale Linie zwischen den Spalten
+          table.vline(
+            x: 1,
+            start: 1,
+            end: 6,
+            stroke: 0.5pt + rgb("#1c90d0"),
+          )
+        )
+      ],
+      [
+        #table(
+          columns: (auto, auto),
+          stroke: none,
+          inset: 5pt,
+
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Passwort]],
+          [#text(weight: "bold", fill: rgb("#1c90d0"))[Hash]],
+
+          // Linie unter der Kopfzeile
+          table.hline(
+            y: 1,
+            stroke: 1pt + rgb("#1c90d0"),
+          ),
+
+          [Fussball], [3d54cf48eb2dee70ccf8a1e40c621d03],
+          [Apfel123], [f1c505746bdcdd8e8d9b28513fd0a591],
+          [CoffeeLover], [f943ef55cd7654f184274cb8f6d7422b],
+          [Sonne], [6049e0b0903501a92fffb52ea35ff91f],
+          [Test1234], [8a8c05746bdcdd8e8d9b28513fd0a591],
+
+          // Vertikale Linie zwischen den Spalten
+          table.vline(
+            x: 1,
+            start: 1,
+            end: 6,
+            stroke: 0.5pt + rgb("#1c90d0"),
+          )
+        )
+      ]
+    )
+
+    Bei wie vielen Benutzern aus der ersten Tabelle kann das Passwort mithilfe der Rainbow-Tabelle herausgefunden werden? Gib die entsprechenden Benutzernamen und Passwörter an.
+  ],
+  solution: [
+    #v(-2mm)
+    - Max mit Sommer0
+    - Sara mit Mauzi454
+    - Tim mit Fussball
+  ]
+)
+
+#v(2mm)
+
+Da überall in diesen Firmen auch nur Menschen arbeiten, ist es gar nicht so unwahrscheinlich, dass Unbefugte an solche Benutzernamen-Hash-Tabellen rankommen. Daher müssen wir die Sicherheit noch etwas mehr aufdrehen. Hier kommt der Salt ins Spiel:
+
+#outline-colorbox(
+  title: "Salting",
+  color: "blue",
+  radius: 3pt,
+  width: auto,
+)[
+  Eine Rainbow Table ist vereinfacht gesagt eine vorberechnete Sammlung von Passwort- und Hashwerten. Quasi wei ein Nachschlagewerk für Angreifer.
+
+  Wenn ein Angreifer einen gestohlenen Hash besitzt, kann er versuchen, den passenden Eintrag zu finden. Solche vorbereiteten Tabellen sind also besonders für schwache Passwörter eine gute Angriffsmöglichkeit.
+]
+
+
