@@ -145,3 +145,7 @@ Bei der Registrierung von Max speichert Instagram nicht sein Passwort als Klarte
 )
 
 == Besonderheiten bei Hashes
+
+Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. Gehen wir nun auf diese ein.
+
+#text(size: 1.1em, weight: "bold")[Avalanche Effekt]
