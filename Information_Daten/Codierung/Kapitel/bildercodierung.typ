@@ -184,31 +184,31 @@
           #text(size: 1.1em, weight: "bold")[3 Bit Farbtiefe]
         ]
         #v(-1.3mm)
-        Jeder Farbkanal hat jeweils $1$ Bit zur Verfügung. 0: Farbe kommt nicht vor, $1$: sie kommt vor. Es ergibt sich für die Codierung folgende $3$ Tripel:
+        Jeder Farbkanal hat jeweils $1$ Bit. 0: Farbe kommt nicht vor, $1$: sie kommt vor. Es ergibt sich für die Codierung also folgende $3$ Tripel:
 
         #align(center)[
           $100$ #h(1mm) $010$ #h(1mm) $001$
         ]
       ],
-      [#rect(width: 0.5pt, height: 13.5%, fill: rgb("#8b5bab"))],
+      [#rect(width: 0.5pt, height: 12%, fill: rgb("#8b5bab"))],
       [
         #align(center)[
           #text(size: 1.1em, weight: "bold")[6 Bit Farbtiefe]
         ]
         #v(-1.3mm)
-        Nun hat jeder Farbkanal jeweils $2$ Bit für die Codierung. Das heisst, die Werte $00$, $01$, $10$ und $11$. Für das Bild oben erhalten wir die Codierung:
+        Nun hat jeder Farbkanal jeweils $2$ Bit für die Codierung. Das heisst, die Werte $00$, $01$, $10$ und $11$. Für das Bild erhalten wir:
 
         #align(center)[
           $110000$ #h(1mm) $001100$ #h(1mm) $000011$
         ]
       ],
-      [#rect(width: 0.5pt, height: 13.5%, fill: rgb("#8b5bab"))],
+      [#rect(width: 0.5pt, height: 12%, fill: rgb("#8b5bab"))],
       [
         #align(center)[
           #text(size: 1.1em, weight: "bold",)[24 Bit Farbtiefe]
         ]
         #v(-1.3mm)
-        Analog wäre die Codierung nun mit jeweils 8 Bit pro Kanal. Da die Codierung so binär etwas lang wäre, schreiben wir es z.B. hexadezimal:
+        Analog wäre die Codierung nun mit jeweils 8 Bit pro Kanal. Da die Codierung binär etwas lang wäre, schreiben wir es z.B. hexadezimal:
 
         #align(center)[
           $"FF"0000$ #h(1mm) $00"FF"00$ #h(1mm) $0000"FF"$
@@ -220,23 +220,86 @@
       columns: (0.8fr, 0.2fr),
       gutter: 1.3em,
       [
-        Man kann natürlich auch Farben mischen und muss nicht reines Rot, Grün oder Blau nehmen. Schauen wir uns daher mal folgendes Bild rechts an:
+        Man kann natürlich auch Farben mischen und muss nicht reines Rot, Grün oder Blau nehmen. Schauen wir uns daher das Bild rechts an und wählen die Farbtiefe von 12 Bit.
+
+        Die erste Zeile des Bildes ist analog wie beim vorherigen Bild. Die zweite Zeile besteht aber aus Mischungen der RGB-Farben. Gelb ergibt sich aus Rot und Grün, Magenta aus Rot und Blau, Cyan aus Grün und Blau. Daher ergibt sich für die 12 Bit Codierung des Bildes:
       ],
       [
-        #image("../Bilder/rgb_mixed.png")
+        #align(horizon)[
+          #image("../Bilder/rgb_mixed.png")
+        ]
       ]
     )
-  
+    #align(center)[
+      000000001111 #h(1mm) 000011110000 #h(1mm) 111100000000
+      #v(-2mm)
+      111111110000 #h(1mm) 111100001111 #h(1mm) 000011111111
+    ]
+    #v(1mm)
 ]
+#v(2mm)
 
+#grid(
+  columns: (0.76fr, 0.24fr),
+  gutter: 1.5em,
+  [
+    Jetzt werden vielleicht einige verwirrt sein, seit wann denn Rot und Grün zusammen Gelb gibt... Da wir hier von Bildschirmen und Farben reden, handelt es sich um sogenannte *Lichtfarben* (weil der Bildschirm ja Licht aussendet) und nicht die Pigmentfarben, die Sie aus dem bildnerischen Gestalten kennen. Man nennt dies das *additive Farbmodell*.
 
+    Also je mehr Licht, desto heller. Wenn alle Farbkanäle voll offen sind (alle Farben zu 100% präsent) ergibt sich weiss. Wenn alle Farben abgedreht sind, ergibt sich schwarz (Absenz von Licht).
 
+    #text(size: 1.15em, weight: "bold")[Platzbedarf eines Bildes]
+    #v(-2mm)    
+    Unter *Platzbedarf* kann man auch die Bildqualität verstehen (falls es sich um ein unkomprimiertes Bild handelt). Generell kann man sagen, dass je kleiner die Farbtiefe des Bildes, 
+  ],
+  [
+    #v(-1.8mm)
+    #figure(
+      image("../Bilder/rgb_synthese.svg"),
+      caption: [Das additive Farbmodell mit den Lichtfarben.]
+    )
+  ]
+)
+#v(-2mm)
+umso schlechter die Qualität und umso weniger Speicher wird benötigt. Das ist auch intuitiv: Weniger Farbtiefe bedeutet, es braucht weniger Bit, um eine Farbe zu definieren.\
+Um Speicherplatz zu reduzieren, kann man also die Farbtiefe reduzieren. Auch gibt es kleine Tricks, wie z.B. bei der Farbtiefe 8 Bit (was ja eigentlich nicht gleichmässig auf die 3 Kanäle aufzuteilen ist), benutzt man jeweils 3 Bit für Rot und Grün aber nur 2 Bit für Blau. Der blaue Kanal hier wird benachteiligt ohne grosse Konsequenzen: Unser Auge ist etwas weniger empfindlich bei Blauwerten und drum kann man die schlechtere Qualität gut in Kauf nehmen.
 
+Standardgemäss enthalten Rastergrafikformate jeweils:
+- einen kurzen Anfangsteil (Header), der Informationen enthält wie die Dimension des Bildes und Farbtiefe
+- restlicher Teil bestehend aus Bits.
+
+Header: Breite, Höhe, Farbtiefe
+Rest: Bits, die das Bild definieren
+
+Der Platzbedarf eines Bildes berechnet sich aus seiner Auflösung und der verwendeten Farbtiefe (und einigen Bytes für den Header).
+Wenn wir ein Bild betrachten mit einer Auflösung von 400x600 Pixel und eine Farbtiefe von 24 Bit anschauen, berechnet sich der Platzbedarf wie folgt:
+400 x 600 x 24 = 0.72 MB
 
 
 
 
 #pagebreak()
+
+#grid(
+  columns: (0.5fr, 0.18fr, 0.18fr, 0.18fr),
+  gutter: 1em,
+  [
+    #text(size: 1.1em, weight: "bold")[Gleiche Bits ergeben verschiedene Bilder]
+    #v(-2mm)
+    Betrachten Sie die folgende Bitfolge und überlegen Sie, welches Bild es codieren soll:
+    #h(5mm) #text(size: 1.2em)[$001100001100111111111111001100001100$]
+    Welches der 3 Bilder rechts entspricht der Bitfolge?
+  ],
+  [
+    #image("../Bilder/bit_ambiguity_1.png")
+  ],
+  [
+    #image("../Bilder/bit_ambiguity_2.png")
+  ],
+  [
+    #image("../Bilder/bit_ambiguity_3.png")
+  ]
+)
+
 
 #grid(
   columns: (0.5fr, 0.5fr),
@@ -254,7 +317,7 @@
 
 
 
-// #image("../Bilder/ascii_art_wave.png")
+#image("../Bilder/ascii_art_wave.png")
 
 
 
