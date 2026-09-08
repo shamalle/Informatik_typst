@@ -61,21 +61,29 @@ Zur einfachen Anwendung kann eine Caesar-Drehscheibe verwendet werden.
   exercise: [
     Verschlüsseln Sie den Klartext HEUTE IST FREITAG mit Verschiebung 11.
   ],
-  solution: [SPFEP TDE QCPTELR],
+  solution: [
+    #v(-2mm)
+    SPFEP TDE QCPTELR
+  ],
 )
 
 #exo(
   exercise: [
     Entschlüsseln Sie den Geheimtext VAWKGFFWKUZWAFL mit Verschiebung 18.
   ],
-  solution: [DIE SONNE SCHEINT],
+  solution: [#v(-2mm)
+  DIE SONNE SCHEINT
+  ],
 )
 
 #exo(
   exercise: [
     Wählen Sie selbst eine Verschiebung und verschlüsseln Sie einen Text mit diesem Schlüssel. Geben Sie den Geheimtext und den Schlüssel an eine andere Person weiter zum Entschlüsseln.
   ],
-  solution: [Selbstüberprüfung],
+  solution: [
+    #v(-2mm)
+    _Selbstüberprüfung_
+  ],
 )
 
 #exo(
@@ -91,6 +99,7 @@ Zur einfachen Anwendung kann eine Caesar-Drehscheibe verwendet werden.
     - Überlegen Sie sich, warum die Verschiebung um 13 eine besondere Eigenschaft hat. _Tipp_: Was passiert wenn ich einen Text zweimal mit Verschiebung 13 verschlüssele?
   ],
   solution: [
+    #v(-2mm)
     - Es gibt 26 mögliche Verschiebungen, also 26 mögliche Schlüssel. Der Schlüsselraum hat also die Grösse 26. Hinweis. Die Verschiebung um 0 ist ja auch eine, auch wenn sie natürlich etwas witzlos ist.
     - Die Verschiebung um 13 ist insofern besonders, weil sie genau die Hälfte des Alphabets entspricht. Dadurch entsteht eine spezielle Eigenschaft: Wenn man zweimal mit 13 verschlüsselst erhältst man wieder den ursprünglichen Text.
   ],

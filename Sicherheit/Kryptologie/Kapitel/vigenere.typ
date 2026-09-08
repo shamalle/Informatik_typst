@@ -70,7 +70,10 @@ Das Verfahren von Vigenère ist ein *polyalphabetisches* Verfahren. Die Verfahre
   exercise: [
     Vergleichen Sie das Verfahren von Vigenère mit der allgemeinen monoalphabetischen Substitution: Kann man hier ebenfalls die Häufigkeitsanalyse anwenden und so versuchen, die Verschlüsselung zu knacken? Begründen Sie Ihre Antwort.
   ],
-  solution: [Der entscheidende Punkt bei Vigenère ist die Änderung der Statistik bezüglich Buchstabenhäufigkeiten: Ein Klartextbuchstabe wird nicht eindeutig einem Geheimtextbuchstaben zugeordnet. Die typische Sprachverteilung (z. B. viele E, selten Q) wird im Geheimtext also somit verschleiert. Das macht die Häufigkeitsanalyse deutlich schwieriger. Das Vigenère-Verfahren ist nicht unknackbar: Wenn der Schlüssel kurz oder wiederholend ist, kann man ihn oft doch noch mit mathematischen Verfahren und der Hilfe eines Computeres knacken.],
+  solution: [
+    #v(-2mm)
+    Der entscheidende Punkt bei Vigenère ist die Änderung der Statistik bezüglich Buchstabenhäufigkeiten: Ein Klartextbuchstabe wird nicht eindeutig einem Geheimtextbuchstaben zugeordnet. Die typische Sprachverteilung (z. B. viele E, selten Q) wird im Geheimtext also somit verschleiert. Das macht die Häufigkeitsanalyse deutlich schwieriger. Aber es ist trotzdem nicht unknackbar: Wenn der Schlüssel kurz oder wiederholend ist, kann man ihn oft doch noch mit mathematischen Verfahren und der Hilfe eines Computeres knacken.
+  ],
 )
 
 //#exo(
@@ -84,7 +87,10 @@ Das Verfahren von Vigenère ist ein *polyalphabetisches* Verfahren. Die Verfahre
   exercise: [
     Manchmal spricht man bei Vigenère nicht von der Caesar-Scheibe, sondern von der Vigenère-Tabelle (siehe die Tabelle unten). Begründen Sie, warum die Scheibe sowie auch die Tabelle zum selben Ergebnis führen.
   ],
-  solution: [Die Caesar-Scheibe und die Vigenère-Tabelle sind eigentlich dasselbe. In der ersten Zeile der Tabelle ist eigentlich eine Verschiebung von 0. In der zweiten Zeile ist dann eine Verschiebung von 1, in der dritten Zeile eine Verschiebung von 2 usw. Das heisst, anstatt mithilfe einer Drehscheibe zu drehen kann man auch einfach die Zeile der Tabelle auswählen, die der Verschiebung entspricht.],
+  solution: [
+    #v(-2mm)
+    Die Caesar-Scheibe und die Vigenère-Tabelle sind eigentlich dasselbe. In der ersten Zeile der Tabelle ist eigentlich eine Verschiebung von 0. In der zweiten Zeile ist dann eine Verschiebung von 1, in der dritten Zeile eine Verschiebung von 2 usw. Das heisst, anstatt mithilfe einer Drehscheibe zu drehen kann man auch einfach die Zeile der Tabelle auswählen, die der Verschiebung entspricht.
+  ],
 )
 
 #figure(image("../Bilder/vigenere_table.png", width: 85%))
@@ -93,7 +99,10 @@ Das Verfahren von Vigenère ist ein *polyalphabetisches* Verfahren. Die Verfahre
   exercise: [
     Verschlüsseln Sie ein von Ihnen gewähltes Wort oder einen kurzen Satz mithilfe des Vigenère-Verfahrens. Sie dürfen selbst ein Schlüsselwort wählen. Tauschen Sie anschliessend ihren Geheimtext mit Ihrer/m Sitznachbar/in und entschlüsseln Sie in einen Klartext.
   ],
-  solution: [_Selbstüberprüfung_],
+  solution: [
+    #v(-2mm)
+    _Selbstüberprüfung_
+    ],
 )
 
 

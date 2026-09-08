@@ -65,8 +65,8 @@ Hier kommt ein Prinzip ins Spiel, das wir schon aus der Kryptologie bei der asym
     columns: (0.7fr, 0.3fr),
     gutter: 1em,
     [
-      Wir haben schon einmal die Hashfunktion kennengelernt. Sie hat die Eigenschaft, dass sie eine Input nimmt und in eine ganz andere Form bringt. Dabei ist es praktisch unmöglich, aus dem Hashwert wieder das ursprüngliche Passwort zu berechnen (Beispiel Spaghetti kochen).\
-      Ein weiteres Merkmal in der Informatik bei Hashfunktionen ist, dass sie eine beliebige Länge als Input reinnimmt (z.B. ein Passwort) und daraus einen Hashwert mit einer fixen Länge erstellt. Das heisst, egal wie lang das Passwort ist, die gespeicherten Hashwerte haben immer die gleiche Länge.
+      Wir haben schon einmal die Hashfunktion kennengelernt. Sie hat die Eigenschaft, dass sie ein Input nimmt und in eine ganz andere Form bringt. Dabei ist es praktisch unmöglich, aus dem Hashwert wieder das ursprüngliche Passwort zu berechnen (Beispiel Spaghetti kochen).\
+      Ein weiteres Merkmal in der Informatik bei Hashfunktionen ist, dass sie eine beliebige Länge als Input reinnehmen (z.B. ein Passwort) und daraus einen Hashwert mit einer fixen Länge erstellen. Das heisst, egal wie lang das Passwort ist, die gespeicherten Hashwerte haben immer die gleiche Länge.
     ],
     [
       #align(center)[
@@ -158,7 +158,7 @@ Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. 
 
     Eine wichtige Grundvoraussetzung ist, dass man nicht aus dem Hashwert das Passwort irgendwie zurückrechnen kann. Daher ist es auch wichtig, dass sich der Hashwert bei einer kleinen Änderung des Passworts stark verändert.
 
-    Im Beispiel im Bild sieht man, dann eine Änderung eines einzelnen Zeichens im Passwort dazu führt, dass der Hashwert komplett anders aussieht. Das nennt man den *Avalanche Effekt* oder *Streuung*. 
+    Im Beispiel im Bild sieht man, dass eine Änderung eines einzelnen Zeichens im Passwort dazu führt, dass der Hashwert komplett anders aussieht. Das nennt man den *Avalanche Effekt* oder *Streuung*. 
   ],
   [
     #align(horizon)[
@@ -194,7 +194,11 @@ Nun ergeben sich natürlich einige Besonderheiten bezüglich dieses Verfahrens. 
   ]
 )
 
-#text(size: 1.1em, weight: "bold")[Bekannte Hashfunktionen]
+#v(2mm)
+
+Bekannte Hashfunktionen sind SHA-256, SHA-3 oder MD5 (heute nicht mehr für sichere Anwendungen geeignet). Sie können sich das wirklich wie vorgefertigte Anleitungen/Verfahren vorstellen. 
+
+#v(2mm)
 
 == Rainbow Tables und Salting
 
@@ -419,7 +423,7 @@ Da überall in diesen Firmen auch nur Menschen (potentielle Schwachstellen...) a
     columns: (0.6fr, 0.4fr),
     gutter: 1em,
     [
-      Ein Salt ist eine zufällig erzeugte Zeichenfolge, die vor dem Hashen mit dem Passwort kombiniert wird. Der Salt ist kein Geheimnis. Er wird zusammen mit dem Hash gespeichert werden (siehe ).
+      Ein *Salt* ist eine zufällig erzeugte Zeichenfolge, die vor dem Hashen mit dem Passwort kombiniert wird. Der Salt ist kein Geheimnis. Er wird zusammen mit dem Hash gespeichert werden (siehe @zugangsdaten-hash-salt).
 
       #text(size: 1.1em, weight: "bold")[Warum hilft der Salt?]
       #v(-1mm)
@@ -433,8 +437,14 @@ Da überall in diesen Firmen auch nur Menschen (potentielle Schwachstellen...) a
 ]
 
 #grid(
-  columns: (0.7fr, 0.3fr),
-  gutter: 1.5em,
+  columns: (0.38fr, 0.62fr),
+  gutter: 2em,
+  [
+    #v(2mm)
+    Daraus ergibt sich also die aktualisierte Abfolge bei einem Login-Versuch von Max:
+
+    Bei der Registrierung auf Instagram wählt Max ein Passwort, z.B. "Sommer2026!". Instagram erzeugt für Max einen zufälligen Salt, z.B. "a7K2mQ9x" und zusammen mit dem gewählten Passwort wird das gehashed. In der Datenbank bei Instagram wird dann (Benutzername, Salt, Passwort-Hash) gespeichert.
+  ],
   [
     #figure(
       table(
@@ -467,12 +477,9 @@ Da überall in diesen Firmen auch nur Menschen (potentielle Schwachstellen...) a
       ),
       caption: [Der Salt wird zusätzlich in der Datenbank gespeichert. Der ist nicht geheim.],
     ) <zugangsdaten-hash-salt>
-  ],
-  [
-    
   ]
 )
 
-    
+Jedes Mal, wenn Max sich jetzt einloggen wird, wird sein eingegebenes Passwort verschlüsselt an Instagram geschickt und die entnehmen dann den Salt von Max aus der Tabelle und berechnen erneut den Passwort-Hash. Dann wird mit dem gespeicherten Wert aus der Tabelle verglichen. Gleicher Wert $arrow$ erfolgreiches Login, sonst $arrow$ kein Login.
 
 

@@ -59,6 +59,7 @@ Ausprobieren den Klartext EINE ENTE.
     Warum funktioniert dieses Verfahren nicht so gut bei gewissen Sätzen wie z.B. "Das Blut ist rot"?
   ],
   solution: [
+    #v(-2mm)
     Wenn der Text sehr kurz ist, ist die Buchstabenverteilung oft zufällig und nicht nach Häufigkeit geordnet. Eine andere Schwäche sind (kurze) Sätze, bei denen fast keine der häufigsten Buchstaben vorkommen.
   ],
 )

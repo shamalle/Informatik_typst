@@ -61,14 +61,20 @@ Daraus ergibt sich 26 Möglichkeiten $dot$ 25 Möglichkeiten $dot$ 24 $dot$ 23 $
   exercise: [
     Verschlüsseln Sie den Klartext HALLO WIE GEHTS mit dem Schlüssel EIPCVTFHKRLNGJOYZQXWBDMASU.
   ],
-  solution: [HENNO MKV FVHWX],
+  solution: [
+    #v(-2mm)
+    HENNO MKV FVHWX
+  ],
 )
 
 #exo(
   exercise: [
     Entschlüsseln Sie den Geheimtext TQVKWEF KXW KJTOQGEWKL WEF mit dem Schlüssel aus Aufgabe 7.
   ],
-  solution: [FREITAG IST INFORMATIK TAG],
+  solution: [
+    #v(-2mm)
+    FREITAG IST INFORMATIK TAG
+  ],
 )
 
 #exo(
@@ -76,5 +82,6 @@ Daraus ergibt sich 26 Möglichkeiten $dot$ 25 Möglichkeiten $dot$ 24 $dot$ 23 $
     Das Caesar-Verfahren und die allgemeine monoalphabetische Substitution sind miteinander verwandt. Man sagt, das Eine ist der Spezialfall vom Anderen. Können Sie in Ihren eigenen Worten erklären, was damit gemeint ist?
   ],
   solution: [
+    #v(-2mm)
     Die Caesar Verschlüsselung ist ein Spezialfall der allgemeinen monoalphabetischen Substitution, weil sie auch eine monoalphabetische Substitution ist. Es ist nicht eine ganz zufällige Zuordnung der Buchstaben, sondern genau die Zuordnung die sich durch eine Verschiebung ergibt.],
 )

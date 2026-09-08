@@ -14,6 +14,7 @@ _Verständnisaufgaben:_
     Überlegen Sie sich zu zweit für jedes der bisher gesehenen Verfahren eine mögliche Schwäche, die es angreifbar macht. Versuchen Sie anschliessend die Verfahren bezüglich ihrer Sicherheit zu ordnen: Welches scheint das Sicherste zu sein und welches das Schwächste? Warum?
   ],
   solution: [
+    #v(-2mm)
     Wenn wir die Verfahren bezüglich ihrer Sicherheit ordnen und davon ausgehen, dass ein Angreifer nur durch reines Ausprobieren versucht, die Nachricht zu entschlüsseln, dann sind die Skytale und die Caesar-Verschlüsselung sehr unsicher. Mit Ausprobieren hat man hier sehr schnell Erfolg. Das scheint bei der allgemeinen monoalphabeteischen Substitution nicht ganz so einfach zu sein. Aber auch hier werden wir sehen, dass je nach Situation, etwas Geduld und logischem Denken das Verfahren ebenso von Hand geknackt werden kann. Wenn man die Rechenleistung von Computern hinzuzieht, sind hingegen alle Verfahren absolut unsicher.],
 )
 
@@ -22,6 +23,7 @@ _Verständnisaufgaben:_
     Wir haben gesehen, dass Schlüsselräume sehr klein oder riesig sein können. Bedeutet, dass wenn ein Schlüsselraum riesig ist, dass das Verfahren automatisch zu 100% sicher ist? Kann man alle der bisher gesehenen Verfahren knacken oder nicht?
   ],
   solution: [
+    #v(-2mm)
     Nein, der Schlüsselraum hilft vor allem wenn man durch reines Ausprobieren (Brute Force) den Schlüssel herausfinden möchte. Es gibt andere Methoden, wie man z.B. die allgemeine monoalphabetische Substitution knacken kann.],
 )
 
@@ -36,14 +38,20 @@ _Praktische Aufgaben:_
   exercise: [
     Folgende Geheimtext wurde mit dem Caesar-Verfahren erstellt: HLQH WROOH NODVVH. Die Verschiebung ist aber nicht bekannt. Finden Sie den Klartext heraus?
   ],
-  solution: [EINE TOLLE KLASSE],
+  solution: [
+    #v(-2mm)
+    EINE TOLLE KLASSE
+  ],
 )
 
 #exo(
   exercise: [
     Mit einer Skytale wurde ein Geheimtext geschrieben. Wenn man den Papierstreifen von oben nach unten liest, ergibt sich: GEOE UNRN TMG. Was könnte der Klartext sein?
   ],
-  solution: [GUTEN MORGEN],
+  solution: [
+    #v(-2mm)
+    GUTEN MORGEN
+  ],
 )
 
 #grid(
@@ -54,7 +62,10 @@ _Praktische Aufgaben:_
       exercise: [
         Sie haben die verschlüsselte Nachricht rechts abgebildet abgefangen. Leider haben Sie keine weiteren Informationen ausser diesen Zettel. Können Sie die Nachricht trotzdem entschlüsseln? Wie gehen Sie vor?
       ],
-      solution: [DER KLEINE RABE HAT HUNGER],
+      solution: [
+        #v(-2mm)
+        DER KLEINE RABE HAT HUNGER
+      ],
     )
   ],
   [
@@ -74,7 +85,10 @@ _Praktische Aufgaben:_
       exercise: [
         Und wieder haben Sie eine verschlüsselte Nachricht bekommen. Leider haben Sie auch wieder keine weiteren Informationen ausser den Zettel. Können Sie die Nachricht trotzdem entschlüsseln?
       ],
-      solution: [EIN STERN IN DER EISIGEN FERNE],
+      solution: [
+        #v(-2mm)
+        EIN STERN IN DER EISIGEN FERNE
+      ],
     )
   ],
   [

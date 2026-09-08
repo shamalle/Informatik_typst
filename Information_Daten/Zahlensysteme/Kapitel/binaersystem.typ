@@ -92,7 +92,7 @@ Jetzt haben wir eigentlich schon alles, was man über das Binärsystem wissen mu
           
           [10010111],    [→ 1001\'0111],      [], [11011],       [→ 0001\'1011],
           [10111001101], [→ 0101\'1100\'1101], [], [111],         [→ 0111],
-)
+        )
       ]]
   ],
   [

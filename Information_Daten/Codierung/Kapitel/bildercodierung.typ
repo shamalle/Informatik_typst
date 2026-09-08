@@ -130,7 +130,30 @@
   ]
 )
 
-24 Bit Farbtiefe wird auch “True Color” genannt. Diese Unterteilung in über 16 Mio Farben ist so fein, dass unser Auge nicht alle Farbtöne auseinander halten kann.
+#grid(
+  columns: (0.6fr, 0.4fr),
+  gutter: 1.5em,
+  [
+    24 Bit Farbtiefe wird auch *True Color* genannt. Diese Unterteilung in über 16 Mio Farben ist so fein, dass unser Auge nicht alle Farbtöne auseinander halten kann.
+
+    Das heisst aber nicht, dass alle Bilder auf dem Bildschirm unbedingt mit 24 Bit Farbtiefe abgespeichert werden müssen. Möglich ist auch eine gröbere Unterteilung, z.B. 12 Bit Farbtiefe (4Bit/Kanal).
+  ],
+  [
+    #v(2mm)
+    #stickybox(rotation: 3deg)[
+      #align(center)[
+        #v(-2pt)
+        *Beispiel True Color 🎨*
+        #v(-2pt)
+
+        Also mit 8 Bit lässt sich die Farbintensität eines Kanals wie folgt einstellen:
+        #v(-1mm)
+        - $0000\'0000 #h(2mm)$: Farbe kommt gar nicht vor
+        - $1111\'1111 #h(2mm)$: Farbe "ist voll aufgedreht"
+      ]
+    ]
+  ]
+)
 
 #outline-colorbox(
   title: "Ein paar Farbbeispiele",
@@ -138,8 +161,75 @@
   radius: 3pt,
   width: auto,
   )[
+    #v(2mm)
+    #grid(
+      columns: (0.2fr, 0.8fr),
+      gutter: 1em,
+      [
+        #image("../Bilder/rgb.png")
+      ],
+      [
+        #align(horizon)[
+          Links sehen Sie ein Bild bestehend aus 3 Pixeln: ein roter, ein grüner und ein blauer Pixel. Je nachdem, welche Farbtiefe man definiert, muss man das Bild anders codieren. Die Codierung der Pixel wird jeweils mit einem kleinen Abstand dazwischen einfacher sichtbar gemacht.
+        ]      
+      ]
+    )
+    #v(1mm)
+
+    #grid(
+      columns: (1fr, 0.5pt, 1fr, 0.5pt, 1fr),
+      gutter: 1.3em,
+      [
+        #align(center)[
+          #text(size: 1.1em, weight: "bold")[3 Bit Farbtiefe]
+        ]
+        #v(-1.3mm)
+        Jeder Farbkanal hat jeweils $1$ Bit zur Verfügung. 0: Farbe kommt nicht vor, $1$: sie kommt vor. Es ergibt sich für die Codierung folgende $3$ Tripel:
+
+        #align(center)[
+          $100$ #h(1mm) $010$ #h(1mm) $001$
+        ]
+      ],
+      [#rect(width: 0.5pt, height: 13.5%, fill: rgb("#8b5bab"))],
+      [
+        #align(center)[
+          #text(size: 1.1em, weight: "bold")[6 Bit Farbtiefe]
+        ]
+        #v(-1.3mm)
+        Nun hat jeder Farbkanal jeweils $2$ Bit für die Codierung. Das heisst, die Werte $00$, $01$, $10$ und $11$. Für das Bild oben erhalten wir die Codierung:
+
+        #align(center)[
+          $110000$ #h(1mm) $001100$ #h(1mm) $000011$
+        ]
+      ],
+      [#rect(width: 0.5pt, height: 13.5%, fill: rgb("#8b5bab"))],
+      [
+        #align(center)[
+          #text(size: 1.1em, weight: "bold",)[24 Bit Farbtiefe]
+        ]
+        #v(-1.3mm)
+        Analog wäre die Codierung nun mit jeweils 8 Bit pro Kanal. Da die Codierung so binär etwas lang wäre, schreiben wir es z.B. hexadezimal:
+
+        #align(center)[
+          $"FF"0000$ #h(1mm) $00"FF"00$ #h(1mm) $0000"FF"$
+        ]
+      ]
+    )
+    #v(1mm)
+    #grid(
+      columns: (0.8fr, 0.2fr),
+      gutter: 1.3em,
+      [
+        Man kann natürlich auch Farben mischen und muss nicht reines Rot, Grün oder Blau nehmen. Schauen wir uns daher mal folgendes Bild rechts an:
+      ],
+      [
+        #image("../Bilder/rgb_mixed.png")
+      ]
+    )
   
 ]
+
+
 
 
 

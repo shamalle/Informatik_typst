@@ -38,7 +38,10 @@ Die Skytale ist ein Beispiel einer Verschlüsselung durch *Transposition*.  Das 
 
     _Partnerarbeit_: Tauschen Sie zu zweit Ihre Geheimtexte aus und versuchen Sie jeweils die Nachricht Ihres Gegenübers zu entschlüsseln.
   ],
-  solution: [Selbstüberprüfung],
+  solution: [
+    #v(-2mm)
+    _Selbstüberprüfung_
+  ],
 )
 
 #exo(
@@ -52,6 +55,7 @@ Die Skytale ist ein Beispiel einer Verschlüsselung durch *Transposition*.  Das 
     // - Schätzen Sie das Verfahren als sicher ein? Begründen Sie Ihre Antwort.
   ],
   solution: [
+    #v(-2mm)
     - Der Schlüssel ist der Durchmesser der Skytale, da die Nachricht nur mit einer Skytale mit demselben Durchmesser entschlüsselt werden kann.
 
     - Es gibt so viele mögliche Schlüssel, wie es verschiedene Durchmesser von Skytalen gibt. Theoretisch gesehen wären ja unendlich viele Durchmesser möglich, aber in der Praxis gab es damals einfach eine Hand voll verschiedener Skytalen, die üblich waren.

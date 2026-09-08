@@ -30,6 +30,7 @@
         - Wie, ganz konkret, speichert der Computer Buchstaben und sonstige Zeichen? Wie nennt man diesen Code?
       ],
       solution: [
+        #v(-2mm)
         - Als 1 und 0, also als Bit-Folgen. Anders ausgedrückt: im binären Zahlensystem. Ja, es ist etwas lange her vermutlich😅
         - Die auf unserer Tastatur getippten Zeichen werden als ASCII-Zeichen gespeichert. Das sind Zahlen mit einer Länge von 7 Bit.
       ],
@@ -99,6 +100,7 @@ gutter: 0.2em,
     _Tipp:_ Verwenden Sie den hexadezimalen Code auf der ASCII-Tabelle zum Umrechnen ins binäre Zahlensystem und verwenden Sie pro Buchstabe 7 Bit.
   ],
   solution: [
+    #v(-2mm)
     #table(
       columns: 6,
       align: center,
@@ -266,6 +268,7 @@ Um jetzt den Klartext mit dem Schlüssel zu verschlüsseln müssen wir einfach S
 
   ],
   solution: [
+    #v(-2mm)
     0011110 0000100 0000000 0000011 1111101
   ],
 )
@@ -301,7 +304,7 @@ Wenn Sie die Aufgabe gemacht haben, sollten Sie jetzt den Geheimtext als Binärz
         1E, 04, 00, 03, 7D. Was fällt Ihnen auf?
       ],
       solution: [
-        Folgende Zeichen liest man aus der ASCII-Tabelle:
+        #v(-2mm)
         #table(
           columns: 5,
           align: center,
@@ -325,6 +328,7 @@ An der Prüfung müssen Sie also den binären Geheimtext nicht noch in lesbare Z
     Kleine Zusatzüberlegung: Unter welchen Umständen ist ein Zeichen im Geheimtext 00?
   ],
   solution: [
+    #v(-2mm)
     Dann, wenn das Zeichen im Schlüssel dem Zeichen im Klartext entspricht.
   ],
 )
@@ -373,13 +377,12 @@ Natürlich müsste man das ja wieder entschlüsseln können und damit den Klarte
 
   ],
   solution: [
-    *Klartext (binär):* 1001000 1000001 1001100 1001100 1001111
-
-    *In Hex:* 48 41 4C 4C 4F
-
+    #v(-2mm)
+    *Klartext (binär):* 1001000 1000001 1001100 1001100 1001111\
+    *In Hex:* 48 41 4C 4C 4F\
     *ASCII:* H A L L O
 
-    Haben Sie irgendwo eine falsche XOR-Verknüpfung drin, dann werden Sie nicht die korrekten Zeichen kriegen. Wenn aber alles geklappt hat, dann kriegen Sie in der Tat den Klartext, also unser HALLO wieder raus
+    Wenn Sie sich nirgends bei einer Stelle vertan haben, dann kriegen Sie in der Tat den Klartext, also unser HALLO wieder raus
   ],
 )
 
@@ -395,6 +398,7 @@ Jetzt haben Sie gesehen, wie die Verschlüsselung und Entschlüsselung mit XOR f
     - In einer vorherigen Aufgabe habe ich Sie gefragt, unter welchen Umständen im Geheimtext eine 00 rauskommt. Jetzt denken Sie diesen Aspekt weiter: Welche Implikation hat das darauf, wenn Sie einen Geheimtext mit Hilfe eines Schlüssels entschlüsseln wollen?
   ],
   solution: [
+    #v(-2mm)
     - *Vorteil*: Man muss nicht mit 2 Schlüsseln hantieren und hat so sicher eine einfachere Grundlage.
     - *Nachteil*: Das Ganze ist etwas unsicherer, weil es halt nur einen Schlüssel braucht. Ein Angreifer muss nur den Schlüssel herausfinden und kann dann nicht nur entschlüsseln, sondern ungemerkt auch zwischen den Parteien mitschreiben oder Nachrichten fälschen.
     - Immer dort, wo Sie im Geheimtext eine 0 haben, können Sie einfach den Schlüssel abschreiben. Sie sparen sich also allenfalls ein wenig Zeit, ohne eine XOR-Verknüpfung machen zu müssen. Das gilt natürlich auch für den umgekehrten Weg, also für die Verschlüsselung.
@@ -497,6 +501,7 @@ So, und jetzt würde man genau gleich vorgehen wie so wie wir schon gesehen habe
     Schreiben Sie die XOR-Verknüpfung des Klartexts HALLO mit dem Schlüssel JA von oben.
   ],
   solution: [
+    #v(-2mm)
     Geheimtext (binär): 0000010 0000000 0000110 0001101 0000101
   ],
 )
@@ -757,6 +762,7 @@ Und dementsprechend führt diese dazu, dass der Geheimtext ein bisschen schwieri
     ),
   ],
   solution: [
+    #v(-2mm)
     #table(
       columns: 5,
       align: (
@@ -854,6 +860,7 @@ Bei der Entschlüsselung haben wir übrigens kein Problem mit der fehlenden Para
     )
   ],
   solution: [
+    #v(-2mm)
     #table(
       columns: 5,
       align: (

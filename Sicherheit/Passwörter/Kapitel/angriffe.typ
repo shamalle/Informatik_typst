@@ -131,7 +131,7 @@ Der Dienst kann die Attacke erschweren, indem er:
     #text(size: 1.1em, weight: "bold")[Offline]
     #v(-1mm)
 
-    Anders sieht es aus, wenn der Angreifer eine Datenbank mit Passwort-Hashes gestohlen hat. Dann muss er nicht mehr bei Instagram jedes Mal nachfragen, sondern kann auf seinem Computer rechnen (haben wir weiter oben schon mal gesehen). Er stiehlt also den Hash. Dann probiert er ein Passwort am eigenen Computer aus, berechnet davon den Hash und vergleicht es mit dem gestohlenen Wert.
+    Anders sieht es aus, wenn der Angreifer eine Datenbank mit Passwort-Hashes gestohlen hat. Dann muss er nicht mehr bei Instagram jedes Mal nachfragen, sondern kann auf seinem Computer rechnen (haben wir vorher schon mal gesehen). Er stiehlt also den Hash. Dann probiert er ein Passwort am eigenen Computer aus, berechnet davon den Hash und vergleicht es mit dem gestohlenen Wert.
   ]
 )
 
@@ -139,7 +139,7 @@ Der Dienst kann die Attacke erschweren, indem er:
 
 == Wörterbuchattacken
 
-Brute Force hat allerdings ein Problem: Menschen wählen ihre Passwörter nicht zufällig. Es wäre sehr ineffizient, zuerst Millionen völlig zufällige Kombinationen auszuprobieren, wenn viele Menschen klassische Passwörter wählen, wie wir schon weiter oben gesehen haben: _passwort, 1234, qwertz, ..._
+Brute Force hat allerdings ein Problem: Menschen wählen ihre Passwörter nicht zufällig. Es wäre sehr ineffizient, zuerst Millionen völlig zufällige Kombinationen auszuprobieren, wenn viele Menschen klassische Passwörter wählen, wie wir sie schon gesehen haben: _passwort, 1234, qwertz, ..._
 
 Ein Angreifer kann deshalb eine Liste mit häufig verwendeten Passwörtern verwenden. Das nennt man eine *Wörterbuchattacke*. Dabei wird nicht unbedingt nur ein normales Wörterbuch verwendet, sondern diese Listen beinhalten auch:
 
@@ -152,11 +152,11 @@ Ein Angreifer kann deshalb eine Liste mit häufig verwendeten Passwörtern verwe
   ],
   [
     - Orte
-    - häufigen Zahlenfolgen
+    - häufige Zahlenfolgen
   ],
   [
     - Geburtstage
-    - bekannten Passwortmuster
+    - bekannte Passwortmuster
   ]
 )
 
@@ -176,7 +176,10 @@ Ein Angreifer kann deshalb eine Liste mit häufig verwendeten Passwörtern verwe
   [
     #align(horizon)[
       #figure(
-        image("../Bilder/max_dictionary_attack.png"),
+        box(
+        stroke: 0.5pt + rgb("#1c90d0"),
+        inset: 3pt,
+        )[#image("../Bilder/max_dictionary_attack.png")],
         caption: [Max hat auf Social Media viele Informationen über sich geteilt.]
       )
     ]
@@ -247,13 +250,16 @@ Haben wir vorher schon in Abschnitt 2 gesehen.
   [
     #v(-6mm)
     #figure(
-      image("../Bilder/credential_stuffing.png"),
+      box(
+        stroke: 0.5pt + rgb("#1c90d0"),
+        inset: 3pt,
+      )[#image("../Bilder/credential_stuffing.png")],
       caption: [Der Angreifer versucht die gleichen Credentials bei anderen Diensten]
     )
   ]
 )
 
- Beim *Credential Stuffing* versucht der Angreifer nun einfach bei weiteren Diensten mit demselben Email/Benutzernamen und Passwort die Konten von Max zu hacken. Zum Beispiel bei Instagram, Discord, Gmail, usw. Mit einem Computer und automatisierten Programm kann man auf tausenden von Seiten extrem schnell diese Login-Versuche durchführen .
+ Beim *Credential Stuffing* versucht der Angreifer nun einfach bei weiteren Diensten mit demselben Email/Benutzernamen und Passwort die Konten von Max zu hacken. Zum Beispiel bei Instagram, Discord, Gmail, usw. Mit einem Computer und automatisierten Programm kann man auf zehntausenden von Seiten extrem schnell diese Login-Versuche gleichzeitig durchführen .
 
 
 
@@ -274,13 +280,13 @@ Max bekommt z.B. folgende Nachricht: „Dein Gmail-Konto wurde aufgrund verdäch
     Doch die Webseite gehört nicht Instagram. Sobald die Credentials von Max eingegeben wurden, werden die an den Angreifer übermittelt. Das nennt man *Phishing*.\
     Der Angreifer musste hier das Passwort also gar nicht selbst herausfinden. Max hat es ihm selbst gegeben.
 
-    Phishing ist eines der häufigsten Angriffe in der Arbeitswelt und kann Firmen (aufgrund Fehler von Mitarbeitenden) mehrere Millionen Franken kosten. Heutzutage wird Fishing sogar noch erweitert - man nennt es *Quishing*. Das ist sozusagen Phishing über manipulierte QR-Codes.
+    Phishing ist eines der häufigsten Angriffe in der Arbeitswelt und kann Firmen (aufgrund Fehler von Mitarbeitenden) mehrere Millionen Franken kosten. Heutzutage wird Phishing sogar noch erweitert - man nennt es *Quishing*. Das ist sozusagen Phishing über manipulierte QR-Codes.
   ],
   [
     #figure(
       box(
         stroke: 0.5pt + rgb("#1c90d0"),
-        inset: 5pt,
+        inset: 3pt,
       )[
         #image("../Bilder/phishing_example_instagram.png")
       ],
@@ -351,6 +357,56 @@ Die meisten Phishing-Versuche geschehen über Mail. Aber nicht alle. Folgende Pu
   ]
 )
 
+#pagebreak()
+
 == Was passiert bei einem Datenleck?
 
+Betrachten wir nun mal ein konkretes Szenario. Stellen wir uns vor, ein Online-Dienst wird gehackt. Das kann ein Social Media Dienst sein wie Instagram, WhatsApp oder Online-Händler wie Zalando, Galaxus etc.
 
+Falls die Betreiber der Datenbank sich gut mit Security auskennen, können wir schon mal hoffen, dass sie keine Passwörter im Klartext gespeichert haben. Sondern dass sie gute Hash-Funktionen benutzt haben und die Daten abgespeichert haben, wie in @zugangsdaten-hash-salt. Der Angreifer schafft es trotzdem, die Benutzerdatenbank zu kopieren. Das nennt man ein *Datenleck*.
+ 
+#text(weight: "bold")[Der Angreifer besitzt nun zwar Benutzernamen, Salts und Passwort-Hashes aber noch nicht automatisch die ursprünglichen Passwörter!] 
+
+#v(2mm)
+
+#exo(
+exercise: [
+  #v(-2mm)
+  Ein Datenleck geschieht und ein Angreifer (oder oft eine Angreifergruppe) kommt in den Besitzt einer solchen Tabelle mit Benutzernamen, Salts und Passwort-Hashes. Sind automatisch alle Benutzer gleich gefährdet?
+],
+solution: [
+  #v(-2mm)
+  Trotz all den Sicherheitsvorkehrungen sind nicht alle Passwörter gleich sicher. Häufige Passwörter sind immer noch schneller herauszufinden (mithilfe z.B. Rainbow Tables) als komplexere.
+]
+)
+#v(2mm)
+
+Aus der Aufgabe können wir entnehmen, dass die sichere Speicherung eines Passworts und die Sicherheit eines Passworts zwei verschiedene Dinge sind. Sie können Ihre Sicherheit also beträchtlich erhöhen, wenn Sie ein sicheres Passwort wählen, auch wenn Sie von einem Datenleck betroffen wären.
+
+#v(2mm)
+
+#text(weight: "bold")[Die Angriffskette]
+
+Meist ist also das Datenleck noch nicht das Ende der Welt. Aber es ist das erste Tor von einer längeren Abfolge, die man Angriffskette nennt. Angreifer gehen nämlich systematisch (und automatisiert) vor. eine typische Angriffskette kann wie folgt aussehen:
+
+#align(center)[
+  #image("../Bilder/angriffskette.png", width: 60%)
+]
+
+Wie schwierig es ist, ein Passwort herauszufinden, hängt unter anderem davon ab:
+
+#grid(
+  columns: (0.5fr, 0.5fr),
+  gutter: 1em,
+  [
+    - wie stark das Passwort ist
+    - welches Passwort-Hashverfahren verwendet wurde
+    - ob individuelle Salts verwendet wurden
+  ],
+  [
+    - wie viele Versuche der Angreifer durchführen kann
+    - ob das Passwort bereits in bekannten Listen vorkommt
+  ]
+)
+
+Ein guter Schutz auf dem Server kann einen Angriff deshalb deutlich erschweren. Er macht ein schwaches Passwort aber nicht automatisch stark.
