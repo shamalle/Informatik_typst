@@ -38,9 +38,6 @@
 #pagebreak()
 #include "Kapitel/haeufigkeitsanalyse.typ"
 #pagebreak()
-#set heading(numbering: none)
-= Platz für Ihre Notizen
-#pagebreak()
 #set heading(numbering:"1.")
 #include "Kapitel/vigenere.typ"
 #pagebreak()
