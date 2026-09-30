@@ -11,9 +11,14 @@
     Für uns heutzutage ist es normal, dass unser Computer (oder sonstigen elektronischen Geräte) ohne Mühe Bilder darstellen kann. Wie wir im Kapitel vorher gesehen haben, war das früher überhaupt nicht selbstverständlich. Da hat man noch mit Textzeichen getrickst, um einfache Linien darstellen zu können.\
     Ein bekanntes Beispiel früherer solcher Darstellungen von Bildern ist sogar die eigene Kunstrichtung "ASCII-Art", bei der man Bilder nur mit ASCII-Zeichen dargestellt hat (siehe @ascii-art-fish).
 
-    Die heutigen Geräte haben also eine andere Möglichkeit, Bilder zu codieren (in 0 und 1 darzustellen), damit wir sie mit unserem Auge als Bilder wahrnehmen können. Dabei sind kaum Grenzen gesetzt und wir können an den Bildschirmen von Fotos bis zu digitalen Zeichnungen alles sehen.
+    Die heutigen Geräte haben also eine andere Möglichkeit, Bilder zu codieren (in 0 und 1 darzustellen), damit wir sie mit unserem Auge als Bilder wahrnehmen können. Dabei sind kaum Grenzen gesetzt und wir können an den Bildschirmen von Fotos bis zu digitalen Zeichnungen alles sehen. Doch wie funktioniert das?
+    #v(2mm)
 
-    Doch wie speichert jetzt nun ein Computer solche Bilder? Es gibt dafür verschiedene Formate. Wir werden uns 2 Konzepte anschauen: Die Rastergrafik und die Vektorgrafik. Die erstere ist den Meisten intuitiv vertraut.
+    == Rastergrafiken
+
+    Zuerst betrachten wir  Rastergrafiken/-bilder an und nachher die Vektorgrafiken.
+
+    //Doch wie speichert jetzt nun ein Computer solche Bilder? Es gibt dafür verschiedene Formate. Wir werden uns 2 Konzepte anschauen: Die Rastergrafik und die Vektorgrafik. Die erstere ist den Meisten intuitiv vertraut.
 
     #outline-colorbox(
       title: "Rastergrafik",
@@ -31,7 +36,7 @@
     ]    
 
     #text(
-      size: 1.2em,
+      size: 1.1em,
       weight: "bold",
         )[Schwarz-Weiss-Bilder]
 
@@ -42,7 +47,7 @@
     
 
     #text(
-      size: 1.2em,
+      size: 1.1em,
       weight: "bold",
         )[Graustufenbilder]
 
@@ -53,7 +58,7 @@
     Man spricht deshalb von einer 8-Bit-Farbtiefe.
 
     #text(
-      size: 1.2em,
+      size: 1.1em,
       weight: "bold",
         )[Farbbilder]
 
@@ -246,10 +251,13 @@
     Jetzt werden vielleicht einige verwirrt sein, seit wann denn Rot und Grün zusammen Gelb gibt... Da wir hier von Bildschirmen und Farben reden, handelt es sich um sogenannte *Lichtfarben* (weil der Bildschirm ja Licht aussendet) und nicht die Pigmentfarben, die Sie aus dem bildnerischen Gestalten kennen. Man nennt dies das *additive Farbmodell*.
 
     Also je mehr Licht, desto heller. Wenn alle Farbkanäle voll offen sind (alle Farben zu 100% präsent) ergibt sich weiss. Wenn alle Farben abgedreht sind, ergibt sich schwarz (Absenz von Licht).
+    #v(2mm)
+
+
 
     #text(size: 1.15em, weight: "bold")[Platzbedarf eines Bildes]
     #v(-2mm)    
-    Unter *Platzbedarf* kann man auch die Bildqualität verstehen (falls es sich um ein unkomprimiertes Bild handelt). Generell kann man sagen, dass je kleiner die Farbtiefe des Bildes, 
+    Eine Rastergrafik besteht also aus einer Vielzahl an Pixeln. Und für jeden dieser Pixel muss der Computer speichern, welche Farbe er hat. Je mehr Pixel ein Bild besitzt und je  
   ],
   [
     #v(-1.8mm)
@@ -260,19 +268,121 @@
   ]
 )
 #v(-2mm)
-umso schlechter die Qualität und umso weniger Speicher wird benötigt. Das ist auch intuitiv: Weniger Farbtiefe bedeutet, es braucht weniger Bit, um eine Farbe zu definieren.\
-Um Speicherplatz zu reduzieren, kann man also die Farbtiefe reduzieren. Auch gibt es kleine Tricks, wie z.B. bei der Farbtiefe 8 Bit (was ja eigentlich nicht gleichmässig auf die 3 Kanäle aufzuteilen ist), benutzt man jeweils 3 Bit für Rot und Grün aber nur 2 Bit für Blau. Der blaue Kanal hier wird benachteiligt ohne grosse Konsequenzen: Unser Auge ist etwas weniger empfindlich bei Blauwerten und drum kann man die schlechtere Qualität gut in Kauf nehmen.
+mehr Bits für die Farbe eines Pixels verwendet werden, desto mehr Speicherplatz wird benötigt. Bei einem unkomprimierten Bild hängt der Platzbedarf deshalb hauptsächlich von zwei Faktoren ab:
 
-Standardgemäss enthalten Rastergrafikformate jeweils:
-- einen kurzen Anfangsteil (Header), der Informationen enthält wie die Dimension des Bildes und Farbtiefe
-- restlicher Teil bestehend aus Bits.
+- Bildgrösse (Auflösung): Wie viele Pixel hat das Bild?
+- Farbtiefe: Wie viele Bits werden pro Pixel gespeichert?
 
-Header: Breite, Höhe, Farbtiefe
-Rest: Bits, die das Bild definieren
+Eine höhere Farbtiefe ermöglicht mehr verschiedene Farben und damit eine feinere Farbabstufung. Gleichzeitig benötigt sie mehr Speicherplatz. Wird die Farbtiefe reduziert, nimmt der Speicherbedarf ab, allerdings können dann weniger Farben dargestellt werden.
 
-Der Platzbedarf eines Bildes berechnet sich aus seiner Auflösung und der verwendeten Farbtiefe (und einigen Bytes für den Header).
-Wenn wir ein Bild betrachten mit einer Auflösung von 400x600 Pixel und eine Farbtiefe von 24 Bit anschauen, berechnet sich der Platzbedarf wie folgt:
-400 x 600 x 24 = 0.72 MB
+
+#grid(
+  columns: (0.4fr, 0.6fr),
+  gutter: 1.1em,
+  [
+    Wenn ein Computer eine Rastergrafik speichert, enthält diese Datei typischerweise zwei Teile:
+
+    - *Header*: enthält Informationen über das Bild: Breite, Höhe und Farbtiefe.
+
+    - *Bilddaten*: enthalten die Bits, aus die die Pixel und ihre Farben definiert werden.
+  ],
+  [
+    #v(-2mm)
+    #align(center)[
+      #figure(
+        image("../Bilder/portable-pixmap.png")
+      )
+    ]
+  ]
+)
+
+Der Header benötigt ebenfalls etwas Speicherplatz. Für eine grobe Berechnung des Platzbedarfs können wir ihn jedoch zunächst vernachlässigen und berechnen den Platz wie folgt:
+
+$ "Platzbedarf eines unkomprimierten Bildes"
+≈ "Anzahl Pixel" dot "Farbtiefe" $
+
+#v(2mm)
+
+#outline-colorbox(
+  title: "Beispiel Platzbedarf eines Bildes",
+  color: "purple",
+  radius: 3pt,
+  width: auto,
+  )[
+    #grid(
+      columns: (0.8fr, 0.2fr),
+      gutter: 1em,
+      [
+        #v(1.5mm)
+        Betrachten wir das Bild des Papageientauchers rechts. Es hat eine Auflösung von $400"x"600$ Pixeln und eine Farbtiefe von 24 Bit pro Pixel (True Color).
+
+        Zuerst berechnen wir die Anzahl Pixel: $400 dot 600 = 240\'000 "Pixel"$
+
+        Für jeden Pixel werden 24 Bit gespeichert: $240\'000 dot 24 = 5'760'000 "Bit"$
+
+        Da $8$ Bit $1$ Byte entsprechen: $5\'760\'000 : 8 = 720\'000 "Byte"$
+
+        Das entspricht ungefähr: $0.72 "MB"$
+
+        Das Bild benötigt also ca. 0.72 MB Speicherplatz, wenn es unkomprimiert gespeichert wird. Der tatsächliche Speicherbedarf kann je nach Dateiformat und Header etwas grösser sein.
+      ],
+      [
+        #v(-0.7mm)
+        #figure(
+          image("../Bilder/papageientaucher.jpg")
+        )
+      ]
+    )
+  ]
+
+#v(2mm)
+
+#text(size: 1.15em, weight: "bold")[Speicherplatz sparen]
+#v(-2mm)    
+
+Sie kennen sicher das Problem von fehlendem Speicherplatz. Eine einfache Möglichkeit, Speicherplatz zu sparen ist eine geringere Farbtiefe. Statt beispielsweise 24 Bit pro Pixel können auch 12 oder 8 Bit verwendet werden. Dadurch stehen zwar weniger verschiedene Farben zur Verfügung, dafür wird pro Pixel weniger Speicher benötigt. Von 24 auf 16 Bit ist bei einem kleinen Bild noch kein grosser Unterschied ersichtlich. Wie schnell aber die Bildqualität leidet, können Sie in @farbtiefe sehen können.
+
+#v(2mm)
+
+#figure(
+  grid(
+    columns: (1fr, 1fr, 1fr, 1fr),
+    gutter: 10pt,
+
+    image("../Bilder/sunflower_24bit.png", width: 100%),
+    image("../Bilder/sunflower_16bit.png", width: 100%),
+    image("../Bilder/sunflower_8bit.png", width: 100%),
+    image("../Bilder/sunflower_4bit.png", width: 100%),
+
+    image("../Bilder/sunflower_3bit.png", width: 100%),
+    image("../Bilder/sunflower_2bit.png", width: 100%),
+    image("../Bilder/sunflower_1bit.png", width: 100%),
+    image("../Bilder/sunflower_0bit.png", width: 100%),
+  ),
+  caption: [Vergleich der verschiedenen Farbtiefen am selben Bild.],
+) <farbtiefe>
+
+#v(3mm)
+
+Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werden. Die typische Verteilung hierbei ist: 3 Bit für Rot, 3 Bit für Grün und 2 Bit für Blau. Der blaue Kanal erhält damit etwas weniger Abstufungen. Das fällt bei vielen Bildern kaum auf, da das menschliche Auge für Unterschiede im blauen Farbbereich weniger empfindlich ist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -321,3 +431,4 @@ Wenn wir ein Bild betrachten mit einer Auflösung von 400x600 Pixel und eine Far
 
 
 
+== Vektorgrafiken

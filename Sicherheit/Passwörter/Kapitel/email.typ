@@ -6,7 +6,6 @@
 
 Finden Sie, Ihr E-Mail Account ist wichtig? Die meisten Menschen unterschätzen die zentrale Funktion des eigenen E-Mail-Kontos gewaltig. E-Mail wird nicht nur zum Schreiben und Empfangen von Nachrichten verwendet. Für viele andere Online-Dienste ist die E-Mail-Adresse gleichzeitig ein wichtiger Bestandteil der Anmeldung und der Kontowiederherstellung. Der Grund, warum unser E-Mail-Konto deshalb sicherheitstechnisch von grosser Bedeutung ist, wird in diesem Kapitel genauer erläutert.
 
-#v(3mm)
 
 Stellen wir uns vor, Max hat sein Instagram-Passwort vergessen. Dafür gibt es bei fast allen Online-Diensten die Möglichkeit mit dem Button "Passwort vergessen". Nun musst Instagram irgendwie überprüfen, dass es sich wirklich um Max handelt, dem sein eigenes Passwort nicht wieder in den Sinn kommt. Die häufigste Möglichkeit besteht meistens darin, dass ein Link / Aktivierungscode an die hinterlegte E-Mail Adresse gesendet wird. Max muss dabei sein altes Passwort gar nicht kennen, sondern kann ein neues bestimmen. Die E-Mail-Adresse dient also als eine Art Schlüssel zur Wiederherstellung des Kontos.
 
@@ -31,3 +30,9 @@ Jetzt schauen wir uns die Situation mal aus der Sicht des Angreifers an. Sobald 
 
 Unser Mail-Konto fungiert also wie ein Schlüsselbund und ist oftmals das Eintrittstor in weitere Konten, die wir online haben. Daher sollte es besonders gut geschützt werden. Wichtige Massnahmen sind zum Beispiel:
 
+- Ein einzigartiges Passwort, das *nicht* bei anderen Diensten verwendet wird.
+- Multi-Faktor-Authentifizierung, z.B. Fingerabdruck.
+- Wiederherstellung des E-Mail-Kontos absichern (z.B. per Authenticator-App, Codes, Telefonnummer).
+- Phishing erkennen.
+
+*Wir merken uns also: Je mehr andere Konten von einem Konto abhängen, desto wichtiger wird dessen Schutz!*
