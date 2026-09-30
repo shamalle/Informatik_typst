@@ -366,6 +366,167 @@ Sie kennen sicher das Problem von fehlendem Speicherplatz. Eine einfache Möglic
 
 Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werden. Die typische Verteilung hierbei ist: 3 Bit für Rot, 3 Bit für Grün und 2 Bit für Blau. Der blaue Kanal erhält damit etwas weniger Abstufungen. Das fällt bei vielen Bildern kaum auf, da das menschliche Auge für Unterschiede im blauen Farbbereich weniger empfindlich ist.
 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 2em,
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Zeichnen Sie selbst ein Schwarz-Weiss Bild und geben Sie die dazugehörige Codierung als Bitsequenz und alle weiteren wichtigen Informationen zur Decodierung an.
+      ],
+      solution: [
+        #v(-2mm)
+
+        #grid(
+          columns: (0.8fr, 0.25fr),
+          gutter: 1em,
+          [
+            Beispiel eines Smiley-Bilds:\
+            - Bildgrösse: $5"x"5$ Pixel
+            - Farbtiefe: $1$ Bit
+            - Bitsequenz: $0000001010000001000101110$
+          ],
+          [
+            #align(left)[
+              #image("../Bilder/solution_smiley.png")
+            ]
+          ]
+        )
+      ]
+    )
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Was könnte die folgende Codierung für ein Graustufenbild darstellen? Zeichnen Sie das Bild.\
+        - Bildgrösse: $4"x"4$ Pixel\
+        - Farbtiefe: $4$ Bit\
+        - Bitsequenz: 1111 1111 1111 0000 1111 1111 0000 0111 1111 0000 0111 0111 0000 0111 0111 0111
+      ],
+      solution: [
+        #v(-2mm)
+        Eine schwarze Treppe wobei oberhalb weisse Pixel sind und unterhalb graue Pixel.
+        #image("../bilder/solution_stair.png", width: 25%)
+      ]
+    )
+  ]
+)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 2em,
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Betrachten wir ein Bild mit einer Farbtiefe von 24 Bit. Geben Sie die Codierung für die folgenden Pixel an:
+        - Ein rotes Pixel
+        - Ein gelbes Pixel
+        - Ein oranges Pixel (Mischung zwischen Rot und Gelb)
+      ],
+      solution: [
+        #v(-2mm)
+
+      ]
+    )
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Was könnte die folgende Codierung für ein Graustufenbild darstellen? Zeichnen Sie das Bild.\
+        - Bildgrösse: $4"x"4$ Pixel\
+        - Farbtiefe: $4$ Bit\
+        - Bitsequenz: 1111 1111 1111 0000 1111 1111 0000 0111 1111 0000 0111 0111 0000 0111 0111 0111
+      ],
+      solution: [
+        #v(-2mm)
+        
+      ]
+    )
+  ]
+)
+
+
+
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 2em,
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Gegeben ist das folgende Graustufenbild mit einer $8$ Bit Farbtiefe. Sie haben für die Pixel folgende Werte zur Verfügung: $0$, $130$, $220$ und $255$.\
+
+        #grid(
+          columns: (0.5fr, 0.5fr),
+          gutter: 0.5em,
+          [
+            Geben Sie die Codierung des Bildes mit diesen Werten analog wie in @portable-graymap als Tabelle an. 
+          ],
+          [
+            #v(-4.5mm)
+            #align(right)[
+              #image("../Bilder/grayscale_smiley.png", width: 95%)
+            ]
+          ]
+        )
+      ],
+      solution: [
+        #v(-2mm)
+        Ohne die Angabe der Farbtiefe (und Bildgrösse) ist es nicht eindeutig, welches der drei Bilder der Bitsequenz entspricht. Alle $3$ sind möglich:
+
+        - Wenn man die Folge mit einer Farbtiefe von $1$ Bit und einer Grösse von $6"x"6$ Pixel liest, ist es einfach eine Folge von _schwarz_, _schwarz_, _weiss_, _weiss_ etc. bis es das linke Bild ergibt.
+        - Falls die Sequenz ein $4"x"3$ Bild mit einer Farbtiefe von 3 Bit beschreibt, ergibt sich das mittlere Bild.
+        - Bei der gleichen Farbtiefe aber Grösse von $3"x"4$ Pixel ergibt sich das rechte Bild.
+      ]
+    )
+  ],
+  [
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Betrachten Sie die folgende Bitfolge und überlegen Sie, welches Bild es codiert:
+
+        #text(size: 1.2em)[$001100001100111111111111001100001100$]
+
+        Welches der 3 folgenden Bilder entspricht der Bitfolge?
+
+        #grid(
+          columns: (auto, auto, auto),
+          gutter: 0.5em,
+          [
+            #image("../Bilder/bit_ambiguity_1.png", height: 2.35cm)
+          ],
+          [
+            #image("../Bilder/bit_ambiguity_2.png", height: 2.35cm)
+          ],
+          [
+            #image("../Bilder/bit_ambiguity_3.png", height: 2.35cm)
+          ]
+        )
+      ],
+      solution: [
+        #v(-2mm)
+        Ohne die Angabe der Farbtiefe (und Bildgrösse) ist es nicht eindeutig, welches der drei Bilder der Bitsequenz entspricht. Alle $3$ sind möglich:
+
+        - Wenn man die Folge mit einer Farbtiefe von $1$ Bit und einer Grösse von $6"x"6$ Pixel liest, ist es einfach eine Folge von _schwarz_, _schwarz_, _weiss_, _weiss_ etc. bis es das linke Bild ergibt.
+        - Falls die Sequenz ein $4"x"3$ Bild mit einer Farbtiefe von 3 Bit beschreibt, ergibt sich das mittlere Bild.
+        - Bei der gleichen Farbtiefe aber Grösse von $3"x"4$ Pixel ergibt sich das rechte Bild.
+      ]
+    )
+  ]
+)
+
 
 
 
