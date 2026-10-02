@@ -1,4 +1,4 @@
-#import "../../config/conf.typ": conf
+#import "../../../config/conf.typ": conf
 
 #import "@preview/codly:1.3.0": codly
 #import "@preview/exercise-bank:0.3.0": exo, exo-print-solutions, exo-setup
