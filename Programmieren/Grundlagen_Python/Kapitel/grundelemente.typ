@@ -10,7 +10,7 @@ Wie jede Programmiersprache folgt auch Python bestimmten Regeln und Muster, dami
 
 #outline-colorbox(
   title: "Grundelemente einer Programmiersprache",
-  color: "blue",
+  color: "purple",
   radius: 3pt,
   width: auto,
   inset: 6pt,

@@ -24,8 +24,9 @@
   thema: "Programmieren",
 )
 
-//#include "Kapitel/grundlagen.typ"
-#pagebreak()
+#include "Kapitel/grundelemente.typ"
+#include "Kapitel/variablen.typ"
+#include "Kapitel/eingabe.typ"
 
 
 //#v(5mm)

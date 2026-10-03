@@ -51,6 +51,55 @@ In Python gibt es zwei Funktionen (Befehle) dafür.
 
 #v(3mm)
 
+#outline-colorbox(
+  title: "Beispiele print() und input()",
+  color: "purple",
+  radius: 3pt,
+  width: auto,
+  inset: 6pt,
+  )[
+    #v(2mm)
+
+    #grid(
+      columns: (0.5fr, 0.5fr),
+      gutter: 1.3em,
+      [
+        #rotate(-7deg)[
+          #text(size: 1.1em, weight: "bold")[print()]
+        ]
+        Testen Sie mal folgende Zeilen, indem Sie sie in Ihrem Thonny laufen lassen. Stimmt das Ergebnis mit Ihren Erwartungen überein?
+
+        #codly()
+          ```py 
+          print("2+3") 
+          ```
+
+        #codly()
+          ```py
+          print(2+3)
+          ```
+
+        Wenn Sie Text und Zahlen gleichzeitig drucken möchten, müssen Sie es mit einem Komma trennen:
+
+        #codly()
+          ```py
+          print("Die Summe ist: ", 5)
+          ```
+        #v(1mm)
+      ],
+      [
+        #rotate(-7deg)[
+          #text(size: 1.1em, weight: "bold")[input()]
+        ]
+      ]
+    )
+    
+
+  ]
+
+
+#v(3mm)
+
 #grid(
   columns: (0.5fr, 0.5fr),
   gutter: 1.3em,
@@ -63,10 +112,10 @@ In Python gibt es zwei Funktionen (Befehle) dafür.
       solution: [
         #v(-2mm)
         #codly()
-        ```py 
-        my_age = 17
-        print(my_age)
-        ```
+          ```py 
+          my_age = 17
+          print(my_age)
+          ```
       ]
     )
   ],
@@ -74,10 +123,21 @@ In Python gibt es zwei Funktionen (Befehle) dafür.
     #exo(
       exercise: [
         #v(-2mm)
+        Können Sie das Programm so anpassen, dass der Computer Sie mit ```py input()``` fragt, wie alt Sie sind und er dann die Zahl wieder ausgibt? Die Kommandozeile sollte so aussehen:
+
+        #v(-3mm)
+        #align(right)[
+          #image("../Bilder/input_ex2.png", width: 75%)
+        ]
 
       ],
       solution: [
         #v(-2mm)
+        #codly()
+          ```py 
+          my_age = input("Wie alt sind Sie?")
+          print("Ihr Alter ist", my_age)
+          ```
       ]
     )
   ]

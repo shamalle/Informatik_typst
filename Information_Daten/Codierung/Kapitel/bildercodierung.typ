@@ -340,7 +340,7 @@ $ "Platzbedarf eines unkomprimierten Bildes"
 #text(size: 1.15em, weight: "bold")[Speicherplatz sparen]
 #v(-2mm)    
 
-Sie kennen sicher das Problem von fehlendem Speicherplatz. Eine einfache Möglichkeit, Speicherplatz zu sparen ist eine geringere Farbtiefe. Statt beispielsweise 24 Bit pro Pixel können auch 12 oder 8 Bit verwendet werden. Dadurch stehen zwar weniger verschiedene Farben zur Verfügung, dafür wird pro Pixel weniger Speicher benötigt. Von 24 auf 16 Bit ist bei einem kleinen Bild noch kein grosser Unterschied ersichtlich. Wie schnell aber die Bildqualität leidet, können Sie in @farbtiefe sehen können.
+Sie kennen sicher das Problem von fehlendem Speicherplatz. Eine einfache Möglichkeit, Speicherplatz zu sparen ist eine geringere Farbtiefe. Statt beispielsweise 24 Bit pro Pixel können auch 12 oder 8 Bit verwendet werden. Dadurch stehen zwar weniger verschiedene Farben zur Verfügung, dafür wird pro Pixel weniger Speicher benötigt. Von 24 auf 16 Bit ist bei einem kleinen Bild noch kein grosser Unterschied ersichtlich. Wie schnell aber die Bildqualität leidet, können Sie in @farbtiefe sehen.
 
 #v(2mm)
 
@@ -374,7 +374,7 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
       title: [],
       exercise: [ 
         #v(-2mm)
-        Zeichnen Sie selbst ein Schwarz-Weiss Bild und geben Sie die dazugehörige Codierung als Bitsequenz und alle weiteren wichtigen Informationen zur Decodierung an.
+        Zeichnen Sie selbst ein Schwarz-Weiss Bild und geben Sie die dazugehörige Codierung als Bitfolge und alle weiteren wichtigen Informationen zur Decodierung an.
       ],
       solution: [
         #v(-2mm)
@@ -386,7 +386,7 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
             Beispiel eines Smiley-Bilds:\
             - Bildgrösse: $5"x"5$ Pixel
             - Farbtiefe: $1$ Bit
-            - Bitsequenz: $0000001010000001000101110$
+            - Bitfolge: $0000001010000001000101110$
           ],
           [
             #align(left)[
@@ -396,16 +396,31 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
         )
       ]
     )
+
+    #exo(
+      title: [],
+      exercise: [ 
+        #v(-2mm)
+        Wie viele unterschiedliche Farben gibt es in einem Bild bei einer Farbtiefe von 12 Bit?
+      ],
+      solution: [
+        #v(-2mm)
+        $4096$ unterschiedliche Farben. Jede sBit kann zwei Werte annehmen und es sind insgesamt $12$ Bit: $2^12 = 4096$. Oder andere Herleitung: Jeder Farbkanal kann 16 verschiedene Farbintensitäten zum Ausdruck bringen, also $16^3 = 4096$.
+      ]
+    )
   ],
   [
     #exo(
       title: [],
       exercise: [ 
         #v(-2mm)
-        Was könnte die folgende Codierung für ein Graustufenbild darstellen? Zeichnen Sie das Bild.\
+        Was könnte die folgende Codierung für ein Graustufenbild darstellen? Zeichnen Sie das Bild.
+
         - Bildgrösse: $4"x"4$ Pixel\
         - Farbtiefe: $4$ Bit\
-        - Bitsequenz: 1111 1111 1111 0000 1111 1111 0000 0111 1111 0000 0111 0111 0000 0111 0111 0111
+        - Bitfolge: 1111 1111 1111 0000 1111 1111 0000 0111 1111 0000 0111 0111 0000 0111 0111 0111
+
+        Die Leerzeichen zwischen den Bits dient der einfacheren Lesbarkeit für die einzelnen Pixel. 
       ],
       solution: [
         #v(-2mm)
@@ -416,6 +431,8 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
   ]
 )
 
+#v(5mm)
+
 #grid(
   columns: (1fr, 1fr),
   gutter: 2em,
@@ -424,13 +441,32 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
       title: [],
       exercise: [ 
         #v(-2mm)
-        Betrachten wir ein Bild mit einer Farbtiefe von 24 Bit. Geben Sie die Codierung für die folgenden Pixel an:
+        Betrachten wir ein Bild mit einer Farbtiefe von 24 Bit. Geben Sie die Codierung als Bitfolge für die folgenden Pixel an:
+
         - Ein rotes Pixel
         - Ein gelbes Pixel
-        - Ein oranges Pixel (Mischung zwischen Rot und Gelb)
+        - Ein oranges Pixel\
+          _Hinweis_: Man braucht dafür den vollen roten Farbkanal und die Hälfte des grünen Farbkanals.
+
+        Nun liegt uns ein Bild mit einer Farbtiefe von 8 Bit vor. Geben Sie die Codierung wieder als Bitfolge für die folgenden Pixel an:
+
+        - Ein blaues Pixel
+        - Ein türkises Pixel
+        - Ein oranges Pixel
       ],
       solution: [
         #v(-2mm)
+        Die Leerzeichen zwischen den Bits dient der einfacheren Lesbarkeit zwischen den Farbkanälen.
+
+        24 Bit Farbtiefe:
+        - Rotes Pixel: $1111111$ $00000000$ $00000000$
+        - Gelbes Pixel: $1111111$ $1111111$ $00000000$
+        - Oranges Pixel: $1111111$ $01111111$ $00000000$ oder $1111111$ $10000000$ $00000000$
+
+        8 Bit Farbtiefe:
+        - Blaues Pixel: $000$ $000$ $11$
+        - Türkises Pixel: $000$ $111$ $11$
+        - Oranges Pixel: $111$ $011$ $00$ oder $111$ $100$ $00$
 
       ]
     )
@@ -440,20 +476,79 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
       title: [],
       exercise: [ 
         #v(-2mm)
-        Was könnte die folgende Codierung für ein Graustufenbild darstellen? Zeichnen Sie das Bild.\
-        - Bildgrösse: $4"x"4$ Pixel\
-        - Farbtiefe: $4$ Bit\
-        - Bitsequenz: 1111 1111 1111 0000 1111 1111 0000 0111 1111 0000 0111 0111 0000 0111 0111 0111
+        Farben werden in der Informatik oft hexadezimal (mit einem \#) angegeben. Ergänzen Sie die Tabelle:
+
+        #table(
+          columns: (1.2fr, 1.5fr, 1.5fr),
+          align: center,
+          stroke: 0.5pt,
+
+          [*Farbe*], [*(R, G, B)*], [*Hex*],
+
+          table.cell(fill: black)[ ],
+          [$(0, 0, 0)$], [\#000000],
+
+          table.cell(fill: red)[ ],
+          [$(255, 0, 0)$], [?],
+
+          table.cell()[ ? ],
+          [$(0, 255, 0)$], [\#00FF00],
+
+          table.cell()[ ? ],
+          [?], [\#0000FF],
+
+          table.cell()[ ? ],
+          [?], [\#FFFF00],
+
+          table.cell(fill: rgb(0, 255, 255))[ ],
+          [], [?],
+
+          table.cell()[ ? ],
+          [$(255, 0, 255)$], [?],
+
+          table.cell(fill: white)[ ],
+          [$(255, 255, 255)$], [?],
+        )
       ],
       solution: [
         #v(-2mm)
-        
+        #table(
+          columns: (1.2fr, 1.5fr, 1.5fr),
+          align: center,
+          stroke: 0.5pt,
+
+          [*Farbe*], [*(R, G, B)*], [*Hex*],
+
+          table.cell(fill: black)[ ],
+          [$(0, 0, 0)$], [\#000000],
+
+          table.cell(fill: red)[ ],
+          [$(255, 0, 0)$], [\#FF0000],
+
+          table.cell(fill: green)[ ],
+          [$(0, 255, 0)$], [\#00FF00],
+
+          table.cell(fill: blue)[ ],
+          [$(0, 0, 255)$], [\#0000FF],
+
+          table.cell(fill: yellow)[ ],
+          [$(255, 255, 0)$], [\#FFFF00],
+
+          table.cell(fill: rgb(0, 255, 255))[ ],
+          [$(0, 255, 255)$], [\#00FFFF],
+
+          table.cell(fill: rgb(255, 0, 255))[ ],
+          [$(255, 0, 255)$], [\#FF00FF],
+
+          table.cell(fill: white)[ ],
+          [$(255, 255, 255)$], [\#FFFFFF],
+        )
       ]
     )
   ]
 )
 
-
+#v(5mm)
 
 
 #grid(
@@ -482,11 +577,7 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
       ],
       solution: [
         #v(-2mm)
-        Ohne die Angabe der Farbtiefe (und Bildgrösse) ist es nicht eindeutig, welches der drei Bilder der Bitsequenz entspricht. Alle $3$ sind möglich:
-
-        - Wenn man die Folge mit einer Farbtiefe von $1$ Bit und einer Grösse von $6"x"6$ Pixel liest, ist es einfach eine Folge von _schwarz_, _schwarz_, _weiss_, _weiss_ etc. bis es das linke Bild ergibt.
-        - Falls die Sequenz ein $4"x"3$ Bild mit einer Farbtiefe von 3 Bit beschreibt, ergibt sich das mittlere Bild.
-        - Bei der gleichen Farbtiefe aber Grösse von $3"x"4$ Pixel ergibt sich das rechte Bild.
+        #image("../Bilder/grayscale_smiley_pgm.png")
       ]
     )
   ],
@@ -517,7 +608,7 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
       ],
       solution: [
         #v(-2mm)
-        Ohne die Angabe der Farbtiefe (und Bildgrösse) ist es nicht eindeutig, welches der drei Bilder der Bitsequenz entspricht. Alle $3$ sind möglich:
+        Ohne die Angabe der Farbtiefe (und Bildgrösse) ist es nicht eindeutig, welches der drei Bilder der Bitfolge entspricht. Alle $3$ sind möglich:
 
         - Wenn man die Folge mit einer Farbtiefe von $1$ Bit und einer Grösse von $6"x"6$ Pixel liest, ist es einfach eine Folge von _schwarz_, _schwarz_, _weiss_, _weiss_ etc. bis es das linke Bild ergibt.
         - Falls die Sequenz ein $4"x"3$ Bild mit einer Farbtiefe von 3 Bit beschreibt, ergibt sich das mittlere Bild.
@@ -527,69 +618,41 @@ Bei 8 Bit Farbtiefe müssen die 8 Bit auf die drei RGB-Farbkanäle verteilt werd
   ]
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#v(4mm)
 
 #pagebreak()
 
-#grid(
-  columns: (0.5fr, 0.18fr, 0.18fr, 0.18fr),
-  gutter: 1em,
-  [
-    #text(size: 1.1em, weight: "bold")[Gleiche Bits ergeben verschiedene Bilder]
-    #v(-2mm)
-    Betrachten Sie die folgende Bitfolge und überlegen Sie, welches Bild es codieren soll:
-    #h(5mm) #text(size: 1.2em)[$001100001100111111111111001100001100$]
-    Welches der 3 Bilder rechts entspricht der Bitfolge?
-  ],
-  [
-    #image("../Bilder/bit_ambiguity_1.png")
-  ],
-  [
-    #image("../Bilder/bit_ambiguity_2.png")
-  ],
-  [
-    #image("../Bilder/bit_ambiguity_3.png")
-  ]
-)
-
-
-#grid(
-  columns: (0.5fr, 0.5fr),
-  gutter: 1em,
-  [
-    #image("../Bilder/grayscale_smiley_pgm.png", width: 50%)
-  ],
-  [
-    #image("../Bilder/grayscale_smiley.png", width: 50%)
-  ]
-)
-
-
-
-
-
-
-#image("../Bilder/ascii_art_wave.png")
-
-
-
 == Vektorgrafiken
+
+Wie bereits erwähnt, gibt es eine zweite grosse Gruppe von computerlesbaren Bildern. Sie unterscheiden sich beträchtlich von den bisher gesehenen Pixelgrafiken. Den sichtbarsten Unterschied zeigt sich, sobald man in die Bilder reinzoomt:
+
+#v(2mm)
+
+#figure(
+  grid(
+    columns: (0.5fr, 0.5fr),
+    gutter: 0em,
+
+    [
+      #align(right)[
+        #image("../Bilder/zoom_pixelgrafik.png", width: 80%)
+      ]
+    ],
+
+    [
+      #align(left)[
+        #image("../Bilder/zoom_vektorgrafik.svg", width: 80%)
+      ]
+    ]
+  ),
+  caption: [Beim Vergleich einer Pixelgrafik mit einer Vektorgrafik sieht man beim Reinzoomen sehr schnell den Unterschied.]
+)
+
+#v(3mm)
+
+Bei einer Rastergrafik werden beim Reinzoomen die einzelnen Pixel sichtbar. Das haben wir im Kapitel vorher schon gesehen. Bei einer Vektorgrafik können Sei so lange reinzoomen wie Sie wollen; Sie werden nie Pixel sehen. Daher wirken Sie oftmals hochauflösender und werden bei grossen Flyer und Poster verwendet.
+
+
+
+
+
