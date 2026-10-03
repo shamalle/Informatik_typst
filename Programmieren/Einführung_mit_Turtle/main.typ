@@ -15,7 +15,7 @@
 
 #set document(
   title: [
-    1 | Einführung mit Turtle
+    Einführung mit Turtle
   ],
   author: "TaT",
 )
@@ -24,8 +24,9 @@
   thema: "Programmieren",
 )
 
-//#include "Kapitel/grundlagen.typ"
+#include "Kapitel/programmieren.typ"
 #pagebreak()
+#include "Kapitel/turtle.typ"
 
 
 //#v(5mm)
@@ -42,10 +43,17 @@
 // ========================================
 
 #set heading(numbering: none)
-#set page(columns: 2)
+#set page(columns: 4)
 
 = Lösungen
+#v(-5mm)
 
+#set text(size: 7pt)
+
+#exo-setup(
+  label-font-size: 7pt,
+  badge-style: "underline"
+)
 #codly(zebra-fill: luma(240))
 #exo-print-solutions(title: none) // Print collected solutions
 

@@ -14,6 +14,21 @@
         color: green,
         icon: "🐍",
       ),
+      java: (
+        name: [ Java ],
+        color: blue,
+        icon: "☕",
+      ),
+      rust: (
+        name: [ Rust ],
+        color: orange,
+        icon: "⚙️",
+      ),
+      r: (
+        name: [ R ],
+        color: purple,
+        icon: "📊",
+      )
     ),
   )
 
