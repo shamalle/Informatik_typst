@@ -3,10 +3,9 @@
 #import "@preview/exercise-bank:0.3.0": exo, exo-print-solutions, exo-setup
 #import "../../../config/conf.typ": shoutout
 
-= Grundelemente einer Programmiersprache
+// #heading(numbering: none)[Grundelemente einer Programmiersprache]
 
-Bisher haben wir lediglich mit den Befehlen aus dem Turtle-Modul gearbeitet, um eine kleine Schildkröte zu steuern und Figuren zu generieren. Python kann jedoch viel mehr als nur dieses grafische Modul.
-
+Bisher haben wir lediglich mit den Befehlen aus dem ```py turtle```-Modul gearbeitet, um eine kleine Schildkröte zu steuern und Figuren zu generieren. Python kann jedoch viel mehr als nur dieses grafische Modul.\
 Wie jede Programmiersprache folgt auch Python bestimmten Regeln und Muster, damit wir sinnvoll mit dem Computer arbeiten können. Diese Elemente werden wir uns genauer anschauen.
 
 #outline-colorbox(
@@ -20,12 +19,23 @@ Wie jede Programmiersprache folgt auch Python bestimmten Regeln und Muster, dami
     + *Variablen und Zuweisungen* \
       Der Computer muss sich Sachen merken können.
 
-    + *Operatoren*\
+    + *Ein- und Ausgabe*\
+      Der Computer muss Input entgegennehmen nehmen können und Output ausgeben können.
 
+    + *Operatoren*\
+      Der Computer muss wissen, was er mit den verschiedenen Elemente machen kann (rechnen, vergleichen, ...).
+
+    + *Datentypen*\
+      Der Computer hat Regeln, was er mit welchen Elementen machen darf.
+
+    + *Kontrollstrukturen*\
+      Der Computer muss Entscheidungen treffen und Dinge wiederholen können.
+
+    + *Funktionen*\
+      Der Computer muss Aufgaben bündeln und wiederverwenden können.
+    
+    #v(2mm)
   ]
 
-
-
 All diese Elemente sind eng miteinander verbunden und manchmal ist es schwierig das eine zu verstehen, ohne die anderen. Darum versuchen wir in kleinen Etappen sie alle näher zu begreifen.
-
 

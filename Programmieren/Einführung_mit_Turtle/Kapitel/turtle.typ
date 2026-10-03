@@ -293,24 +293,23 @@ Achten Sie bei den folgenden Aufgaben immer auf die Form Ihrer Turtle, damit Ihr
       solution: [
         #v(-2mm)
         #codly()
-        ```py
-        from turtle import *
-        shape("turtle")
-        dot(20)
-        left(45)
-        forward(100)
-        dot(20)
-        right(90)
-        forward(100)
-        dot(20)
-        left(90)
-        forward(100)
-        dot(20)
-        right(90)
-        forward(100)
-        dot(20)
-        done()
-        ```
+          ```py
+          from turtle import *
+          shape("turtle")
+          dot(20)
+          left(45)
+          forward(100)
+          dot(20)
+          right(90)
+          forward(100)
+          dot(20)
+          left(90)
+          forward(100)
+          dot(20)
+          right(90)
+          dot(20)
+          done()
+          ```
       ]
     )
   ],

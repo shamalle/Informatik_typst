@@ -48,11 +48,11 @@
 = Lösungen
 #v(-5mm)
 
-#set text(size: 7pt)
+#set text(size: 6.8pt)
 
 #exo-setup(
   label-font-size: 7pt,
-  badge-style: "underline"
+  badge-style: "underline",
 )
 #codly(zebra-fill: luma(240))
 #exo-print-solutions(title: none) // Print collected solutions
