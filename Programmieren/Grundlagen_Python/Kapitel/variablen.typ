@@ -3,15 +3,14 @@
 #import "@preview/exercise-bank:0.3.0": exo, exo-print-solutions, exo-setup
 #import "../../../config/conf.typ": shoutout
 
-#v(5mm)
-
+#v(0.7mm)
 = Variablen und Zuweisungen
 
 #grid(
-  columns: (0.9fr, 0.3fr),
+  columns: (0.8fr, 0.23fr),
   gutter: 1.2em,
   [
-    Damit der Computer ein Programm ausführen kann, muss er sich Sachen merken können. Wie wenn wir Menschen beim Einkaufen eine Einkaufsliste brauchen. Die gespeicherten Werte nennt man *Variablen*. 
+    Damit der Computer ein Programm ausführen kann, muss er sich Sachen merken können. Die gespeicherten Werte nennt man *Variablen*. 
 
     #outline-colorbox(
       title: "Variablen und Zuweisungen",
@@ -61,9 +60,6 @@ Den *Namen der Variablen* darf man (fast) frei wählen:
 
 Im Verlauf des Programms können sich die Werte von Variablen ändern (man kann sie also überschreiben).
 
-
-#v(1mm)
-
 #grid(
   columns: (2fr, 3fr),
   gutter: 2em,
@@ -81,46 +77,46 @@ Im Verlauf des Programms können sich die Werte von Variablen ändern (man kann 
       rotation: 1deg,
     )[
       Mit dem Symbol ```py #``` können wir Code in Python *kommentieren*.
-      Alles, was nach dem ```py #``` auf derselben Zeile folgt, wird vom Computer ignoriert.
-      *Kommentare* helfen uns, den Code lesbarer (verständlicher) zu machen.
+      Alles, was nach dem ```py #``` auf derselben Zeile folgt, wird vom Computer ignoriert. Damit können wir uns Notizen machen.
     ]
   ],
 )
 
 #exo(
   exercise: [
+    #v(-2mm)
     Gegeben ist eine Liste von möglichen *Variablennamen*. Welche sind laut den Regeln für Python gültig?
 
     #grid(
-      columns: (1fr, 1fr, 1fr),
-      gutter: 2em,
-      inset: (x: 2em, y: 0em),
+      columns: (0.7fr, 1fr, 1fr, 1fr),
+      gutter: 0.5em,
+      inset: (x: 0.5em, y: 0em),
       [
         ```py Summe_1 = 433```
-
-        ```py *myname = "Glurak"```
 
         ```py 8Bit = 256```
       ],
       [
-        ```py summe_1 = 123```
-
         ```py _my_name = "Pikachu"```
 
-        ```py L337Code = 42```
+        ```py Byte8Numb3r = 16```
       ],
       [
         ```py summe1 = 63```
 
         ```py my name = "Flegmon"```
-
-        ```py Byte8Numb3r = 16```
       ],
+      [
+        ```py *myname = "Glurak"```
+
+        ```py L337Code = 42```
+      ]
     )
 
     Wie kann man schnell überprüfen, ob ein Variablenname okay ist oder nicht? #v(0.5em)
   ],
   solution: [
+    #v(-2mm)
     #grid(
       columns: (1fr, 1fr),
       gutter: 2em,

@@ -26,7 +26,10 @@
 
 #include "Kapitel/grundelemente.typ"
 #include "Kapitel/variablen.typ"
+#pagebreak()
 #include "Kapitel/eingabe.typ"
+#pagebreak()
+#include "Kapitel/datentypen.typ"
 
 
 //#v(5mm)
